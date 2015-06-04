@@ -42,6 +42,7 @@ game.TitleScreen = me.ScreenObject.extend({
  
       draw : function (renderer) {
         this.font.draw(renderer, "WG-HELD !", 320, 120);
+        this.font.draw(renderer, "DEMO SPIELEN", 264, 504);
         this.font.draw(renderer, this.scroller, this.scrollerpos, 568);
       },
       onDestroyEvent : function() {
@@ -52,7 +53,7 @@ game.TitleScreen = me.ScreenObject.extend({
  
     // change to play state on press Enter or click/tap
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
-    me.input.bindPointer(me.input.mouse.LEFT, me.input.KEY.ENTER);
+
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       if (action === "enter") {
         // play something on tap / enter
@@ -61,6 +62,10 @@ game.TitleScreen = me.ScreenObject.extend({
         me.state.change(me.state.PLAY);
       }
     });
+
+    // add the start demo button
+    var button = new game.HUD.Button(200, 480, "button_arrow_right", 64,64);
+    me.game.world.addChild( button );
   },
  
   /**
@@ -71,4 +76,35 @@ game.TitleScreen = me.ScreenObject.extend({
     me.input.unbindPointer(me.input.mouse.LEFT);
     me.event.unsubscribe(this.handler);
    }
+});
+
+
+/* =======================================================================
+ * customizable button
+ */
+game.HUD.Button = me.GUI_Object.extend(
+{
+   init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_arrow_right";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "ingredient_icon"
+      // define the object z order
+      this.z = Infinity;
+   },
+   onClick:function (event)
+   {
+      me.audio.play("cling");
+      me.state.change(me.state.PLAY);
+      return false;
+   },
 });

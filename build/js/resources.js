@@ -104,6 +104,37 @@ game.resources = [
         "type": "tmx",
         "src": "data/map/testmap2.json"
     },
+    //Buttons:
+    {
+        "name": "button_music_on",
+        "type": "image",
+        "src": "data/img/gui/Button-Musik.png"
+    },
+    {
+        "name": "button_music_off",
+        "type": "image",
+        "src": "data/img/gui/Button-Musik-aus.png"
+    },
+    {
+        "name": "button_sound_on",
+        "type": "image",
+        "src": "data/img/gui/Button-Sound.png"
+    },
+    {
+        "name": "button_sound_off",
+        "type": "image",
+        "src": "data/img/gui/Button-Sound-aus.png"
+    },
+    {
+        "name": "button_arrow_right",
+        "type": "image",
+        "src": "data/img/gui/Button-weiter.png"
+    },
+    {
+        "name": "button_arrow_left",
+        "type": "image",
+        "src": "data/img/gui/Button-zurueck.png"
+    },
     //Maiko`s resource files
     {
         "name": "city_background_sunset",

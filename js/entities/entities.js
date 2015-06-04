@@ -102,8 +102,11 @@ game.IngredientEntity = me.CollectableEntity.extend({
   // this function is called by the engine, when
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
- 
+    // DEBUG: 
     console.log("Thy "+this.texture_string+" consumed !");
+
+    // play fancy sound effect
+    me.audio.play("cling");
 
     // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
@@ -293,6 +296,9 @@ game.PageEntity = me.CollectableEntity.extend({
     // do something when collected
     //give some score
     game.data.score += 1;
+
+    // play fancy sound effect
+    me.audio.play("cling");
 
     // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);

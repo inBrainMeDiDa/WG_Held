@@ -106,16 +106,24 @@ game.PlayScreen = me.ScreenObject.extend({
 		
 		
 		// register event listeners
-		me.input.registerPointerEvent("pointerdown", me.game.viewport, 
+		this.pointerDownHandler = me.input.registerPointerEvent("pointerdown", me.game.viewport, 
 										function (event) {me.event.publish("pointerdown", [ event ]);});
 				
-		me.input.registerPointerEvent("pointerup", me.game.viewport, 
+		this.pointerUpHandler = me.input.registerPointerEvent("pointerup", me.game.viewport, 
 										function (event) {me.event.publish("pointerup", [ event ]);});
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
+
+        // configure the GameController
+        this.HUD.set_active_gamecontroller( new game.HUD.CookingGameController(888,888) );
+    	var GC = this.HUD.get_active_gamecontroller();
+    	if( GC ){
+    		GC.set_recipe( ["Tomate", 13000, "Kaese_textur", 4000, "Tomate", 2000] );
+    	}
     },
+
 
 	
 	
@@ -125,6 +133,10 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function() {
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
+        me.input.unbindKey(me.input.KEY.S);
+    	me.input.unbindPointer(me.input.mouse.LEFT);
+    	me.event.unsubscribe(this.pointerDownHandler);
+    	me.event.unsubscribe(this.pointerUpHandler);
     }
 });
 /*
@@ -139,37 +151,20 @@ game.PlayScreen_JR = me.ScreenObject.extend({
      */
     onResetEvent: function() {
 	
-		// global vars
-		var selected_coin = null;
-		var temp_coin = null;
-		var coins = [];
-		
-		var vector_a = new me.Vector2d(0,0);
-		var vector_b = new me.Vector2d(0,0);
-		
 		
          // load a level
 		me.levelDirector.loadLevel("area02");
 		me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
-		console.log(me.levelDirector.levelCount());
-		
-		// enable input
-		// map mouse to keyboard
-		me.input.bindKey(me.input.KEY.S, "select");
-		me.input.bindPointer(me.input.KEY.S);
-
+		console.log("levelcount: "+me.levelDirector.levelCount());
 		
 		// reset the score
         game.data.score = 0;
-        
-		
-		/*
-		 *	event listeners
-		 */
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
+
+        this.HUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
     },
 
 	

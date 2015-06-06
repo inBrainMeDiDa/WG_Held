@@ -24,27 +24,9 @@ game.HUD.Container = me.Container.extend({
         // give a name
         this.name = "HUD";
         this.active_gamecontroller = null;
+        this.timer = null;
        
-        // add bottom bar
-        this.addChild(new game.HUD.BottomBar(0,400));
-        // add our child score object at the right-bottom position
-        this.addChild(new game.HUD.ScoreItem(10, 540));
-         // add the time bar
-        this.timebar = new game.HUD.ChargeBar(10,-10);
-        this.addChild(new game.HUD.ChargeBarBG(10,-10));
-        this.addChild(this.timebar);
-        // add time counter
-        this.timer = new game.HUD.TimerItem(10, 500);
-        this.timer.set_timebar(this.timebar);
-        this.addChild(this.timer);
-        // add the icon canvas
-        this.addChild( new game.HUD.myCanvas(200,-10,"Tomate", 180, 180) );
-
-         // spawn the custom game controller after everything is set up
-        this.set_active_gamecontroller( new CookingGameController(888,888) );
-        if( this.get_active_gamecontroller() ){
-          this.get_active_gamecontroller().set_recipe( ["Tomate", 10000, "Kaese_textur", 5000, "Tomate", 2000] );
-        }
+        // enable our global pointer towards this container object
         theHUD = this;
     },
     get_timer : function(){
@@ -53,12 +35,12 @@ game.HUD.Container = me.Container.extend({
     set_active_gamecontroller : function( gc ){
         if( this.active_gamecontroller ){
           this.removeChild( this.active_gamecontroller );
-
-          console.log("weg!");
+          this.active_gamecontroller = null;
+          console.log("alter GC weg!");
         }
         if( gc ){
           this.active_gamecontroller = gc;
-           console.log("neu...");
+           console.log("neuer GC...");
           this.addChild( gc );
            console.log("...fertig");
         }
@@ -72,7 +54,7 @@ game.HUD.Container = me.Container.extend({
 /* =======================================================================
  * the one and only cooking game controller class
  */
-var CookingGameController = me.Renderable.extend( {
+game.HUD.CookingGameController = me.Renderable.extend( {
   /**
   * constructor
   */
@@ -91,8 +73,27 @@ var CookingGameController = me.Renderable.extend( {
     this.Timer = this.Timer[0];
 
     this.set_recipe( ["Kaese_textur", 10000, "Kaese_textur", 5000, "Tomate", 2000] );
+    
     // local copy of the global score
     this.score = -1;
+
+    if( theHUD ){
+      // add bottom bar
+      theHUD.addChild(new game.HUD.BottomBar(0,400));
+      // add our child score object at the right-bottom position
+      theHUD.addChild(new game.HUD.ScoreItem(10, 540));
+       // add the time bar
+      var timebar = new game.HUD.ChargeBar(10,-10);
+      theHUD.addChild(new game.HUD.ChargeBarBG(10,-10));
+      theHUD.addChild( timebar );
+      // add the timer
+      theHUD.timer = new game.HUD.TimerItem(10, 500);
+      theHUD.timer.set_timebar( timebar );
+      theHUD.addChild( theHUD.timer );
+      // add the icon canvas
+      theHUD.addChild( new game.HUD.myCanvas(200,-10,"Tomate", 180, 180) );
+    }
+   
   },
  
 
@@ -116,7 +117,7 @@ var CookingGameController = me.Renderable.extend( {
     // find the Timer
     if( !this.Timer ){
       this.Timer = me.game.world.getChildByName("TheTimer");
-      if( this.Timer ){
+      if( this.Timer[0] ){
         this.Timer = this.Timer[0];
         this.Timer.set_timer(this.current_recipe[ this.recipe_pointer + 1]);
       }
@@ -164,7 +165,7 @@ var CookingGameController = me.Renderable.extend( {
 /* =======================================================================
  * the one and only Jump&Run game controller class
  */
-var JRGameController = me.Renderable.extend( {
+game.HUD.JRGameController = me.Renderable.extend( {
   /**
   * constructor
   */
@@ -190,9 +191,14 @@ var JRGameController = me.Renderable.extend( {
 
       if( theHUD ){
         
-        icon = theHUD.getChildByName("ingredient_icon");
-        theHUD.removeChild(icon[0]);
-
+        icons = theHUD.getChildByName("ingredient_icon");
+        for(var i = 0; i < icons.length; ++i){
+          theHUD.removeChild(icons[i]);
+        }
+        timers = me.game.world.getChildByName("TheTimer");
+        for(var i = 0; i < timers.length; ++i){
+          theHUD.removeChild(timers[i]);
+        }
         victims = theHUD.getChildByName("chargebar");
         for(var i = 0; i < victims.length; ++i)
         {
@@ -203,10 +209,6 @@ var JRGameController = me.Renderable.extend( {
         {
           theHUD.removeChild(victims[i]);
         }
-
-
-        //Timer = me.game.world.getChildByName("TheTimer");
-        //me.game.world.removeChild(Timer[0]);
         
         // add our child score object at the top left corner
         theHUD.addChild(new game.HUD.ScoreItem(380, 20));
@@ -311,7 +313,7 @@ game.HUD.TimerItem = me.Renderable.extend( {
 
       // change game
       if( theHUD ){
-        theHUD.set_active_gamecontroller( new JRGameController(888,888) );
+        theHUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
         me.game.world.removeChild(this);
       }
 

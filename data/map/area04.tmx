@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="30" tilewidth="32" tileheight="32" nextobjectid="5">
+ <tileset firstgid="1" name="Tileset-Immatrikulationsamt" tilewidth="32" tileheight="32">
+  <image source="../img/map/Tileset-Immatrikulationsamt.png" width="448" height="512"/>
+ </tileset>
+ <imagelayer name="Background">
+  <image source="../img/HG-Immaamt_BG.png"/>
+ </imagelayer>
+ <layer name="Foreground" width="32" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzS0Og0AQhmGC4wI4uABUFVlDXRMCNRT6k7QWJI5zYjgOr9gaMqrZpOZ7kyc7mRUTBEoppZRSSin1/44ojH2C1Hh9V+Js7DPkxuu7BtfdLkSLGzr0uOOByOPtCW98MO/+DjjhiZebY4+3vy1Yjf0FFQaMbq5/vLEBjHQMIQ==
+  </data>
+ </layer>
+ <objectgroup name="Entitys">
+  <object id="3" name="mainPlayer" x="238" y="818.5" width="32" height="67">
+   <properties>
+    <property name="image" value="alex_run_right"/>
+    <property name="spriteheight" value="64"/>
+    <property name="spritewidth" value="64"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="collision">
+  <object id="1" x="210" y="897" width="93" height="18"/>
+  <object id="4" x="400" y="864" width="226" height="22"/>
+ </objectgroup>
+</map>

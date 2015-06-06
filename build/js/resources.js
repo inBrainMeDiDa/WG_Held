@@ -135,12 +135,20 @@ game.resources = [
         "type": "image",
         "src": "data/img/gui/Button-zurueck.png"
     },
-    //Maiko`s resource files
+    //JnR resource files
+
+    //Backgrounds
     {
         "name": "city_background_sunset",
         "type": "image",
         "src": "data/img/city_background_sunset.png"
     },
+    {
+        "name": "HG-Immaamt_BG",
+        "type": "image",
+        "src": "data/img/HG-Immaamt_BG.png"
+    },
+    //Entity sprites
     {
         "name": "alex_run_right",
         "type": "image",
@@ -151,15 +159,27 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/floating_page.png"
     },
+    //Tilesets
     {
         "name": "area01_baf_level",
         "type": "image",
         "src": "data/img/map/area01_baf_level.png"
     },
     {
+        "name": "Tileset-Immatrikulationsamt",
+        "type": "image",
+        "src": "data/img/map/Tileset-Immatrikulationsamt.png"
+    },
+    // Maps
+    {
         "name": "area01",
         "type": "tmx",
-        "src": "data/map/area01.json"       
+        "src": "data/map/area01.json"
+    },
+    {
+        "name": "area02",
+        "type": "tmx",
+        "src": "data/map/area02.json"
     },
     {
         "name": "area03",
@@ -167,8 +187,9 @@ game.resources = [
         "src": "data/map/area03.json"
     },
     {
-        "name": "area02",
+        "name": "area04",
         "type": "tmx",
-        "src": "data/map/area02.json"
+        "src": "data/map/area04.json"
     }
+    
 ];

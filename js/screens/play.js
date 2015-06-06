@@ -164,6 +164,7 @@ game.PlayScreen_JR = me.ScreenObject.extend({
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
 
+        //this.HUD.set_active_gamecontroller( new game.HUD.CookingGameController(888,888) );
         this.HUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
     },
 

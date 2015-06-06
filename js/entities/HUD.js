@@ -178,6 +178,7 @@ game.HUD.JRGameController = me.Renderable.extend( {
     this.name = "JRGameController";
     // local copy of the global score
     this.score = -1;
+
   },
 
    // set current recipe
@@ -189,13 +190,14 @@ game.HUD.JRGameController = me.Renderable.extend( {
     {
       this.score = 0;
 
+      // clean up stuff that belonged to the cooking game HUD
       if( theHUD ){
-        
+             
         icons = theHUD.getChildByName("ingredient_icon");
         for(var i = 0; i < icons.length; ++i){
           theHUD.removeChild(icons[i]);
         }
-        timers = me.game.world.getChildByName("TheTimer");
+        timers = theHUD.getChildByName("TheTimer");
         for(var i = 0; i < timers.length; ++i){
           theHUD.removeChild(timers[i]);
         }
@@ -214,9 +216,11 @@ game.HUD.JRGameController = me.Renderable.extend( {
         theHUD.addChild(new game.HUD.ScoreItem(380, 20));
         theHUD.addChild(new game.HUD.WarpItem(10,10));
 
-        me.levelDirector.loadLevel("area02");
-
-        return true;
+        // Do NOT load any level here if a level is loaded in
+        // the playstate object since it will crash the game!
+        //me.levelDirector.loadLevel("area02");
+        console.log("<<< BEEP >>>");
+        return false;
       }
     }
     return false;
@@ -314,7 +318,14 @@ game.HUD.TimerItem = me.Renderable.extend( {
       // change game
       if( theHUD ){
         theHUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
+        me.levelDirector.loadLevel("area02");
+        me.game.world.addChild(new me.ColorLayer("background", "#FF3300", 0));
         me.game.world.removeChild(this);
+        // never change playstate from here!
+        /* me.state.set(me.state.PLAY, new game.PlayScreen_JR());
+         * me.state.change(me.state.PLAY);
+         * me.game.world.removeChild(this);
+         */
       }
 
       return false;

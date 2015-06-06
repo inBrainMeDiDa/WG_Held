@@ -42,7 +42,9 @@ game.TitleScreen = me.ScreenObject.extend({
  
       draw : function (renderer) {
         this.font.draw(renderer, "WG-HELD !", 320, 120);
-        this.font.draw(renderer, "DEMO SPIELEN", 264, 504);
+        this.font.draw(renderer, "DEMOS:", 360, 300);
+        this.font.draw(renderer, " JUMP+RUN", 400, 432);
+        this.font.draw(renderer, " KOCHSPIEL", 310, 504);
         this.font.draw(renderer, this.scroller, this.scrollerpos, 568);
       },
       onDestroyEvent : function() {
@@ -63,8 +65,12 @@ game.TitleScreen = me.ScreenObject.extend({
       }
     });
 
-    // add the start demo button
-    var button = new game.HUD.Button(200, 480, "button_arrow_right", 64,64);
+    // add the cooking game demo button
+    var button = new game.HUD.Button_CookingDemo(250, 480, "button_arrow_right", 64,64);
+    me.game.world.addChild( button );
+
+    // add the J&R game demo button
+    var button = new game.HUD.Button(330, 400, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
   },
  
@@ -104,6 +110,38 @@ game.HUD.Button = me.GUI_Object.extend(
    onClick:function (event)
    {
       me.audio.play("cling");
+      me.state.set(me.state.PLAY, new game.PlayScreen_JR());
+      me.state.change(me.state.PLAY);
+      return false;
+   },
+});
+
+/*
+ *
+ */
+game.HUD.Button_CookingDemo = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_arrow_right";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "cooking_demo_button_icon"
+      // define the object z order
+      this.z = Infinity;
+   },
+   onClick:function (event)
+   {
+      me.audio.play("cling");
+      me.state.set(me.state.PLAY, new game.PlayScreen());
       me.state.change(me.state.PLAY);
       return false;
    },

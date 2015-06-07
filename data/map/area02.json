@@ -39,8 +39,8 @@
                  "type":"",
                  "visible":true,
                  "width":122,
-                 "x":19,
-                 "y":418
+                 "x":18,
+                 "y":420
                 }, 
                 {
                  "height":16,
@@ -207,23 +207,6 @@
                  "y":320.5
                 }, 
                 {
-                 "height":45,
-                 "id":13,
-                 "name":"PageEntity",
-                 "properties":
-                    {
-                     "image":"floating_page",
-                     "spriteheight":"32",
-                     "spritewidth":"32"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":49,
-                 "x":425,
-                 "y":299
-                }, 
-                {
                  "height":39,
                  "id":26,
                  "name":"me.LevelEntity",
@@ -258,23 +241,6 @@
                  "y":108.5
                 }, 
                 {
-                 "height":8,
-                 "id":31,
-                 "name":"me.LevelEntity",
-                 "properties":
-                    {
-                     "duration":"250",
-                     "fade":"#000000",
-                     "to":"area02"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":924,
-                 "x":2,
-                 "y":474
-                }, 
-                {
                  "height":39,
                  "id":32,
                  "name":"me.LevelEntity",
@@ -290,6 +256,39 @@
                  "width":40,
                  "x":871,
                  "y":54
+                }, 
+                {
+                 "height":8,
+                 "id":34,
+                 "name":"RespawnEntity",
+                 "properties":
+                    {
+                     "posX":"64",
+                     "posY":"320"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":846,
+                 "x":49,
+                 "y":496
+                }, 
+                {
+                 "height":45,
+                 "id":35,
+                 "name":"PageEntity",
+                 "properties":
+                    {
+                     "image":"floating_page",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":49,
+                 "x":423.5,
+                 "y":280.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -298,7 +297,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":33,
+ "nextobjectid":36,
  "orientation":"orthogonal",
  "properties":
     {

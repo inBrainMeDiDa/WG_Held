@@ -195,21 +195,54 @@
                  "y":367.5
                 }, 
                 {
-                 "height":9,
-                 "id":24,
-                 "name":"me.LevelEntity",
+                 "height":8,
+                 "id":26,
+                 "name":"RespawnEntity",
                  "properties":
                     {
-                     "duration":"250",
-                     "fade":"#000000",
-                     "to":"area03"
+                     "posX":"64",
+                     "posY":"320"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":964,
-                 "x":3,
-                 "y":460
+                 "width":882,
+                 "x":72,
+                 "y":491
+                }, 
+                {
+                 "height":45,
+                 "id":27,
+                 "name":"PageEntity",
+                 "properties":
+                    {
+                     "image":"floating_page",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":49,
+                 "x":419.5,
+                 "y":169.5
+                }, 
+                {
+                 "height":45,
+                 "id":28,
+                 "name":"PageEntity",
+                 "properties":
+                    {
+                     "image":"floating_page",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":49,
+                 "x":740.5,
+                 "y":162.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -218,7 +251,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":26,
+ "nextobjectid":29,
  "orientation":"orthogonal",
  "properties":
     {

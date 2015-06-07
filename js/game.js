@@ -65,6 +65,9 @@ var game = {
 		me.pool.register("tomato", game.IngredientEntity, true);
 		me.pool.register("kaese", game.IngredientEntity, true);
 		me.pool.register("pot", game.PotOfWisdomEntity,true);
+
+         //new game
+        me.pool.register("RespawnEntity", game.RespawnEntity, true);
 		
 		// enable the keyboard
 		me.input.bindKey(me.input.KEY.LEFT,  "left");

@@ -45,38 +45,54 @@
                  "y":337.5
                 }, 
                 {
-                 "height":10,
-                 "id":6,
-                 "name":"me.LevelEntity",
+                 "height":8,
+                 "id":10,
+                 "name":"RespawnEntity",
                  "properties":
                     {
-                     "duration":"250",
-                     "fade":"#000000",
-                     "to":"area04"
+                     "posX":"43",
+                     "posY":"330"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":506,
-                 "x":2,
-                 "y":494
+                 "width":486,
+                 "x":13,
+                 "y":507
                 }, 
                 {
-                 "height":10,
-                 "id":7,
-                 "name":"me.LevelEntity",
+                 "height":45,
+                 "id":13,
+                 "name":"PageEntity",
                  "properties":
                     {
-                     "duration":"250",
-                     "fade":"#000000",
-                     "to":"area04"
+                     "image":"floating_page",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":506,
-                 "x":2,
-                 "y":494
+                 "width":49,
+                 "x":252.5,
+                 "y":282.5
+                }, 
+                {
+                 "height":45,
+                 "id":14,
+                 "name":"PageEntity",
+                 "properties":
+                    {
+                     "image":"floating_page",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":49,
+                 "x":341.5,
+                 "y":288.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -127,7 +143,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":8,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":
     {

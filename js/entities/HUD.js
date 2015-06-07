@@ -175,11 +175,11 @@ game.HUD.CookingGameController = me.Renderable.extend( {
         me.loader.getImage('book_BG')
       ),
       200
-    );
+      );
 
       // add a font
       this.endgame_font = new me.BitmapFont("32x32_font", 32);
-
+      
       return true;
     }else{
       return false;
@@ -195,6 +195,8 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     
       if( game.data.score >= (this.current_recipe.length/4) ){
         this.endgame_font.draw(renderer, "EXZELLENT !", 300, 320);
+      }else if( game.data.score < 1 ){
+        this.endgame_font.draw(renderer, "DAS WAR NIX !", 250, 320);
       }
 
     }

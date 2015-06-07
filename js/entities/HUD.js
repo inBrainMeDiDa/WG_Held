@@ -68,11 +68,18 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     // array of strings that holds the recipe (and suiting textures)
     this.current_recipe = [];
     this.recipe_pointer = 0;
+    // endgame_font must be initialized as null for it is needed at game's end
+    this.endgame_font = null;
     // get met the timer!
     this.Timer = me.game.world.getChildByName("TheTimer");
     this.Timer = this.Timer[0];
 
-    this.set_recipe( ["Kaese_textur", 10000, "Kaese_textur", 5000, "Tomate", 2000] );
+    this.set_recipe( ["Kaese_textur", 10000,
+                      "timer_tex", 3000,
+                      "Kaese_textur", 5000, 
+                      "timer_tex", 3000,
+                      "Tomate", 2000,
+                      "timer_tex", 3000,] );
     
     // local copy of the global score
     this.score = -1;
@@ -91,7 +98,7 @@ game.HUD.CookingGameController = me.Renderable.extend( {
       theHUD.timer.set_timebar( timebar );
       theHUD.addChild( theHUD.timer );
       // add the icon canvas
-      theHUD.addChild( new game.HUD.myCanvas(400,-10,"Tomate", 180, 180) );
+      theHUD.addChild( new game.HUD.myCanvas(400,-10,"Tomate", 128, 128) );
     }
    
   },
@@ -105,12 +112,93 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     this.current_recipe = new_recipe;
     this.recipe_pointer = 0;
 
+    this.Timer = me.game.world.getChildByName("TheTimer")[0];
+
+
     if( this.Timer && this.recipe_pointer < this.current_recipe.length-1 ){
       console.log("this.recipe_pointer: "+this.recipe_pointer);
       this.Timer.set_timer(this.current_recipe[ this.recipe_pointer + 1]);
     }
+    this.update_ingredient_icon();
   },
 
+
+  // update ingredient icon
+  update_ingredient_icon : function(){
+    // setup a new icon, discard the old one
+    var icon = theHUD.getChildByName("ingredient_icon");
+    for( var i=0; i < icon.length; ++i){
+      theHUD.removeChild(icon[i]);
+    }
+    theHUD.addChild( new game.HUD.myCanvas(400,-10,this.current_recipe[ this.recipe_pointer ], 128, 128) );
+  },
+
+  //
+  step_recipe : function(){
+    if( theHUD ){
+      // increment the recipe pointer
+      if( this.recipe_pointer < this.current_recipe.length-2 ){
+        this.recipe_pointer += 2;
+      }
+      console.log("next on schedule: "+this.current_recipe[ this.recipe_pointer ]);
+      
+      this.update_ingredient_icon();
+      // set the Timer
+      if( this.Timer && this.recipe_pointer < this.current_recipe.length-1 ){
+        this.Timer.set_timer(this.current_recipe[ this.recipe_pointer + 1]);
+      }
+    }
+  },
+
+
+  // get current recipe entry
+  get_current_recipe_entry : function(){
+    return this.current_recipe[ this.recipe_pointer ];
+  },
+
+
+  // 
+  recipe_finished : function(){
+
+    // if there is a font defined, the game is over
+    if( this.endgame_font ){
+      return true;
+    }
+
+    if( this.recipe_pointer >= this.current_recipe.length-2 ){
+
+      // display end screen
+      //theHUD.addChild( new game.HUD.myCanvas(0,0,"book_BG", 800, 600) );
+      me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      200
+    );
+
+      // add a font
+      this.endgame_font = new me.BitmapFont("32x32_font", 32);
+
+      return true;
+    }else{
+      return false;
+    }
+  },
+
+  // needed to draw text to the screen
+  draw : function (renderer) {
+
+    if( this.endgame_font ){
+      this.endgame_font.draw(renderer, "AUSWERTUNG:", 300, 160);
+      this.endgame_font.draw(renderer, "PUNKTE ERREICHT: "+game.data.score+"/"+(this.current_recipe.length/4), 40, 220);
+    
+      if( game.data.score >= (this.current_recipe.length/4) ){
+        this.endgame_font.draw(renderer, "EXZELLENT !", 300, 320);
+      }
+
+    }
+  },
 
   // update function
   update : function (dt) {
@@ -129,22 +217,7 @@ game.HUD.CookingGameController = me.Renderable.extend( {
       // update next recipe entry 
       if( this.score > 0 )
       {    
-        // setup a new icon, discard the old one
-        if( theHUD ){
-          // increment the recipe pointer
-          if( this.recipe_pointer < this.current_recipe.length-2 ){
-            this.recipe_pointer += 2;
-          }
-          console.log("next on schedule: "+this.current_recipe[ this.recipe_pointer ]);
-          
-          icon = theHUD.getChildByName("ingredient_icon");
-          theHUD.removeChild(icon[0]);
-          theHUD.addChild( new game.HUD.myCanvas(400,-10,this.current_recipe[ this.recipe_pointer ], 180, 180) );
-        }
-        // set the Timer
-        if( this.Timer && this.recipe_pointer < this.current_recipe.length-1 ){
-          this.Timer.set_timer(this.current_recipe[ this.recipe_pointer + 1]);
-        }
+        this.step_recipe();
       }
       return true;
     }
@@ -153,10 +226,12 @@ game.HUD.CookingGameController = me.Renderable.extend( {
 
   onDestroyEvent: function() {
        if( theHUD ){
-        icon = theHUD.getChildByName("ingredient_icon");
-        theHUD.removeChild(icon[0]);
+        var icon = theHUD.getChildByName("ingredient_icon");
+        for( var i=0; i < icon.length; ++i){
+          theHUD.removeChild(icon[i]);
+        }
 
-        Timer = me.game.world.getChildByName("TheTimer");
+        var Timer = me.game.world.getChildByName("TheTimer");
         theHUD.removeChild(Timer[0]);
       }
   },
@@ -219,7 +294,7 @@ game.HUD.JRGameController = me.Renderable.extend( {
         // Do NOT load any level here if a level is loaded in
         // the playstate object since it will crash the game!
         //me.levelDirector.loadLevel("area02");
-        console.log("<<< BEEP >>>");
+
         return false;
       }
     }
@@ -292,6 +367,7 @@ game.HUD.TimerItem = me.Renderable.extend( {
     // local copy of the global score
     this.score = -1;
     this.timebar = null;
+    this.bTimeout = false;
 
   },
 
@@ -316,17 +392,26 @@ game.HUD.TimerItem = me.Renderable.extend( {
     else{
       this.time_remaining = 0;
 
-      // change game
-      if( theHUD ){
+      // check whether the current recipe entry is a waiting timer
+      var myGC = me.game.world.getChildByName("CookingGameController");
+      if( myGC[0] && !myGC[0].recipe_finished() ){
+        console.log( "current_recipe_entry = "+myGC[0].get_current_recipe_entry() );
+        // then proceed to next entry
+        myGC[0].step_recipe();
+        return true;
+      }
+
+      // Timeout
+      if( theHUD && !this.bTimeout ){
         console.log("Timeout!");
-        me.game.world.removeChild(this);
+        this.bTimeout = true;
+        //me.game.world.removeChild(this);
         // never change playstate from here!
         /* me.state.set(me.state.PLAY, new game.PlayScreen_JR());
          * me.state.change(me.state.PLAY);
          * me.game.world.removeChild(this);
          */
       }
-
       return false;
     }
     return false;

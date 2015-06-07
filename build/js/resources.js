@@ -64,6 +64,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/gui/bottom_bar.png"
     },
+    {
+        "name": "book_BG",
+        "type": "image",
+        "src": "data/img/gui/kochbuch_screen.png"
+    },
 	{
         "name": "Kueche_BG",
         "type": "image",
@@ -89,10 +94,40 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/Kaese_textur.png"
     },
+    {
+        "name": "Apfel_textur",
+        "type": "image",
+        "src": "data/img/sprite/Apfel.png"
+    },
+    {
+        "name": "BakedBeans_textur",
+        "type": "image",
+        "src": "data/img/sprite/GebackeneBohnen.png"
+    },
+    {
+        "name": "BakedBeansCan_textur",
+        "type": "image",
+        "src": "data/img/sprite/GebackeneBohnenDose.png"
+    },
+    {
+        "name": "KidneyBohnen_textur",
+        "type": "image",
+        "src": "data/img/sprite/KidneyBohnen.png"
+    },
+    {
+        "name": "KidneyBohnenCan_textur",
+        "type": "image",
+        "src": "data/img/sprite/KidneyBohnenDose.png"
+    },
 	{
         "name": "Topf",
         "type": "image",
         "src": "data/img/sprite/Topf.png"
+    },
+    {
+        "name": "timer_tex",
+        "type": "image",
+        "src": "data/img/sprite/timer.png"
     },
 	{
         "name": "testmap",

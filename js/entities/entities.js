@@ -102,21 +102,21 @@ game.IngredientEntity = me.CollectableEntity.extend({
   // this function is called by the engine, when
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
-    // DEBUG: 
-    console.log("Thy "+this.texture_string+" consumed !");
-
-    // play sound if sound is turned on
-    var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-    if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-      me.audio.play("cling");
-    }
 
     // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
  
-  	// give some score
-  	game.data.score += 250;
-
+    var myGC = me.game.world.getChildByName("CookingGameController");
+    if( myGC[0] && this.texture_string == myGC[0].get_current_recipe_entry() ){
+      // give some score if the ingredient given was correct
+      game.data.score += 1;
+       // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+    }
+  	
     // remove it
     me.game.world.removeChild(this);
     return false

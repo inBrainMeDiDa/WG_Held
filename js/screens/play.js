@@ -120,7 +120,12 @@ game.PlayScreen = me.ScreenObject.extend({
         this.HUD.set_active_gamecontroller( new game.HUD.CookingGameController(888,888) );
     	var GC = this.HUD.get_active_gamecontroller();
     	if( GC ){
-    		GC.set_recipe( ["Tomate", 13000, "Kaese_textur", 4000, "Tomate", 2000] );
+    		GC.set_recipe(["Kaese_textur", 5000,
+	                      "timer_tex", 5000,
+	                      "Tomate", 2000, 
+	                      "timer_tex", 3000,
+	                      "Tomate", 2000,
+	                      "timer_tex", 5000,] );
     	}
     },
 

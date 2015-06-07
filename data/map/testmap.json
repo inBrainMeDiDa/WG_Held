@@ -69,8 +69,8 @@
                  "properties":
                     {
                      "image":"Tomate",
-                     "spriteheight":"180",
-                     "spritewidth":"180"
+                     "spriteheight":"128",
+                     "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",
@@ -86,8 +86,8 @@
                  "properties":
                     {
                      "image":"Tomate",
-                     "spriteheight":"180",
-                     "spritewidth":"180"
+                     "spriteheight":"128",
+                     "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",
@@ -103,8 +103,8 @@
                  "properties":
                     {
                      "image":"Tomate",
-                     "spriteheight":"180",
-                     "spritewidth":"180"
+                     "spriteheight":"128",
+                     "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",
@@ -120,8 +120,8 @@
                  "properties":
                     {
                      "image":"Kaese_textur",
-                     "spriteheight":"180",
-                     "spritewidth":"180"
+                     "spriteheight":"128",
+                     "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",

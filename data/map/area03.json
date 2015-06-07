@@ -193,6 +193,23 @@
                  "width":40,
                  "x":843,
                  "y":367.5
+                }, 
+                {
+                 "height":9,
+                 "id":24,
+                 "name":"me.LevelEntity",
+                 "properties":
+                    {
+                     "duration":"250",
+                     "fade":"#000000",
+                     "to":"area03"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":964,
+                 "x":3,
+                 "y":460
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -201,7 +218,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":24,
+ "nextobjectid":26,
  "orientation":"orthogonal",
  "properties":
     {

@@ -58,7 +58,7 @@ game.TitleScreen = me.ScreenObject.extend({
     me.game.world.addChild( new game.State_Holder(888, 888, "music_state_holder") );
 
     // add the cooking game demo button
-    var button = new game.HUD.Button_CookingDemo(250, 480, "button_arrow_right", 64,64);
+    var button = new game.HUD.Button_CookingScreen(250, 480, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
 
     // add the J&R game demo button
@@ -71,6 +71,68 @@ game.TitleScreen = me.ScreenObject.extend({
 
     // add the music button
     button = new game.HUD.Button_Music(80, 8, "button_music_on", 64,64);
+    me.game.world.addChild( button );
+
+    // the back to menu button
+    button = new game.HUD.Button_BackToMain(720, 8, "button_arrow_left", 64,64);
+    me.game.world.addChild( button );
+  },
+ 
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for CookingGame
+ */
+game.CookingGameTitleScreen = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component with the scrolling text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font for the scrolling text
+        this.font = new me.BitmapFont("32x32_font", 32);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "KOCHSPIEL", 280, 50);
+        this.font.draw(renderer, "ZIEHE DIE ZUTATEN", 128, 120);
+        this.font.draw(renderer, "IN DEN TOPF.", 128, 154);
+        this.font.draw(renderer, "ACHTE AUF DIE ZEIT", 128, 200);
+        this.font.draw(renderer, "UND REIHENFOLGE.", 128, 234);
+        this.font.draw(renderer, " START", 510, 504);
+      },
+      
+
+    })), 3);
+    
+
+    // add the cooking game demo button
+    var button = new game.HUD.Button_CookingDemo(450, 480, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
   },
  
@@ -154,8 +216,85 @@ game.HUD.Button_CookingDemo = me.GUI_Object.extend(
    },
 });
 
+
 /*
  *
+ */
+game.HUD.Button_CookingScreen = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_arrow_right";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "cooking_screen_button_icon"
+      // define the object z order
+      this.z = Infinity;
+   },
+   onClick:function (event)
+   {
+      // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+
+      me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+      me.state.change(me.state.TITLE);
+      return false;
+   },
+});
+
+
+/*
+ *  Back to menu button
+ */
+game.HUD.Button_BackToMain = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_arrow_right";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "back_to_main_screen_button_icon"
+      // define the object z order
+      this.z = Infinity;
+      // persistent across level change
+      this.isPersistent = true;
+   },
+   onClick:function (event)
+   {
+      // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+
+      me.state.set(me.state.TITLE, new game.TitleScreen());
+      me.state.change(me.state.TITLE);
+      return false;
+   },
+});
+
+
+/*
+ *    Sound On / OFF Button
  */
 game.HUD.Button_Sound = me.GUI_Object.extend(
 {
@@ -195,7 +334,7 @@ game.HUD.Button_Sound = me.GUI_Object.extend(
 
 
 /*
- *
+ *    Music ON / OFF Button
  */
 game.HUD.Button_Music = me.GUI_Object.extend(
 {

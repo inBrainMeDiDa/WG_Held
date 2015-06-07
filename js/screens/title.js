@@ -52,25 +52,25 @@ game.TitleScreen = me.ScreenObject.extend({
         this.scrollertween.stop();
       }
     })), 2);
- 
-    // change to play state on press Enter or click/tap
-    me.input.bindKey(me.input.KEY.ENTER, "enter", true);
-
-    this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-      if (action === "enter") {
-        // play something on tap / enter
-        // this will unlock audio on mobile devices
-        me.audio.play("cling");
-        me.state.change(me.state.PLAY);
-      }
-    });
+    // add sound state holer here once
+    me.game.world.addChild( new game.State_Holder(888, 888, "sound_state_holder") );
+    // add music state holer here once
+    me.game.world.addChild( new game.State_Holder(888, 888, "music_state_holder") );
 
     // add the cooking game demo button
     var button = new game.HUD.Button_CookingDemo(250, 480, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
 
     // add the J&R game demo button
-    var button = new game.HUD.Button(330, 400, "button_arrow_right", 64,64);
+    button = new game.HUD.Button(330, 400, "button_arrow_right", 64,64);
+    me.game.world.addChild( button );
+
+    // add the sound button
+    button = new game.HUD.Button_Sound(8, 8, "button_sound_on", 64,64);
+    me.game.world.addChild( button );
+
+    // add the music button
+    button = new game.HUD.Button_Music(80, 8, "button_music_on", 64,64);
     me.game.world.addChild( button );
   },
  
@@ -78,9 +78,6 @@ game.TitleScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent : function() {
-    me.input.unbindKey(me.input.KEY.ENTER);
-    me.input.unbindPointer(me.input.mouse.LEFT);
-    me.event.unsubscribe(this.handler);
    }
 });
 
@@ -109,7 +106,12 @@ game.HUD.Button = me.GUI_Object.extend(
    },
    onClick:function (event)
    {
-      me.audio.play("cling");
+      // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+      
       me.state.set(me.state.PLAY, new game.PlayScreen_JR());
       me.state.change(me.state.PLAY);
       return false;
@@ -140,9 +142,162 @@ game.HUD.Button_CookingDemo = me.GUI_Object.extend(
    },
    onClick:function (event)
    {
-      me.audio.play("cling");
+      // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+
       me.state.set(me.state.PLAY, new game.PlayScreen());
       me.state.change(me.state.PLAY);
       return false;
    },
+});
+
+/*
+ *
+ */
+game.HUD.Button_Sound = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_sound_on";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "sound_button"
+      // define the object z order
+      this.z = Infinity;
+      // persistent across level change
+      this.isPersistent = true;
+   },
+   onClick:function (event)
+   {
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] ){
+        my_state_holder[0].set_state_index( (my_state_holder[0].get_state_index()+1) % 2 );
+        
+        // play sound if sound is turned on
+        if( my_state_holder[0].get_state_index() > 0 ){
+           me.audio.play("cling");
+        }
+      }
+      return false;
+   },
+});
+
+
+/*
+ *
+ */
+game.HUD.Button_Music = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_music_on";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "music_button"
+      // define the object z order
+      this.z = Infinity;
+      // persistent across level change
+      this.isPersistent = true;
+   },
+   onClick:function (event)
+   {
+      var my_state_holder = me.game.world.getChildByName("music_state_holder");
+      if( my_state_holder[0] ){
+        my_state_holder[0].set_state_index( (my_state_holder[0].get_state_index()+1) % 2 );
+        
+        // play sound if sound is turned on
+        if( my_state_holder[0].get_state_index() > 0 ){
+           me.audio.play("cling");
+        }
+      }
+      return false;
+   },
+});
+
+
+
+/*=======================================================================
+ * state holder entity (invisible, unique -> created by title screen once)
+ * purpose: to hold the current sound/music state (on/off) and make it accessible
+ */
+game.State_Holder = me.GUI_Object.extend(
+{
+   init:function (x, y, the_name)
+   {
+      var settings = {}
+      settings.image = "button_sound_on";
+      settings.framewidth = 64;
+      settings.frameheight = 64;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "sound_state_holder"
+      if( the_name && the_name != "" ){
+        this.name = the_name;
+      }
+      // define the object z order
+      this.z = -1;
+       // persistent across level change
+      this.isPersistent = true;
+      // set default sound state to "on" = 1
+      this.current_state_index = 1;
+   },
+
+   get_state_index : function(){
+      return this.current_state_index;
+   },
+
+   set_state_index : function( new_state ){
+      this.current_state_index = new_state;
+
+      var icon = null;
+      if( this.name == "sound_state_holder" )
+      {
+        if( new_state == 0 ){
+            icon = me.game.world.getChildByName("sound_button");
+            me.game.world.removeChild(icon[0]);
+            me.game.world.addChild( new game.HUD.Button_Sound(8, 8, "button_sound_off", 64,64) );
+        }else{
+            icon = me.game.world.getChildByName("sound_button");
+            me.game.world.removeChild(icon[0]);
+            me.game.world.addChild( new game.HUD.Button_Sound(8, 8, "button_sound_on", 64,64) );
+        }
+      }
+      else if( this.name == "music_state_holder" )
+      {
+        if( new_state == 0 ){
+            icon = me.game.world.getChildByName("music_button");
+            me.game.world.removeChild(icon[0]);
+            me.game.world.addChild( new game.HUD.Button_Music(80, 8, "button_music_off", 64,64) );
+        }else{
+            icon = me.game.world.getChildByName("music_button");
+            me.game.world.removeChild(icon[0]);
+            me.game.world.addChild( new game.HUD.Button_Music(80, 8, "button_music_on", 64,64) );
+        }
+      }
+   },
+
+   onClick:function (event)
+   {
+      return false;
+   }
 });

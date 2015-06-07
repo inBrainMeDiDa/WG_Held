@@ -25,7 +25,7 @@ game.HUD.Container = me.Container.extend({
         this.name = "HUD";
         this.active_gamecontroller = null;
         this.timer = null;
-       
+
         // enable our global pointer towards this container object
         theHUD = this;
     },
@@ -83,15 +83,15 @@ game.HUD.CookingGameController = me.Renderable.extend( {
       // add our child score object at the right-bottom position
       theHUD.addChild(new game.HUD.ScoreItem(10, 540));
        // add the time bar
-      var timebar = new game.HUD.ChargeBar(10,-10);
-      theHUD.addChild(new game.HUD.ChargeBarBG(10,-10));
+      var timebar = new game.HUD.ChargeBar(180,-10);
+      theHUD.addChild(new game.HUD.ChargeBarBG(180,-10));
       theHUD.addChild( timebar );
       // add the timer
-      theHUD.timer = new game.HUD.TimerItem(10, 500);
+      theHUD.timer = new game.HUD.TimerItem(180, 10);
       theHUD.timer.set_timebar( timebar );
       theHUD.addChild( theHUD.timer );
       // add the icon canvas
-      theHUD.addChild( new game.HUD.myCanvas(200,-10,"Tomate", 180, 180) );
+      theHUD.addChild( new game.HUD.myCanvas(400,-10,"Tomate", 180, 180) );
     }
    
   },
@@ -139,7 +139,7 @@ game.HUD.CookingGameController = me.Renderable.extend( {
           
           icon = theHUD.getChildByName("ingredient_icon");
           theHUD.removeChild(icon[0]);
-          theHUD.addChild( new game.HUD.myCanvas(200,-10,this.current_recipe[ this.recipe_pointer ], 180, 180) );
+          theHUD.addChild( new game.HUD.myCanvas(400,-10,this.current_recipe[ this.recipe_pointer ], 180, 180) );
         }
         // set the Timer
         if( this.Timer && this.recipe_pointer < this.current_recipe.length-1 ){
@@ -227,6 +227,7 @@ game.HUD.JRGameController = me.Renderable.extend( {
   },
 });
 
+
 /* =======================================================================
  * a basic HUD item to display score
  */
@@ -261,7 +262,7 @@ game.HUD.ScoreItem = me.Renderable.extend( {
 
   //draw the score
   draw : function (renderer) {
-    this.font.draw (renderer, "SCORE:"+game.data.score, this.pos.x, this.pos.y);
+    this.font.draw (renderer, "PUNKTE:"+game.data.score, this.pos.x, this.pos.y);
   }
 });
 
@@ -317,9 +318,7 @@ game.HUD.TimerItem = me.Renderable.extend( {
 
       // change game
       if( theHUD ){
-        theHUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
-        me.levelDirector.loadLevel("area02");
-        me.game.world.addChild(new me.ColorLayer("background", "#FF3300", 0));
+        console.log("Timeout!");
         me.game.world.removeChild(this);
         // never change playstate from here!
         /* me.state.set(me.state.PLAY, new game.PlayScreen_JR());
@@ -335,7 +334,7 @@ game.HUD.TimerItem = me.Renderable.extend( {
 
   // draw something
   draw : function (renderer) {
-    this.font.draw (renderer, "TIME: "+Math.floor(this.time_remaining/1000)+"/"+Math.floor(this.initial_time_remaining/1000), this.pos.x, this.pos.y);
+    this.font.draw (renderer, Math.floor(this.time_remaining/1000)+"/"+Math.floor(this.initial_time_remaining/1000), this.pos.x, this.pos.y);
   },
   // set time
   set_timer : function(time){

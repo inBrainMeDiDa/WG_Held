@@ -105,8 +105,11 @@ game.IngredientEntity = me.CollectableEntity.extend({
     // DEBUG: 
     console.log("Thy "+this.texture_string+" consumed !");
 
-    // play fancy sound effect
-    me.audio.play("cling");
+    // play sound if sound is turned on
+    var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+    if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+      me.audio.play("cling");
+    }
 
     // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
@@ -297,8 +300,11 @@ game.PageEntity = me.CollectableEntity.extend({
     //give some score
     game.data.score += 1;
 
-    // play fancy sound effect
-    me.audio.play("cling");
+   // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
 
     // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);

@@ -1,3 +1,5 @@
+var bInitialized = false;
+
 game.TitleScreen = me.ScreenObject.extend({
  
   /**
@@ -52,29 +54,33 @@ game.TitleScreen = me.ScreenObject.extend({
         this.scrollertween.stop();
       }
     })), 2);
-    // add sound state holer here once
-    me.game.world.addChild( new game.State_Holder(888, 888, "sound_state_holder") );
-    // add music state holer here once
-    me.game.world.addChild( new game.State_Holder(888, 888, "music_state_holder") );
+
+    if( !bInitialized ){
+      // add sound state holer here once
+      me.game.world.addChild( new game.State_Holder(888, 888, "sound_state_holder") );
+      // add music state holer here once
+      me.game.world.addChild( new game.State_Holder(888, 888, "music_state_holder") );
+       // add the sound button
+      button = new game.HUD.Button_Sound(8, 8, "button_sound_on", 64,64);
+      me.game.world.addChild( button );
+
+      // add the music button
+      button = new game.HUD.Button_Music(80, 8, "button_music_on", 64,64);
+      me.game.world.addChild( button );
+
+      // the back to menu button
+      button = new game.HUD.Button_BackToMain(720, 8, "button_arrow_left", 64,64);
+      me.game.world.addChild( button );
+
+      bInitialized = true;
+    }
 
     // add the cooking game demo button
     var button = new game.HUD.Button_CookingScreen(250, 480, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
 
     // add the J&R game demo button
-    button = new game.HUD.Button(330, 400, "button_arrow_right", 64,64);
-    me.game.world.addChild( button );
-
-    // add the sound button
-    button = new game.HUD.Button_Sound(8, 8, "button_sound_on", 64,64);
-    me.game.world.addChild( button );
-
-    // add the music button
-    button = new game.HUD.Button_Music(80, 8, "button_music_on", 64,64);
-    me.game.world.addChild( button );
-
-    // the back to menu button
-    button = new game.HUD.Button_BackToMain(720, 8, "button_arrow_left", 64,64);
+    button = new game.HUD.Button_JRScreen(330, 400, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
   },
  
@@ -135,7 +141,67 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     var button = new game.HUD.Button_CookingDemo(450, 480, "button_arrow_right", 64,64);
     me.game.world.addChild( button );
   },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+  /* =======================================================================
+ *  TitleScreen for J&R Game
+ */
+game.JRGameTitleScreen = me.ScreenObject.extend({
  
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Amt_aussen_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component with the scrolling text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font for the scrolling text
+        this.font = new me.BitmapFont("32x32_font", 32);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "DAS AMT", 280, 50);
+        this.font.draw(renderer, "FINDE ALLE DOKUMENTE", 128, 120);
+        this.font.draw(renderer, "UND GEHE NICHT IM", 128, 154);
+        this.font.draw(renderer, "AMT VERLOREN!", 128, 188);
+        this.font.draw(renderer, "NUTZE DIE PFEILTASTEN", 128, 300);
+        this.font.draw(renderer, "X = SPRINGEN", 128, 334);
+        this.font.draw(renderer, " START", 510, 504);
+      },
+      
+
+    })), 3);
+    
+
+    // add the J&R game demo button
+    var button = new game.HUD.Button(450, 480, "button_arrow_right", 64,64);
+    me.game.world.addChild( button );
+  },
+ 
+
   /**
    *  action to perform when leaving this screen (state change)
    */
@@ -248,6 +314,43 @@ game.HUD.Button_CookingScreen = me.GUI_Object.extend(
       }
 
       me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+      me.state.change(me.state.TITLE);
+      return false;
+   },
+});
+
+
+/*
+ *
+ */
+game.HUD.Button_JRScreen = me.GUI_Object.extend(
+{
+  init:function (x, y, img, w, h)
+   {
+      var settings = {}
+      settings.image = "button_arrow_right";
+      if(img && img != "")
+      {
+        settings.image = img;
+      }
+      settings.spritewidth = w;
+      settings.spriteheight = h;
+      // super constructor
+      this._super(me.GUI_Object, "init", [x, y, settings]);
+      // give a name
+      this.name = "JR_screen_button_icon"
+      // define the object z order
+      this.z = Infinity;
+   },
+   onClick:function (event)
+   {
+      // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+
+      me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
       me.state.change(me.state.TITLE);
       return false;
    },

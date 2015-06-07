@@ -75,6 +75,11 @@ game.resources = [
         "src": "data/img/Kueche_BG.png"
     },
     {
+        "name": "Amt_aussen_BG",
+        "type": "image",
+        "src": "data/img/Amt_aussen_BG.png"
+    },
+    {
         "name": "chargebar",
         "type": "image",
         "src": "data/img/gui/chargebar.png"

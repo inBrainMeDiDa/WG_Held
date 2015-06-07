@@ -138,7 +138,9 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function() {
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
-        /*
+        /* HACK: this makes evil stuff happen on state change
+         * for some reason yet unknown.
+         
         me.input.unbindKey(me.input.KEY.S);
     	me.input.unbindPointer(me.input.mouse.LEFT);
     	me.event.unsubscribe(this.pointerDownHandler);

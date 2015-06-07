@@ -254,8 +254,42 @@
                  "type":"",
                  "visible":true,
                  "width":49,
-                 "x":707.5,
-                 "y":110.5
+                 "x":711.5,
+                 "y":108.5
+                }, 
+                {
+                 "height":8,
+                 "id":31,
+                 "name":"me.LevelEntity",
+                 "properties":
+                    {
+                     "duration":"250",
+                     "fade":"#000000",
+                     "to":"area02"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":924,
+                 "x":2,
+                 "y":474
+                }, 
+                {
+                 "height":39,
+                 "id":32,
+                 "name":"me.LevelEntity",
+                 "properties":
+                    {
+                     "duration":"250",
+                     "fade":"#FFFFFF",
+                     "to":"area03"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":40,
+                 "x":871,
+                 "y":54
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -264,7 +298,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":31,
+ "nextobjectid":33,
  "orientation":"orthogonal",
  "properties":
     {

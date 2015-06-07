@@ -2,9 +2,20 @@
  "height":15,
  "layers":[
         {
+         "height":15,
+         "image":"..\/img\/HG-Immaamt_BG.png",
+         "name":"Background2",
+         "opacity":1,
+         "type":"imagelayer",
+         "visible":true,
+         "width":30,
+         "x":507,
+         "y":0
+        }, 
+        {
          "height":40,
-         "image":"..\/img\/city_background_sunset.png",
-         "name":"Backgound",
+         "image":"..\/img\/HG-Immaamt_BG.png",
+         "name":"Backgound1",
          "opacity":1,
          "type":"imagelayer",
          "visible":true,

@@ -45,7 +45,10 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
     
 
     // add the J&R game demo button
-    var button = new game.HUD.Button(450, 480, "button_arrow_right", 64,64);
+    var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.JR_bafoeg );
+    }
     me.game.world.addChild( button );
   },
  

@@ -46,7 +46,7 @@ game.TitleScreen = me.ScreenObject.extend({
         this.font.draw(renderer, "WG-HELD !", 320, 120);
         this.font.draw(renderer, "DEMOS:", 360, 300);
         this.font.draw(renderer, " JUMP+RUN", 400, 432);
-        this.font.draw(renderer, " KOCHSPIEL", 310, 504);
+        this.font.draw(renderer, " WG", 310, 504);
         this.font.draw(renderer, this.scroller, this.scrollerpos, 568);
       },
       onDestroyEvent : function() {
@@ -76,11 +76,17 @@ game.TitleScreen = me.ScreenObject.extend({
     }
 
     // add the cooking game demo button
-    var button = new game.HUD.Button_CookingScreen(250, 480, "button_arrow_right", 64,64);
+    var button = new game.HUD.myButton(250, 480, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
     me.game.world.addChild( button );
 
     // add the J&R game demo button
-    button = new game.HUD.Button_JRScreen(330, 400, "button_arrow_right", 64,64);
+    button = new game.HUD.myButton(330, 400, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.JR_title );
+    }
     me.game.world.addChild( button );
   },
  
@@ -93,7 +99,7 @@ game.TitleScreen = me.ScreenObject.extend({
 /* =======================================================================
  * customizable button
  */
-game.HUD.Button = me.GUI_Object.extend(
+game.HUD.myButton = me.GUI_Object.extend(
 {
    init:function (x, y, img, w, h)
    {
@@ -108,10 +114,14 @@ game.HUD.Button = me.GUI_Object.extend(
       // super constructor
       this._super(me.GUI_Object, "init", [x, y, settings]);
       // give a name
-      this.name = "ingredient_icon"
+      this.name = "button"
       // define the object z order
       this.z = Infinity;
+      // store hyperlink destination
+      this.link_destination = game.ultralink.main_menu
+
    },
+   
    onClick:function (event)
    {
       // play sound if sound is turned on
@@ -119,120 +129,37 @@ game.HUD.Button = me.GUI_Object.extend(
       if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
         me.audio.play("cling");
       }
-      
-      me.state.set(me.state.PLAY, new game.PlayScreen_JR());
-      me.state.change(me.state.PLAY);
+      // do something
+      switch( this.link_destination ){
+        case game.ultralink.kitchen: 
+            me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.cooking_game_1:
+            me.state.set(me.state.PLAY, new game.PlayScreen_CG());
+            me.state.change(me.state.PLAY);
+            break;
+        case game.ultralink.JR_title: 
+            me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.JR_bafoeg: 
+            me.state.set(me.state.PLAY, new game.PlayScreen_JR());
+            me.state.change(me.state.PLAY);
+            break;
+        default:
+            me.state.set(me.state.TITLE, new game.TitleScreen());
+            me.state.change(me.state.TITLE);
+      }
+
+      console.log("button: "+this.link_destination);
       return false;
    },
-});
-
-/*
- *
- */
-game.HUD.Button_CookingDemo = me.GUI_Object.extend(
-{
-  init:function (x, y, img, w, h)
-   {
-      var settings = {}
-      settings.image = "button_arrow_right";
-      if(img && img != "")
-      {
-        settings.image = img;
+   setHyperlink : function( dest ){
+      if( dest && dest != "" ){
+        this.link_destination = dest;        
       }
-      settings.spritewidth = w;
-      settings.spriteheight = h;
-      // super constructor
-      this._super(me.GUI_Object, "init", [x, y, settings]);
-      // give a name
-      this.name = "cooking_demo_button_icon"
-      // define the object z order
-      this.z = Infinity;
-   },
-   onClick:function (event)
-   {
-      // play sound if sound is turned on
-      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-        me.audio.play("cling");
-      }
-
-      me.state.set(me.state.PLAY, new game.PlayScreen_CG());
-      me.state.change(me.state.PLAY);
-      return false;
-   },
-});
-
-
-/*
- *  Button to get to the Cooking game screen
- */
-game.HUD.Button_CookingScreen = me.GUI_Object.extend(
-{
-  init:function (x, y, img, w, h)
-   {
-      var settings = {}
-      settings.image = "button_arrow_right";
-      if(img && img != "")
-      {
-        settings.image = img;
-      }
-      settings.spritewidth = w;
-      settings.spriteheight = h;
-      // super constructor
-      this._super(me.GUI_Object, "init", [x, y, settings]);
-      // give a name
-      this.name = "cooking_screen_button_icon"
-      // define the object z order
-      this.z = Infinity;
-   },
-   onClick:function (event)
-   {
-      // play sound if sound is turned on
-      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-        me.audio.play("cling");
-      }
-
-      me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
-      me.state.change(me.state.TITLE);
-      return false;
-   },
-});
-
-
-/*
- *    Button to get to the J&R title screen
- */
-game.HUD.Button_JRScreen = me.GUI_Object.extend(
-{
-  init:function (x, y, img, w, h)
-   {
-      var settings = {}
-      settings.image = "button_arrow_right";
-      if(img && img != "")
-      {
-        settings.image = img;
-      }
-      settings.spritewidth = w;
-      settings.spriteheight = h;
-      // super constructor
-      this._super(me.GUI_Object, "init", [x, y, settings]);
-      // give a name
-      this.name = "JR_screen_button_icon"
-      // define the object z order
-      this.z = Infinity;
-   },
-   onClick:function (event)
-   {
-      // play sound if sound is turned on
-      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-        me.audio.play("cling");
-      }
-
-      me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
-      me.state.change(me.state.TITLE);
-      return false;
+      return true;
    },
 });
 

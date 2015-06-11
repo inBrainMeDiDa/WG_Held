@@ -65,21 +65,6 @@ game.resources = [
         "src": "data/img/gui/bottom_bar.png"
     },
     {
-        "name": "book_BG",
-        "type": "image",
-        "src": "data/img/gui/kochbuch_screen.png"
-    },
-	{
-        "name": "Kueche_BG",
-        "type": "image",
-        "src": "data/img/Kueche_BG.png"
-    },
-    {
-        "name": "Amt_aussen_BG",
-        "type": "image",
-        "src": "data/img/Amt_aussen_BG.png"
-    },
-    {
         "name": "chargebar",
         "type": "image",
         "src": "data/img/gui/chargebar.png"
@@ -130,6 +115,11 @@ game.resources = [
         "src": "data/img/sprite/Topf.png"
     },
     {
+        "name": "Salat",
+        "type": "image",
+        "src": "data/img/sprite/Salat.png"
+    },
+    {
         "name": "timer_tex",
         "type": "image",
         "src": "data/img/sprite/timer.png"
@@ -174,6 +164,27 @@ game.resources = [
         "name": "button_arrow_left",
         "type": "image",
         "src": "data/img/gui/Button-zurueck.png"
+    },
+    // Backgrounds
+     {
+        "name": "book_BG",
+        "type": "image",
+        "src": "data/img/gui/kochbuch_screen.png"
+    },
+    {
+        "name": "Kueche_BG",
+        "type": "image",
+        "src": "data/img/Kueche_BG.png"
+    },
+    {
+        "name": "Amt_aussen_BG",
+        "type": "image",
+        "src": "data/img/Amt_aussen_BG.png"
+    },
+    {
+        "name": "Kuechenzeile_BG",
+        "type": "image",
+        "src": "data/img/Kueche_2_BG.png"
     },
     //JnR resource files
 

@@ -8,6 +8,16 @@ var game = {
         // score
         score : 0
     },
+    // global hyperlinks used for navigation between screens.
+    // Because it's a cool idea, I call them ultralinks.
+    ultralink : {
+        main_menu       : 0,
+        kitchen         : 1,
+        cooking_game_1  : 2, 
+        living_room     : 3,
+        JR_title        : 4,
+        JR_bafoeg       : 5
+    },
     // Maiko's
     warp : {
         count : 0

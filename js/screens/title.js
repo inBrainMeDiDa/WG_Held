@@ -90,126 +90,6 @@ game.TitleScreen = me.ScreenObject.extend({
   onDestroyEvent : function() {
    }
 });
-
-
-/* =======================================================================
- *  TitleScreen for CookingGame
- */
-game.CookingGameTitleScreen = me.ScreenObject.extend({
- 
-  /**
-   *  action to perform on state change
-   */
-  onResetEvent : function() {
- 
-    // title screen
-    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
-    me.game.world.addChild(
-      new me.Sprite (
-        0,0,
-        me.loader.getImage('book_BG')
-      ),
-      2
-    );
- 
-    // add a new renderable component with the scrolling text
-    me.game.world.addChild(new (me.Renderable.extend ({
-      // constructor
-      init : function() {
-        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
-        this.font = new me.BitmapFont("32x32_font", 32);
-      },
-      update : function (dt) {
-        return true;
-      },
- 
-      draw : function (renderer) {
-        this.font.draw(renderer, "KOCHSPIEL", 280, 50);
-        this.font.draw(renderer, "ZIEHE DIE ZUTATEN", 128, 120);
-        this.font.draw(renderer, "IN DEN TOPF.", 128, 154);
-        this.font.draw(renderer, "ACHTE AUF DIE ZEIT", 128, 200);
-        this.font.draw(renderer, "UND REIHENFOLGE.", 128, 234);
-        this.font.draw(renderer, " START", 510, 504);
-      },
-      
-
-    })), 3);
-    
-
-    // add the cooking game demo button
-    var button = new game.HUD.Button_CookingDemo(450, 480, "button_arrow_right", 64,64);
-    me.game.world.addChild( button );
-  },
-
-  /**
-   *  action to perform when leaving this screen (state change)
-   */
-  onDestroyEvent : function() {
-   }
-});
-
-
-  /* =======================================================================
- *  TitleScreen for J&R Game
- */
-game.JRGameTitleScreen = me.ScreenObject.extend({
- 
-  /**
-   *  action to perform on state change
-   */
-  onResetEvent : function() {
- 
-    // title screen
-    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
-    me.game.world.addChild(
-      new me.Sprite (
-        0,0,
-        me.loader.getImage('Amt_aussen_BG')
-      ),
-      2
-    );
- 
-    // add a new renderable component with the scrolling text
-    me.game.world.addChild(new (me.Renderable.extend ({
-      // constructor
-      init : function() {
-        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
-        this.font = new me.BitmapFont("32x32_font", 32);
-      },
-      update : function (dt) {
-        return true;
-      },
- 
-      draw : function (renderer) {
-        this.font.draw(renderer, "DAS AMT", 280, 50);
-        this.font.draw(renderer, "FINDE ALLE DOKUMENTE", 128, 120);
-        this.font.draw(renderer, "UND GEHE NICHT IM", 128, 154);
-        this.font.draw(renderer, "AMT VERLOREN!", 128, 188);
-        this.font.draw(renderer, "NUTZE DIE PFEILTASTEN", 128, 300);
-        this.font.draw(renderer, "X = SPRINGEN", 128, 334);
-        this.font.draw(renderer, " START", 510, 504);
-      },
-      
-
-    })), 3);
-    
-
-    // add the J&R game demo button
-    var button = new game.HUD.Button(450, 480, "button_arrow_right", 64,64);
-    me.game.world.addChild( button );
-  },
- 
-
-  /**
-   *  action to perform when leaving this screen (state change)
-   */
-  onDestroyEvent : function() {
-   }
-});
-
-
 /* =======================================================================
  * customizable button
  */
@@ -276,7 +156,7 @@ game.HUD.Button_CookingDemo = me.GUI_Object.extend(
         me.audio.play("cling");
       }
 
-      me.state.set(me.state.PLAY, new game.PlayScreen());
+      me.state.set(me.state.PLAY, new game.PlayScreen_CG());
       me.state.change(me.state.PLAY);
       return false;
    },
@@ -284,7 +164,7 @@ game.HUD.Button_CookingDemo = me.GUI_Object.extend(
 
 
 /*
- *
+ *  Button to get to the Cooking game screen
  */
 game.HUD.Button_CookingScreen = me.GUI_Object.extend(
 {
@@ -321,7 +201,7 @@ game.HUD.Button_CookingScreen = me.GUI_Object.extend(
 
 
 /*
- *
+ *    Button to get to the J&R title screen
  */
 game.HUD.Button_JRScreen = me.GUI_Object.extend(
 {

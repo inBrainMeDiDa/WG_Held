@@ -69,7 +69,7 @@ game.TitleScreen = me.ScreenObject.extend({
       me.game.world.addChild( button );
 
       // the back to menu button
-      button = new game.HUD.Button_BackToMain(720, 8, "button_arrow_left", 64,64);
+      button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
       me.game.world.addChild( button );
 
       bInitialized = true;
@@ -78,7 +78,7 @@ game.TitleScreen = me.ScreenObject.extend({
     // add the cooking game demo button
     var button = new game.HUD.myButton(250, 480, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.kitchen );
+      button.setHyperlink( game.ultralink.living_room );
     }
     me.game.world.addChild( button );
 
@@ -131,8 +131,16 @@ game.HUD.myButton = me.GUI_Object.extend(
       }
       // do something
       switch( this.link_destination ){
+        case game.ultralink.living_room: 
+            me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.kitchen: 
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.cooking_book: 
+            me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen());
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:
@@ -152,7 +160,7 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.change(me.state.TITLE);
       }
 
-      console.log("button: "+this.link_destination);
+      //console.log("button dest. : "+this.link_destination);
       return false;
    },
    setHyperlink : function( dest ){

@@ -33,6 +33,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "KUECHE", 268, 480);
         this.font.draw(renderer, " KOCHBUCH", 210, 210);
+        this.font.draw(renderer, "WG", 632, 380);
       },
       
 
@@ -42,9 +43,16 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     // add the cooking game book button
     var button = new game.HUD.myButton(250, 240, "Salat", 128,128);
     if( button ){
-      button.setHyperlink( game.ultralink.cooking_game_1 );
+      button.setHyperlink( game.ultralink.cooking_book );
     }
     me.game.world.addChild( button );
+    // add the living room link
+    button = new game.HUD.myButton(730, 360, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.living_room );
+    }
+    me.game.world.addChild( button, 4 );
+
     // add bottom bar with z-index 3
     me.game.world.addChild(new game.HUD.BottomBar(0,400), 3);
 
@@ -103,8 +111,18 @@ game.CookingGameRecipeScreen = me.ScreenObject.extend({
     })), 3);
     
 
-    // add the cooking game demo button
-    var button = new game.HUD.Button_CookingDemo(450, 480, "button_arrow_right", 64,64);
+    // add the start button
+    var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_game_1 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to kitchen) button
+    var button = new game.HUD.myButton(720, 80, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
     me.game.world.addChild( button );
   },
 

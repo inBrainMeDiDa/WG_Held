@@ -3,7 +3,7 @@
  */
 game.LinvingRoomTitleScreen = me.ScreenObject.extend({
  
-  /**
+ /**
    *  action to perform on state change
    */
   onResetEvent : function() {
@@ -13,7 +13,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     me.game.world.addChild(
       new me.Sprite (
         0,0,
-        me.loader.getImage('book_BG')
+        me.loader.getImage('Musiker_WG_BG')
       ),
       2
     );
@@ -31,26 +31,21 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "KOCHSPIEL", 280, 50);
-        this.font.draw(renderer, "ZIEHE DIE ZUTATEN", 128, 120);
-        this.font.draw(renderer, "IN DEN TOPF.", 128, 154);
-        this.font.draw(renderer, "ACHTE AUF DIE ZEIT", 128, 200);
-        this.font.draw(renderer, "UND REIHENFOLGE.", 128, 234);
-        this.font.draw(renderer, " START", 510, 504);
+        this.font.draw(renderer, "MUSIKER-WG", 268, 480);
+        this.font.draw(renderer, " KUECHE", 64, 280);
       },
       
 
     })), 3);
     
 
-    // add the cooking game demo button
-    var button = new game.HUD.Button_CookingDemo(450, 480, "button_arrow_right", 64,64);
+    // add the kitchen link
+    var button = new game.HUD.myButton(32, 280, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
     me.game.world.addChild( button );
+    // add bottom bar with z-index 3
+    me.game.world.addChild(new game.HUD.BottomBar(0,400), 3);
   },
-
-  /**
-   *  action to perform when leaving this screen (state change)
-   */
-  onDestroyEvent : function() {
-   }
 });

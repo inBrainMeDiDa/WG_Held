@@ -165,6 +165,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/gui/Button-zurueck.png"
     },
+    {
+        "name": "button_x",
+        "type": "image",
+        "src": "data/img/gui/Button-X.png"
+    },
     // Backgrounds
      {
         "name": "book_BG",
@@ -185,6 +190,11 @@ game.resources = [
         "name": "Kuechenzeile_BG",
         "type": "image",
         "src": "data/img/Kueche_2_BG.png"
+    },
+    {
+        "name": "Musiker_WG_BG",
+        "type": "image",
+        "src": "data/img/WG_1_BG.png"
     },
     //JnR resource files
 

@@ -13,10 +13,11 @@ var game = {
     ultralink : {
         main_menu       : 0,
         kitchen         : 1,
-        cooking_game_1  : 2, 
-        living_room     : 3,
-        JR_title        : 4,
-        JR_bafoeg       : 5
+        cooking_book    : 2, 
+        cooking_game_1  : 3,
+        living_room     : 4,
+        JR_title        : 5,
+        JR_bafoeg       : 6
     },
     // Maiko's
     warp : {

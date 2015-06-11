@@ -37,3 +37,96 @@ game.PlayScreen_JR = me.ScreenObject.extend({
         me.game.world.removeChild(this.HUD);
     }
 });
+
+
+/* =======================================================================
+ * the one and only Jump&Run game controller class
+ */
+game.HUD.JRGameController = me.Renderable.extend( {
+  /**
+  * constructor
+  */
+  init: function(x, y) {
+ 
+    // call the parent constructor
+    // (size does not matter here)
+    this._super(me.Renderable, 'init', [x, y, 10, 10]);
+    // give a name
+    this.name = "JRGameController";
+    // local copy of the global score
+    this.score = -1;
+
+  },
+
+   // set current recipe
+  set_recipe : function( new_recipe ){},
+
+  // update function
+  update : function (dt) {
+    if( this.score == -1 )
+    {
+      this.score = 0;
+
+      // clean up stuff that belonged to the cooking game HUD
+      if( theHUD ){
+             
+        icons = theHUD.getChildByName("ingredient_icon");
+        for(var i = 0; i < icons.length; ++i){
+          theHUD.removeChild(icons[i]);
+        }
+        timers = theHUD.getChildByName("TheTimer");
+        for(var i = 0; i < timers.length; ++i){
+          theHUD.removeChild(timers[i]);
+        }
+        victims = theHUD.getChildByName("chargebar");
+        for(var i = 0; i < victims.length; ++i)
+        {
+          theHUD.removeChild(victims[i]);
+        }
+        victims = theHUD.getChildByName("bottombar");
+        for(var i = 0; i < victims.length; ++i)
+        {
+          theHUD.removeChild(victims[i]);
+        }
+        
+        // add our child score object at the top left corner
+        theHUD.addChild(new game.HUD.ScoreItem(380, 20));
+        theHUD.addChild(new game.HUD.WarpItem(10,10));
+
+        // Do NOT load any level here if a level is loaded in
+        // the playstate object since it will crash the game!
+        //me.levelDirector.loadLevel("area02");
+
+        return false;
+      }
+    }
+    return false;
+  },
+});
+
+
+game.HUD.WarpItem = me.Renderable.extend({
+    
+
+    //constructor
+    init: function(x,y){
+
+        this._super(me.Renderable, 'init', [x, y, 15, 10])
+    },
+
+    update : function (){
+
+        //changes to area03 on warp-count flip
+        if(game.warp.count == 1){
+           game.warp.count = 0;
+           me.levelDirector.loadLevel("area03");
+           return true;
+        }
+
+        return false;
+    },
+
+    draw : function (renderer) {
+ 
+    }
+});

@@ -134,6 +134,11 @@ game.resources = [
         "type": "tmx",
         "src": "data/map/testmap2.json"
     },
+    {
+        "name": "CG_Recipe_1",
+        "type": "tmx",
+        "src": "data/map/CG_Recipe_1.json"
+    },
     //Buttons:
     {
         "name": "button_music_on",

@@ -67,9 +67,9 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
 
 
 /* =======================================================================
- *  TitleScreen for Recipe 1
+ *  Title- / Welcome-Screen for Cooking Book
  */
-game.CookingGameRecipeScreen = me.ScreenObject.extend({
+game.CookingGameWelcomeScreen = me.ScreenObject.extend({
  
   /**
    *  action to perform on state change
@@ -114,14 +114,159 @@ game.CookingGameRecipeScreen = me.ScreenObject.extend({
     // add the start button
     var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
     if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_1 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to kitchen) button
+    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for Recipe 1
+ */
+game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component with the scrolling text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font for the scrolling text
+        this.font = new me.BitmapFont("32x32_font", 32);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "REZEPT 1", 280, 50);
+        this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 120);
+        this.font.draw(renderer, "MIT TOMATEN.", 128, 154);
+        this.font.draw(renderer, "3 TOMATEN", 128, 250);
+        this.font.draw(renderer, "1 BAKED BEANS", 128, 300);
+        this.font.draw(renderer, "- EINFACH -", 128, 350);
+        this.font.draw(renderer, " START", 510, 424);
+      },
+      
+
+    })), 3);
+    
+
+    // add the start button
+    var button = new game.HUD.myButton(450, 400, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_game_1 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to previous page) button
+    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book );
+    }
+    me.game.world.addChild( button );
+
+    // add the next (page) button
+    var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_2 );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for Recipe 2
+ */
+game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component with the scrolling text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font for the scrolling text
+        this.font = new me.BitmapFont("32x32_font", 32);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "REZEPT 2", 280, 50);
+        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 150);
+        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 200);
+        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 250);
+        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 300);
+        this.font.draw(renderer, "", 128, 234);
+        this.font.draw(renderer, " CAKE", 510, 504);
+      },
+      
+
+    })), 3);
+    
+
+    // add the start button
+    var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
+    if( button ){
       button.setHyperlink( game.ultralink.cooking_game_1 );
     }
     me.game.world.addChild( button );
 
     // add the back (to kitchen) button
-    var button = new game.HUD.myButton(720, 80, "button_arrow_left", 64,64);
+    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.kitchen );
+      button.setHyperlink( game.ultralink.cooking_book_1 );
     }
     me.game.world.addChild( button );
   },

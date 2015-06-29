@@ -13,7 +13,13 @@ var game = {
     ultralink : {
         main_menu       : 0,
         kitchen         : 1,
+        // CG welcome screen
         cooking_book    : 2, 
+        // recipes
+        cooking_book_1  : 21, 
+        cooking_book_2  : 22, 
+        cooking_book_3  : 23, 
+        cooking_book_4  : 24, 
         cooking_game_1  : 3,
         living_room     : 4,
         JR_title        : 5,
@@ -75,6 +81,7 @@ var game = {
 		me.pool.register("coin", game.IngredientEntity, true);
 		me.pool.register("tomato", game.IngredientEntity, true);
 		me.pool.register("kaese", game.IngredientEntity, true);
+        me.pool.register("baked_beans", game.IngredientEntity, true);
 		me.pool.register("pot", game.PotOfWisdomEntity,true);
 
          //new game

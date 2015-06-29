@@ -1,6 +1,17 @@
+var current_map = null;
+
 game.PlayScreen_CG = me.ScreenObject.extend({
 
 
+	init: function(map_string) {
+		console.log("next map: "+map_string);
+
+		if( map_string != null && map_string != "" ){
+			current_map = map_string;
+		}
+
+    	this._super(me.ScreenObject, 'init', []);
+	},
     /**
      *  action to perform on state change
      */
@@ -15,9 +26,9 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 		var vector_a = new me.Vector2d(0,0);
 		var vector_b = new me.Vector2d(0,0);
 		
-         // load a level
-		me.levelDirector.loadLevel("testmap");
-		
+        // load a level
+        me.levelDirector.loadLevel( current_map );
+
 		// enable input
 		// map mouse to keyboard for selection handling
 		me.input.bindKey(me.input.KEY.S, "select");
@@ -39,6 +50,7 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 				ingredients = [];
 				tomatos = me.game.world.getChildByName("tomato");
 				cheese = me.game.world.getChildByName("kaese");
+				baked_beans = me.game.world.getChildByName("baked_beans");
 
 				// append tomatos to ingredients-array
 				for(var i = 0; i < tomatos.length; ++i)
@@ -55,6 +67,14 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 					cheese[i].set_texture_string("Kaese_textur");
 					// append to ingredients
 					ingredients.push(cheese[i]);
+				}
+				// append baked beans to ingredients-array
+				for(var i = 0; i < baked_beans.length; ++i)
+				{
+					// first, tell every cheese item it is cheese
+					baked_beans[i].set_texture_string("BakedBeans_textur");
+					// append to ingredients
+					ingredients.push(baked_beans[i]);
 				}
 
 				for(var i = 0; i < ingredients.length; ++i)
@@ -120,12 +140,25 @@ game.PlayScreen_CG = me.ScreenObject.extend({
         this.HUD.set_active_gamecontroller( new game.HUD.CookingGameController(888,888) );
     	var GC = this.HUD.get_active_gamecontroller();
     	if( GC ){
-    		GC.set_recipe(["Kaese_textur", 5000,
-	                      "timer_tex", 5000,
-	                      "Tomate", 2000, 
-	                      "timer_tex", 3000,
-	                      "Tomate", 2000,
-	                      "timer_tex", 5000,] );
+    		// configure recipe depending on current map
+			if( current_map == "CG_Recipe_1" ){
+				GC.set_recipe(["timer_tex", 5000,
+		                      "BakedBeans_textur", 2000, 
+		                      "timer_tex", 6000,
+		                      "Tomate", 2000,
+		                      "timer_tex", 3000,
+		                      "Tomate", 2000,
+		                      "timer_tex", 3000,
+		                      "Tomate", 2000] );
+			}
+    		else if( current_map == "testmap" ){
+    			GC.set_recipe(["Kaese_textur", 10000,
+		                      "timer_tex", 3000,
+		                      "Kaese_textur", 5000, 
+		                      "timer_tex", 3000,
+		                      "Tomate", 2000,
+		                      "timer_tex", 3000,] );
+    		}
     	}
     },
 
@@ -140,12 +173,7 @@ game.PlayScreen_CG = me.ScreenObject.extend({
         me.game.world.removeChild(this.HUD);
         /* HACK: this makes evil stuff happen on state change
          * for some reason yet unknown.
-         
-        me.input.unbindKey(me.input.KEY.S);
-    	me.input.unbindPointer(me.input.mouse.LEFT);
-    	me.event.unsubscribe(this.pointerDownHandler);
-    	me.event.unsubscribe(this.pointerUpHandler);
-    	*/
+    	 */
     }
 });
 
@@ -292,6 +320,13 @@ game.HUD.CookingGameController = me.Renderable.extend( {
       this.endgame_font.draw(renderer, "AUSWERTUNG:", 300, 160);
       this.endgame_font.draw(renderer, "PUNKTE ERREICHT: "+game.data.score+"/"+(this.current_recipe.length/4), 40, 220);
     
+      // add the back (to kitchen) button
+      var button = new game.HUD.myButton(600, 64, "button_arrow_left", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.kitchen );
+      }
+      theHUD.addChild( button );
+
       if( game.data.score >= (this.current_recipe.length/4) ){
         this.endgame_font.draw(renderer, "EXZELLENT !", 300, 320);
       }else if( game.data.score < 1 ){

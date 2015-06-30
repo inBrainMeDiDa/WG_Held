@@ -188,6 +188,21 @@
                  "width":92,
                  "x":818,
                  "y":414
+                }, 
+                {
+                 "height":463,
+                 "id":36,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":12,
+                 "x":1,
+                 "y":29
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -270,7 +285,7 @@
                  "y":54
                 }, 
                 {
-                 "height":8,
+                 "height":9,
                  "id":34,
                  "name":"RespawnEntity",
                  "properties":
@@ -281,9 +296,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":846,
-                 "x":49,
-                 "y":496
+                 "width":925,
+                 "x":1,
+                 "y":497
                 }, 
                 {
                  "height":45,
@@ -309,7 +324,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":36,
+ "nextobjectid":37,
  "orientation":"orthogonal",
  "properties":
     {

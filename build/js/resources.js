@@ -173,7 +173,12 @@ game.resources = [
     {
         "name": "button_x",
         "type": "image",
-        "src": "data/img/gui/Button-X.png"
+        "src": "data/img/gui/Button-abbruch.png"
+    },
+    {
+        "name": "button_back",
+        "type": "image",
+        "src": "data/img/gui/Button-zurueck2.png"
     },
     // Backgrounds
      {
@@ -194,7 +199,12 @@ game.resources = [
     {
         "name": "Kuechenzeile_BG",
         "type": "image",
-        "src": "data/img/Kueche_2_BG.png"
+        "src": "data/img/Kueche.png"
+    },
+    {
+        "name": "Vorrat_BG",
+        "type": "image",
+        "src": "data/img/Kuehlschrank.png"
     },
     {
         "name": "Musiker_WG_BG",

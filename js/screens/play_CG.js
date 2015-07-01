@@ -321,7 +321,7 @@ game.HUD.CookingGameController = me.Renderable.extend( {
       this.endgame_font.draw(renderer, "PUNKTE ERREICHT: "+game.data.score+"/"+(this.current_recipe.length/4), 40, 220);
     
       // add the back (to kitchen) button
-      var button = new game.HUD.myButton(600, 64, "button_arrow_left", 64,64);
+      var button = new game.HUD.myButton(600, 64, "button_back", 64,64);
       if( button ){
         button.setHyperlink( game.ultralink.kitchen );
       }

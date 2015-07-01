@@ -31,7 +31,6 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "MUSIKER-WG", 268, 480);
         this.font.draw(renderer, " KUECHE", 64, 280);
       },
       
@@ -45,7 +44,14 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       button.setHyperlink( game.ultralink.kitchen );
     }
     me.game.world.addChild( button );
+    
     // add bottom bar with z-index 3
-    me.game.world.addChild(new game.HUD.BottomBar(0,400), 3);
+    me.game.world.addChild(
+      new me.Sprite (
+        0,400,
+        me.loader.getImage('bottom_bar')
+      ),
+      3
+    );
   },
 });

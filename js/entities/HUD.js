@@ -190,36 +190,6 @@ game.HUD.TimerItem = me.Renderable.extend( {
 
 
 /* =======================================================================
- * bottom bar
- */
-game.HUD.BottomBar = me.GUI_Object.extend(
-{
-   init:function (x, y)
-   {
-      var settings = {}
-      settings.image = "bottom_bar";
-      settings.framewidth = 1024;
-      settings.frameheight = 256;
-      // super constructor
-      this._super(me.GUI_Object, "init", [x, y, settings]);
-      // give a name
-      this.name = "bottombar"
-      // define the object z order
-      this.z = -1;
-   },
-
-   // output something in the console
-   // when the object is clicked
-   onClick:function (event)
-   {
-      console.log("clicked!");
-      // don't propagate the event
-      return false;
-   }
-});
-
-
-/* =======================================================================
  * simple charge bar
  */
 game.HUD.ChargeBar = me.GUI_Object.extend(

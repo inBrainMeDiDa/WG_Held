@@ -18,7 +18,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       2
     );
  
-    // add a new renderable component with the scrolling text
+    // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
       init : function() {
@@ -31,7 +31,6 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "KUECHE", 268, 480);
         this.font.draw(renderer, " KOCHBUCH", 210, 210);
         this.font.draw(renderer, "WG", 632, 380);
       },
@@ -40,12 +39,13 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     })), 3);
     
 
-    // add the cooking game book button
+    // add the cooking book button
     var button = new game.HUD.myButton(250, 240, "Salat", 128,128);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
     }
     me.game.world.addChild( button );
+
     // add the living room link
     button = new game.HUD.myButton(730, 360, "button_arrow_right", 64,64);
     if( button ){
@@ -53,14 +53,102 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     }
     me.game.world.addChild( button, 4 );
 
+     // add the fridge link
+    button = new game.HUD.myButton(64, 360, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.fridge );
+    }
+    me.game.world.addChild( button, 4 );
+
     // add bottom bar with z-index 3
-    me.game.world.addChild(new game.HUD.BottomBar(0,400), 3);
+    me.game.world.addChild(
+      new me.Sprite (
+        0,400,
+        me.loader.getImage('bottom_bar')
+      ),
+      3
+    );
 
   },
 
   /**
    *  action to perform when leaving this screen (state change)
    */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  Fridge Screen
+ */
+game.FridgeScreen = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Vorrat_BG')
+      ),
+      2
+    );
+
+
+    // fill with available ingredients with z-index 3 or higher
+      // tomatos
+      if( game.data.fridge.tomatos > 0 ){
+         me.game.world.addChild( new me.Sprite ( 128, 150, me.loader.getImage('Tomate') ), 3 );
+      }
+      // baked beans
+      if( game.data.fridge.baked_beans > 0 ){
+         me.game.world.addChild( new me.Sprite ( 64, 150, me.loader.getImage('BakedBeansCan_textur') ), 4 );
+      }
+     
+ 
+    // add a new renderable component to draw some text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font for the scrolling text
+        this.font = new me.BitmapFont("32x32_font", 32);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "VORRAT:", 64, 504);
+        this.font.draw(renderer, "AUSREICHEND", 300, 504);
+      },
+      
+
+    })), 3);
+
+    // add the back (to kitchen) button
+    var button = new game.HUD.myButton(720, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
+    me.game.world.addChild( button , 4);
+
+    // add bottom bar with z-index 3
+    me.game.world.addChild(
+      new me.Sprite (
+        0,400,
+        me.loader.getImage('bottom_bar')
+      ),
+      3
+    );
+  },
+
+ 
   onDestroyEvent : function() {
    }
 });
@@ -119,7 +207,7 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
     me.game.world.addChild( button );
 
     // add the back (to kitchen) button
-    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    var button = new game.HUD.myButton(128, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
     }

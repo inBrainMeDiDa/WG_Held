@@ -2,28 +2,37 @@
 /* Game namespace */
 var game = {
 
-
     // an object where to store game information
     data : {
         // score
-        score : 0
+        score : 0,
+        // money
+        money : 200,
+        // ingredient storage
+        fridge : {
+            tomatos         : 6,
+            baked_beans     : 2,
+            kidney_beans    : 1,
+            salat           : 1,
+        }
     },
     // global hyperlinks used for navigation between screens.
     // Because it's a cool idea, I call them ultralinks.
     ultralink : {
         main_menu       : 0,
         kitchen         : 1,
+        fridge          : 2,
         // CG welcome screen
-        cooking_book    : 2, 
+        cooking_book    : 3, 
         // recipes
-        cooking_book_1  : 21, 
-        cooking_book_2  : 22, 
-        cooking_book_3  : 23, 
-        cooking_book_4  : 24, 
-        cooking_game_1  : 3,
-        living_room     : 4,
-        JR_title        : 5,
-        JR_bafoeg       : 6
+        cooking_book_1  : 31, 
+        cooking_book_2  : 32, 
+        cooking_book_3  : 33, 
+        cooking_book_4  : 34, 
+        cooking_game_1  : 4,
+        living_room     : 5,
+        JR_title        : 6,
+        JR_bafoeg       : 7
     },
     // Maiko's
     warp : {

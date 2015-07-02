@@ -103,7 +103,7 @@ game.HUD.myButton = me.GUI_Object.extend(
 {
    init:function (x, y, img, w, h)
    {
-      var settings = {}
+      var settings = {};
       settings.image = "button_arrow_right";
       if(img && img != "")
       {
@@ -111,17 +111,50 @@ game.HUD.myButton = me.GUI_Object.extend(
       }
       settings.spritewidth = w;
       settings.spriteheight = h;
+
       // super constructor
       this._super(me.GUI_Object, "init", [x, y, settings]);
       // give a name
-      this.name = "button"
+      this.name = "button";
       // define the object z order
       this.z = Infinity;
       // store hyperlink destination
       this.link_destination = game.ultralink.main_menu
 
+      // mouse-over hint
+      this.font = me.game.world.getChildByName("mouse_over_text_holder");
+      this.font = this.font[0];
+  
+      this.mouse_over_text = "TEST";
+      this.vector_to_pointer = new me.Vector2d(0,0);
    },
-   
+
+   draw : function (renderer) {
+      
+      this._super(me.GUI_Object, "draw", [renderer]);
+      /*MelonJS
+
+      No automatic support. Manually it can be done using:
+      input.registerMouseEvent('mousemove')
+      and then iterating child elements and checking via this.collisionBox.containsPoint(me.input.mouse.pos)
+
+      */
+
+      if( this.font != null ){
+      
+        this.vector_to_pointer.set( me.input.mouse.pos.x - this.pos.x - 32,
+                                    me.input.mouse.pos.y - this.pos.y - 32);
+        if( this.vector_to_pointer.length2() < 2048 ){
+          this.font.drawMouseOverText( this.mouse_over_text );
+        }
+      }
+   },
+
+   setMouseOverText : function( text ){
+      this.mouse_over_text = text;
+   },
+
+
    onClick:function (event)
    {
       // play sound if sound is turned on

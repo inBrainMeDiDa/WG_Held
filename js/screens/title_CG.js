@@ -23,16 +23,25 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font
         this.font = new me.BitmapFont("32x32_font", 32);
+        this.name = "mouse_over_text_holder";
+        this.mouse_over_text = null;
       },
       update : function (dt) {
         return true;
       },
  
+      drawMouseOverText : function(text){
+        this.mouse_over_text = text;       
+      },
+
       draw : function (renderer) {
-        this.font.draw(renderer, " KOCHBUCH", 210, 210);
-        this.font.draw(renderer, "WG", 632, 380);
+
+        if( this.mouse_over_text != null ){
+          this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
+          this.mouse_over_text = null;
+        }
       },
       
 
@@ -43,6 +52,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(250, 240, "Salat", 128,128);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
+      button.setMouseOverText("KOCHBUCH");
     }
     me.game.world.addChild( button );
 
@@ -50,6 +60,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     button = new game.HUD.myButton(730, 360, "button_arrow_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.living_room );
+      button.setMouseOverText("WOHNZIMMER");
     }
     me.game.world.addChild( button, 4 );
 
@@ -57,17 +68,12 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     button = new game.HUD.myButton(64, 360, "button_arrow_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.fridge );
+      button.setMouseOverText("KUEHLSCHRANK");
     }
     me.game.world.addChild( button, 4 );
 
     // add bottom bar with z-index 3
-    me.game.world.addChild(
-      new me.Sprite (
-        0,400,
-        me.loader.getImage('bottom_bar')
-      ),
-      3
-    );
+    me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
 
   },
 
@@ -116,16 +122,27 @@ game.FridgeScreen = me.ScreenObject.extend({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font
         this.font = new me.BitmapFont("32x32_font", 32);
+        this.name = "mouse_over_text_holder";
+        this.mouse_over_text = null;
       },
       update : function (dt) {
         return true;
       },
- 
+      
+      drawMouseOverText : function(text){
+        this.mouse_over_text = text;       
+      },
+
       draw : function (renderer) {
-        this.font.draw(renderer, "VORRAT:", 64, 504);
-        this.font.draw(renderer, "AUSREICHEND", 300, 504);
+        this.font.draw(renderer, "VORRAT:", 64, 404);
+        this.font.draw(renderer, "AUSREICHEND", 300, 404);
+
+        if( this.mouse_over_text != null ){
+          this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
+          this.mouse_over_text = null;
+        }
       },
       
 
@@ -135,17 +152,12 @@ game.FridgeScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(720, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setMouseOverText("KUECHE");
     }
     me.game.world.addChild( button , 4);
 
     // add bottom bar with z-index 3
-    me.game.world.addChild(
-      new me.Sprite (
-        0,400,
-        me.loader.getImage('bottom_bar')
-      ),
-      3
-    );
+    me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
   },
 
  
@@ -174,12 +186,12 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
       2
     );
  
-    // add a new renderable component with the scrolling text
+    // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font
         this.font = new me.BitmapFont("32x32_font", 32);
       },
       update : function (dt) {
@@ -242,12 +254,12 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
       2
     );
  
-    // add a new renderable component with the scrolling text
+    // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font
         this.font = new me.BitmapFont("32x32_font", 32);
       },
       update : function (dt) {
@@ -258,23 +270,27 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
         this.font.draw(renderer, "REZEPT 1", 280, 50);
         this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 120);
         this.font.draw(renderer, "MIT TOMATEN.", 128, 154);
-        this.font.draw(renderer, "3 TOMATEN", 128, 250);
-        this.font.draw(renderer, "1 BAKED BEANS", 128, 300);
-        this.font.draw(renderer, "- EINFACH -", 128, 350);
-        this.font.draw(renderer, " START", 510, 424);
+        this.font.draw(renderer, "TOMATEN:"+game.data.fridge.tomatos+"/2", 128, 250);
+        this.font.draw(renderer, "BAKED BEANS:"+game.data.fridge.baked_beans+"/1", 128, 300);
+        this.font.draw(renderer, "ZUBEREITUNG", 128, 350);
+        if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 ){
+          this.font.draw(renderer, " START", 510, 424);
+        }
       },
       
 
     })), 3);
     
-
-    // add the start button
-    var button = new game.HUD.myButton(450, 400, "button_arrow_right", 64,64);
-    if( button ){
-      button.setHyperlink( game.ultralink.cooking_game_1 );
+    if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 )
+    {
+       // add the start button
+      var button = new game.HUD.myButton(450, 400, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.cooking_game_1 );
+      }
+      me.game.world.addChild( button );
     }
-    me.game.world.addChild( button );
-
+   
     // add the back (to previous page) button
     var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
     if( button ){
@@ -318,12 +334,12 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
       2
     );
  
-    // add a new renderable component with the scrolling text
+    // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font
         this.font = new me.BitmapFont("32x32_font", 32);
       },
       update : function (dt) {

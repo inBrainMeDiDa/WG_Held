@@ -147,9 +147,10 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 		                      "timer_tex", 6000,
 		                      "Tomate", 2000,
 		                      "timer_tex", 3000,
-		                      "Tomate", 2000,
-		                      "timer_tex", 3000,
 		                      "Tomate", 2000] );
+
+				game.data.fridge.tomatos -= 2; 
+				game.data.fridge.baked_beans -= 1;
 			}
     		else if( current_map == "testmap" ){
     			GC.set_recipe(["Kaese_textur", 10000,
@@ -212,8 +213,9 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     this.score = -1;
 
     if( theHUD ){
-      // add bottom bar
-      theHUD.addChild(new game.HUD.BottomBar(0,400));
+      // add bottom bar with z-index 3
+      me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
+
       // add our child score object at the right-bottom position
       theHUD.addChild(new game.HUD.ScoreItem(10, 540));
        // add the time bar

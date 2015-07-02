@@ -18,20 +18,32 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       2
     );
  
-    // add a new renderable component with the scrolling text
+    // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
-        // font for the scrolling text
+        // font 
         this.font = new me.BitmapFont("32x32_font", 32);
+        this.name = "mouse_over_text_holder";
+        this.mouse_over_text = null;
       },
+
       update : function (dt) {
         return true;
       },
  
+      drawMouseOverText : function(text){
+        this.mouse_over_text = text;       
+      },
+
       draw : function (renderer) {
-        this.font.draw(renderer, " KUECHE", 64, 280);
+
+        if( this.mouse_over_text != null ){
+          this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
+          this.mouse_over_text = null;
+        }
+        
       },
       
 
@@ -42,6 +54,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(32, 280, "button_arrow_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setMouseOverText("KUECHE");
     }
     me.game.world.addChild( button );
     

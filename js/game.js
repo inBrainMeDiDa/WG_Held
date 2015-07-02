@@ -10,8 +10,8 @@ var game = {
         money : 200,
         // ingredient storage
         fridge : {
-            tomatos         : 6,
-            baked_beans     : 2,
+            tomatos         : 3,
+            baked_beans     : 1,
             kidney_beans    : 1,
             salat           : 1,
         }
@@ -102,7 +102,6 @@ var game = {
         me.input.bindKey(me.input.KEY.UP,    "jump", true);
 		me.input.bindKey(me.input.KEY.X,     "jump", true);
 				
-
         // Start the game.
         me.state.change(me.state.MENU);
     }

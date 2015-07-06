@@ -1,5 +1,5 @@
 /* =======================================================================
- *  TitleScreen for CookingGame
+ *  TitleScreen for CookingGame a.k.a. "The Kitchen"
  */
 game.CookingGameTitleScreen = me.ScreenObject.extend({
  
@@ -57,7 +57,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     me.game.world.addChild( button );
 
     // add the living room link
-    button = new game.HUD.myButton(730, 360, "button_arrow_right", 64,64);
+    button = new game.HUD.myButton(720, 360, "button_arrow_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.living_room );
       button.setMouseOverText("WOHNZIMMER");
@@ -192,7 +192,7 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
         // font
-        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
       },
       update : function (dt) {
         return true;
@@ -204,7 +204,6 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
         this.font.draw(renderer, "IN DEN TOPF.", 128, 154);
         this.font.draw(renderer, "ACHTE AUF DIE ZEIT", 128, 200);
         this.font.draw(renderer, "UND REIHENFOLGE.", 128, 234);
-        this.font.draw(renderer, " START", 510, 504);
       },
       
 
@@ -212,14 +211,14 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
     
 
     // add the start button
-    var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
+    var button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_1 );
     }
     me.game.world.addChild( button );
 
     // add the back (to kitchen) button
-    var button = new game.HUD.myButton(128, 480, "button_back", 64,64);
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
     }
@@ -260,21 +259,20 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
         // font
-        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
       },
       update : function (dt) {
         return true;
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "REZEPT 1", 280, 50);
-        this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 120);
-        this.font.draw(renderer, "MIT TOMATEN.", 128, 154);
-        this.font.draw(renderer, "TOMATEN:"+game.data.fridge.tomatos+"/2", 128, 250);
-        this.font.draw(renderer, "BAKED BEANS:"+game.data.fridge.baked_beans+"/1", 128, 300);
-        this.font.draw(renderer, "ZUBEREITUNG", 128, 350);
+        this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 100);
+        this.font.draw(renderer, "MIT TOMATEN", 128, 150);
+        this.font.draw(renderer, "TOMATEN:", 128, 250); this.font.draw(renderer, game.data.fridge.tomatos+"/2", 432, 250);
+        this.font.draw(renderer, "BAKED BEANS:", 128, 300); this.font.draw(renderer, game.data.fridge.baked_beans+"/1", 432, 300);
+
         if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 ){
-          this.font.draw(renderer, " START", 510, 424);
+          this.font.draw(renderer, " START", 250, 500);
         }
       },
       
@@ -284,24 +282,38 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 )
     {
        // add the start button
-      var button = new game.HUD.myButton(450, 400, "button_arrow_right", 64,64);
+      var button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
       if( button ){
         button.setHyperlink( game.ultralink.cooking_game_1 );
       }
       me.game.world.addChild( button );
     }
    
+    // add view recipe button
+    var button = new game.HUD.myButton(568, 100, "button_info", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.recipe_1 );
+    }
+    me.game.world.addChild( button );
+
     // add the back (to previous page) button
-    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
     }
     me.game.world.addChild( button );
 
     // add the next (page) button
-    var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
+    button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_2 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to kitchen) button
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
     }
     me.game.world.addChild( button );
   },
@@ -340,7 +352,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
         // font
-        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
       },
       update : function (dt) {
         return true;
@@ -368,7 +380,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     me.game.world.addChild( button );
 
     // add the back (to kitchen) button
-    var button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_1 );
     }

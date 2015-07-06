@@ -119,6 +119,13 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/Salat.png"
     },
+    // recipe screens
+    {
+        "name": "recipe_dummy",
+        "type": "image",
+        "src": "data/img/recipes/rezept_dummy.png"
+    },
+    // misc.
     {
         "name": "timer_tex",
         "type": "image",
@@ -179,6 +186,21 @@ game.resources = [
         "name": "button_back",
         "type": "image",
         "src": "data/img/gui/Button-zurueck2.png"
+    },
+    {
+        "name": "button_info",
+        "type": "image",
+        "src": "data/img/gui/Button-Info.png"
+    },
+    {
+        "name": "button_arrow_book_left",
+        "type": "image",
+        "src": "data/img/gui/buch_links.png"
+    },
+    {
+        "name": "button_arrow_book_right",
+        "type": "image",
+        "src": "data/img/gui/buch_rechts.png"
     },
     // Backgrounds
      {

@@ -29,10 +29,16 @@ var game = {
         cooking_book_2  : 32, 
         cooking_book_3  : 33, 
         cooking_book_4  : 34, 
-        cooking_game_1  : 4,
-        living_room     : 5,
-        JR_title        : 6,
-        JR_bafoeg       : 7
+        // detailed recipes
+        recipe_1        : 41,
+        recipe_2        : 42,
+        recipe_3        : 43,
+        recipe_4        : 44,
+        // misc.
+        cooking_game_1  : 5,
+        living_room     : 6,
+        JR_title        : 7,
+        JR_bafoeg       : 8
     },
     // Maiko's
     warp : {

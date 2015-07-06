@@ -22,7 +22,7 @@ game.TitleScreen = me.ScreenObject.extend({
       init : function() {
         this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
         // font for the scrolling text
-        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
  
          // a tween to animate the arrow
         this.scrollertween = new me.Tween(this).to({scrollerpos: -2600 }, 30000).onComplete(this.scrollover.bind(this)).start();
@@ -132,13 +132,7 @@ game.HUD.myButton = me.GUI_Object.extend(
    draw : function (renderer) {
       
       this._super(me.GUI_Object, "draw", [renderer]);
-      /*MelonJS
 
-      No automatic support. Manually it can be done using:
-      input.registerMouseEvent('mousemove')
-      and then iterating child elements and checking via this.collisionBox.containsPoint(me.input.mouse.pos)
-
-      */
 
       if( this.font != null ){
       
@@ -186,6 +180,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.cooking_book_2:
             me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_2 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.recipe_1:
+            me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_1 );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:

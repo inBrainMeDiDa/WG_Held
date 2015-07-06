@@ -327,7 +327,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
 
 
 /* =======================================================================
- *  TitleScreen for Recipe 2
+ *  TitleScreen for Recipe 2 (Brotchips)
  */
 game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
  
@@ -359,30 +359,59 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "REZEPT 2", 280, 50);
-        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 150);
-        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 200);
-        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 250);
-        this.font.draw(renderer, "THE CAKE IS A LIE!", 120, 300);
-        this.font.draw(renderer, "", 128, 234);
-        this.font.draw(renderer, " CAKE", 510, 504);
+        this.font.draw(renderer, "BROTCHIPS", 128, 100);
+   
+        this.font.draw(renderer, "BROT:", 128, 250); this.font.draw(renderer, game.data.fridge.rolls+"/1", 432, 250);
+        this.font.draw(renderer, "BUTTER:", 128, 300); this.font.draw(renderer, game.data.fridge.butter+"/1", 432, 300);
+        this.font.draw(renderer, "ZWIEBEL:", 128, 350); this.font.draw(renderer, game.data.fridge.onions+"/1", 432, 350);
+        this.font.draw(renderer, "KNOBLAUCH:", 128, 400); this.font.draw(renderer, game.data.fridge.garlic+"/1", 432, 400);
+        
+
+        if( game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
+            game.data.fridge.onions > 0 && game.data.fridge.garlic > 0){
+          this.font.draw(renderer, " START", 250, 500);
+        }
       },
       
 
     })), 3);
     
-
-    // add the start button
-    var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
+    if( game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
+        game.data.fridge.onions > 0 && game.data.fridge.garlic > 0 )
+    {
+       // add the start button
+      var button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.cooking_game_1 );
+      }
+      me.game.world.addChild( button );
+    }
+   
+    // add view recipe button
+    var button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.cooking_game_1 );
+      button.setHyperlink( game.ultralink.recipe_2 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to previous page) button
+    button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_1 );
+    }
+    me.game.world.addChild( button );
+
+    // add the next (page) button
+    button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_2 );
     }
     me.game.world.addChild( button );
 
     // add the back (to kitchen) button
-    button = new game.HUD.myButton(128, 480, "button_arrow_left", 64,64);
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.cooking_book_1 );
+      button.setHyperlink( game.ultralink.kitchen );
     }
     me.game.world.addChild( button );
   },

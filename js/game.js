@@ -14,6 +14,20 @@ var game = {
             baked_beans     : 1,
             kidney_beans    : 1,
             salat           : 1,
+            rolls           : 0, // = Semmeln
+            tortilla_wraps  : 0,
+            sour_cream      : 0,
+            bacon           : 0,
+            onions          : 0,
+            garlic          : 0, // = Knoblauch
+            sweet_pepper    : 0, // = Paprika
+            milk            : 0,
+            eggs            : 0,
+            butter          : 0,
+            curd            : 0, // = Quark
+            potatoes        : 0,
+            pasta           : 0,
+            mozzarella      : 0,
         }
     },
     // global hyperlinks used for navigation between screens.

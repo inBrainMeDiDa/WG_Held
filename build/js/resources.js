@@ -233,6 +233,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/WG_1_BG.png"
     },
+    {
+        "name": "Musiker_WG_Bew",
+        "type": "image",
+        "src": "data/img/mitbewohner.png"
+    },
     //JnR resource files
 
     //Backgrounds

@@ -138,7 +138,7 @@ game.HUD.myButton = me.GUI_Object.extend(
       
         this.vector_to_pointer.set( me.input.mouse.pos.x - this.pos.x - 32,
                                     me.input.mouse.pos.y - this.pos.y - 32);
-        if( this.vector_to_pointer.length2() < 2048 ){
+        if( this.vector_to_pointer.length2() < 4096 ){
           this.font.drawMouseOverText( this.mouse_over_text );
         }
       }
@@ -184,6 +184,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.recipe_1:
             me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_1 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.recipe_2:
+            me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_2 );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:

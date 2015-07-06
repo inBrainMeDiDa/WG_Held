@@ -17,6 +17,14 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       ),
       2
     );
+    // inhabitants
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Musiker_WG_Bew')
+      ),
+      3
+    );
  
     // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
@@ -58,6 +66,22 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     }
     me.game.world.addChild( button );
     
+    // button for Paul (hidden)
+    button = new game.HUD.myButton(450, 220, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.living_room );
+      button.setMouseOverText("PAUL");
+    }
+    me.game.world.addChild( button, 0 );
+
+    // button for Paula (hidden)
+    button = new game.HUD.myButton(160, 220, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.living_room );
+      button.setMouseOverText("PAULA");
+    }
+    me.game.world.addChild( button, 0 );
+
     // add bottom bar with z-index 3
     me.game.world.addChild(
       new me.Sprite (

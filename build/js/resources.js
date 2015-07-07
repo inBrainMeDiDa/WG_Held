@@ -262,6 +262,12 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/floating_page.png"
     },
+    {
+        "name": "Tomate",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Tomate.png"
+    },
+
     //Tilesets
     {
         "name": "area01_baf_level",

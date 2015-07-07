@@ -136,6 +136,66 @@ game.PlayerEntity = me.Entity.extend({
   
 });
 
+/*----------------
+  an goods entity
+ ----------------- */
+ game.GoodsEntity = me.CollectableEntity.extend({
+  init: function(x, y, settings) {
+  
+  this.description = settings.description;
+    // call the parent constructor
+  this._super(me.CollectableEntity, 'init', [x, y , settings]);
+  
+  this.b_selected = false;
+  
+  // default accel vector
+  this.body.setVelocity(3,15);
+ 
+  },
+   /**
+   * update the entity
+   */
+  update : function (dt) {
+
+    // handle collisions against other shapes
+    me.collision.check(this);
+
+    // return true if we moved or if the renderable was updated
+    return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+  },
+ 
+// this function is called by the engine, when
+  // an object is touched by something (here collected)
+  onCollision : function (response, other) {
+    // do something when collected
+    console.log("kollidiert");
+    if(this.description == "tomatos"){
+      game.data.backpack.tomatos =+ 1;
+      console.log("Tomaten im Rucksack: " + game.data.backpack.tomatos );
+    }
+
+    if(this.description == "baked_beans"){
+      game.data.backpack.baked_beans =+ 1;
+    }
+
+    //give some score
+    game.data.score += 1;
+   // play sound if sound is turned on
+      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+        me.audio.play("cling");
+      }
+
+    // make sure it cannot be collected "again"
+    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+ 
+    // remove it
+    me.game.world.removeChild(this);
+  
+    return false
+  }
+ });
+
 
 /*----------------
   a Page entity

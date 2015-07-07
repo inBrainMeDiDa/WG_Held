@@ -28,7 +28,29 @@ var game = {
             potatoes        : 0,
             pasta           : 0,
             mozzarella      : 0,
-        }
+        },
+
+        backpack : {
+            tomatos         : 0,
+            baked_beans     : 0,
+            kidney_beans    : 0,
+            salat           : 0,
+            rolls           : 0, // = Semmeln
+            tortilla_wraps  : 0,
+            sour_cream      : 0,
+            bacon           : 0,
+            onions          : 0,
+            garlic          : 0, // = Knoblauch
+            sweet_pepper    : 0, // = Paprika
+            milk            : 0,
+            eggs            : 0,
+            butter          : 0,
+            curd            : 0, // = Quark
+            potatoes        : 0,
+            pasta           : 0,
+            mozzarella      : 0,
+        },
+        
     },
     // global hyperlinks used for navigation between screens.
     // Because it's a cool idea, I call them ultralinks.
@@ -107,6 +129,7 @@ var game = {
         //add a warp entity
         me.pool.register("WarpEntity", game.WarpEntity);
 		
+        me.pool.register("GoodsEntity", game.GoodsEntity, true);
 		me.pool.register("coin", game.IngredientEntity, true);
 		me.pool.register("tomato", game.IngredientEntity, true);
 		me.pool.register("kaese", game.IngredientEntity, true);

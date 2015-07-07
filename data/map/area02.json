@@ -316,6 +316,24 @@
                  "width":49,
                  "x":423.5,
                  "y":280.5
+                }, 
+                {
+                 "height":40,
+                 "id":37,
+                 "name":"GoodsEntity",
+                 "properties":
+                    {
+                     "description":"tomatos",
+                     "image":"Tomate",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":215,
+                 "y":261
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -324,7 +342,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":37,
+ "nextobjectid":39,
  "orientation":"orthogonal",
  "properties":
     {

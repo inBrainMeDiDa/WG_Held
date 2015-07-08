@@ -58,6 +58,7 @@ var game = {
     // global hyperlinks used for navigation between screens.
     // Because it's a cool idea, I call them ultralinks.
     ultralink : {
+        nowhere         : 9999,
         main_menu       : 0,
         kitchen         : 1,
         fridge          : 2,
@@ -89,7 +90,7 @@ var game = {
     update_dialog_pointer : function(){
         switch( game.data.dialog_pointer ){
             // exit after first sequence
-            case 3:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+            case 4:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
                      break;
             default: game.data.dialog_pointer += 1;

@@ -157,6 +157,8 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
                     break;
             case 3: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paula_1'));
                     break;
+            case 4: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paula_2'));
+                    break;
             default: console.log( "dialog pointer: "+this.current_dialog_index );
                      this.dialog_sprite = null;
           }

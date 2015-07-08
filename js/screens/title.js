@@ -159,8 +159,16 @@ game.HUD.myButton = me.GUI_Object.extend(
       // do something
       switch( this.link_destination ){
         case game.ultralink.living_room: 
-            me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
-            me.state.change(me.state.TITLE);
+
+            // on first visit, link directly to dialog screen
+            if( game.data.dialog_pointer == 0 ){
+              game.update_dialog_pointer();
+              me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
+              me.state.change(me.state.TITLE);
+            }else{
+              me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+              me.state.change(me.state.TITLE);
+            }
             break;
         case game.ultralink.dialog_room:
 
@@ -205,12 +213,28 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_2 );
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.cooking_book_3:
+            me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_3 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.cooking_book_4:
+            me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_4 );
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.recipe_1:
             me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_1 );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.recipe_2:
             me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_2 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.recipe_3:
+            me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_3 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.recipe_4:
+            me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_4 );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:
@@ -228,12 +252,8 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.next_dialog:
             game.update_dialog_pointer();
             break;
-        default:
-            me.state.set(me.state.TITLE, new game.TitleScreen());
-            me.state.change(me.state.TITLE);
+        default: console.log( "Button pressed with destination "+this.link_destination ); 
       }
-
-      //console.log("button dest. : "+this.link_destination);
       return false;
    },
    setHyperlink : function( dest ){

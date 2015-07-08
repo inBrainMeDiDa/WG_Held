@@ -105,18 +105,6 @@ game.FridgeScreen = me.ScreenObject.extend({
       2
     );
 
-
-    // fill with available ingredients with z-index 3 or higher
-      // tomatos
-      if( game.data.fridge.tomatos > 0 ){
-         me.game.world.addChild( new me.Sprite ( 128, 150, me.loader.getImage('Tomate') ), 3 );
-      }
-      // baked beans
-      if( game.data.fridge.baked_beans > 0 ){
-         me.game.world.addChild( new me.Sprite ( 64, 150, me.loader.getImage('BakedBeansCan_textur') ), 4 );
-      }
-     
- 
     // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
@@ -136,17 +124,38 @@ game.FridgeScreen = me.ScreenObject.extend({
       },
 
       draw : function (renderer) {
-        this.font.draw(renderer, "VORRAT:", 64, 404);
-        this.font.draw(renderer, "AUSREICHEND", 300, 404);
 
         if( this.mouse_over_text != null ){
-          this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
+          this.font.draw(renderer, this.mouse_over_text, 200, 500, "center");
           this.mouse_over_text = null;
         }
       },
       
 
     })), 3);
+
+    // fill with available ingredients with z-index 3 or higher
+    var ingredient = null;
+    // tomatos
+    if( game.data.fridge.tomatos > 0 ){
+      //me.game.world.addChild( new me.Sprite ( 128, 150, me.loader.getImage('Tomate') ), 3 );
+      ingredient = new game.HUD.myButton( 128, 150, "Tomate", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("TOMATEN:"+game.data.fridge.tomatos);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // baked beans
+    if( game.data.fridge.baked_beans > 0 ){
+       //me.game.world.addChild( new me.Sprite ( 64, 150, me.loader.getImage('BakedBeansCan_textur') ), 4 );
+      ingredient = new game.HUD.myButton( 64, 150, "BakedBeansCan_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("BAKED BEANS:"+game.data.fridge.baked_beans);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
 
     // add the back (to kitchen) button
     var button = new game.HUD.myButton(720, 480, "button_back", 64,64);
@@ -382,7 +391,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
        // add the start button
       var button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
       if( button ){
-        button.setHyperlink( game.ultralink.cooking_game_1 );
+        button.setHyperlink( game.ultralink.cooking_game_2 );
       }
       me.game.world.addChild( button );
     }
@@ -404,7 +413,205 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     // add the next (page) button
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_3 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to kitchen) button
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for Recipe 3 (Flammkuchen)
+ */
+game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component to draw some text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "FLAMMKUCHEN", 128, 100);
+   
+        this.font.draw(renderer, "WRAPS:", 128, 250); this.font.draw(renderer, game.data.fridge.tortilla_wraps+"/1", 432, 250);
+        this.font.draw(renderer, "SAURE SAHNE:", 128, 300); this.font.draw(renderer, game.data.fridge.sour_cream+"/2", 432, 300);
+        this.font.draw(renderer, "ZWIEBEL:", 128, 350); this.font.draw(renderer, game.data.fridge.onions+"/1", 432, 350);
+        this.font.draw(renderer, "PAPRIKA:", 128, 400); this.font.draw(renderer, game.data.fridge.sweet_pepper+"/1", 432, 400);
+        this.font.draw(renderer, "SCHINKEN:", 128, 450); this.font.draw(renderer, game.data.fridge.bacon+"/1", 432, 450);
+        
+
+        if( game.data.fridge.wraps > 0 && game.data.fridge.sour_cream > 1 &&
+            game.data.fridge.onions > 0 && game.data.fridge.sweet_pepper > 0 && game.data.fridge.bacon > 0 )
+        {
+          this.font.draw(renderer, " START", 250, 500);
+        }
+      },
+      
+
+    })), 3);
+    
+    if( game.data.fridge.wraps > 0 && game.data.fridge.sour_cream > 1 &&
+        game.data.fridge.onions > 0 && game.data.fridge.sweet_pepper > 0 && game.data.fridge.bacon > 0 )
+    {
+       // add the start button
+      var button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.cooking_game_3 );
+      }
+      me.game.world.addChild( button );
+    }
+   
+    // add view recipe button
+    var button = new game.HUD.myButton(568, 100, "button_info", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.recipe_3 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to previous page) button
+    button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
+    if( button ){
       button.setHyperlink( game.ultralink.cooking_book_2 );
+    }
+    me.game.world.addChild( button );
+
+    // add the next (page) button
+    button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_4 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to kitchen) button
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for Recipe 4 (Griessbrei)
+ */
+game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component to draw some text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "GRIESSBREI", 128, 100);
+   
+        this.font.draw(renderer, "MILCH:", 128, 250); this.font.draw(renderer, game.data.fridge.milk+"/1", 432, 250);
+        this.font.draw(renderer, "BUTTER:", 128, 300); this.font.draw(renderer, game.data.fridge.butter+"/2", 432, 300);
+        this.font.draw(renderer, "EIER:", 128, 350); this.font.draw(renderer, game.data.fridge.eggs+"/1", 432, 350);
+        this.font.draw(renderer, "GRIESS:", 128, 400); this.font.draw(renderer, "1/1", 432, 400);
+        this.font.draw(renderer, "ZUCKER:", 128, 450); this.font.draw(renderer, "1/1", 432, 450);
+        
+
+        if( game.data.fridge.milk > 0 && game.data.fridge.butter > 0 && game.data.fridge.eggs > 0 )
+        {
+          this.font.draw(renderer, " START", 250, 500);
+        }
+      },
+      
+
+    })), 3);
+    
+    if( game.data.fridge.milk > 0 && game.data.fridge.butter > 0 && game.data.fridge.eggs > 0 )
+    {
+       // add the start button
+      var button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.cooking_game_4 );
+      }
+      me.game.world.addChild( button );
+    }
+   
+    // add view recipe button
+    var button = new game.HUD.myButton(568, 100, "button_info", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.recipe_4 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to previous page) button
+    button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_3 );
+    }
+    me.game.world.addChild( button );
+
+    // add the next (page) button
+    button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_4 );
     }
     me.game.world.addChild( button );
 

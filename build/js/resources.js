@@ -125,6 +125,31 @@ game.resources = [
         "type": "image",
         "src": "data/img/recipes/brotchips.png"
     },
+    {
+        "name": "recipe_fk",
+        "type": "image",
+        "src": "data/img/recipes/flammkuchen.png"
+    },
+    {
+        "name": "recipe_gb",
+        "type": "image",
+        "src": "data/img/recipes/griessbrei.png"
+    },
+    {
+        "name": "recipe_kq",
+        "type": "image",
+        "src": "data/img/recipes/kartquark.png"
+    },
+    {
+        "name": "recipe_nuto",
+        "type": "image",
+        "src": "data/img/recipes/nudelntomo.png"
+    },
+    {
+        "name": "recipe_os",
+        "type": "image",
+        "src": "data/img/recipes/obstsalat1.png"
+    },
     // dialog screens
     {
         "name": "dialog_paul_1",
@@ -139,7 +164,12 @@ game.resources = [
     {
         "name": "dialog_paula_1",
         "type": "image",
-        "src": "data/img/dialogs/dialogpaula.png"
+        "src": "data/img/dialogs/dialogpaula1.png"
+    },
+    {
+        "name": "dialog_paula_2",
+        "type": "image",
+        "src": "data/img/dialogs/dialogpaula2.png"
     },
     // misc.
     {

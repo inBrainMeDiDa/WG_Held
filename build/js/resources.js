@@ -263,7 +263,7 @@ game.resources = [
         "src": "data/img/sprite/floating_page.png"
     },
     {
-        "name": "Tomate",
+        "name": "Tomate_jr",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Tomate.png"
     },

@@ -168,14 +168,15 @@ game.PlayerEntity = me.Entity.extend({
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
     // do something when collected
-    console.log("kollidiert");
     if(this.description == "tomatos"){
-      game.data.backpack.tomatos =+ 1;
+      game.data.backpack.tomatos += 1;
       console.log("Tomaten im Rucksack: " + game.data.backpack.tomatos );
-    }
-
-    if(this.description == "baked_beans"){
-      game.data.backpack.baked_beans =+ 1;
+    }else if(this.description == "baked_beans"){
+      game.data.backpack.baked_beans += 1;
+    }else if(this.description == "kidney_beans"){
+      game.data.backpack.kidney_beans += 1;
+    }else if(this.description == "rolls"){
+      game.data.backpack.rolls += 1;
     }
 
     //give some score

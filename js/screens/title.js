@@ -165,6 +165,21 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.kitchen: 
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
             me.state.change(me.state.TITLE);
+            // Fill the fridge with the stuff from your backpack
+            // when entering the kitchen
+            //Tomatos:
+            game.data.fridge.tomatos += game.data.backpack.tomatos;
+            game.data.backpack.tomatos = 0;
+            //Backed beans:
+            game.data.fridge.baked_beans += game.data.backpack.baked_beans;
+            game.data.backpack.baked_beans = 0;
+            //Kidney beans:
+            game.data.fridge.kidney_beans += game.data.backpack.kidney_beans;
+            game.data.backpack.kidney_beans = 0;
+            //Rolls:
+            game.data.fridge.rolls += game.data.backpack.rolls;
+            game.data.backpack.rolls = 0;
+
             break;
         case game.ultralink.fridge: 
             me.state.set(me.state.TITLE, new game.FridgeScreen());

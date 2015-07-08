@@ -8,6 +8,9 @@ var game = {
         score : 0,
         // money
         money : 200,
+        // dialog pointer
+        dialog_pointer : 0,
+        
         // ingredient storage
         fridge : {
             tomatos         : 3,
@@ -71,14 +74,27 @@ var game = {
         recipe_3        : 43,
         recipe_4        : 44,
         // misc.
-        cooking_game_1  : 5,
-        living_room     : 6,
-        JR_title        : 7,
-        JR_bafoeg       : 8
+        next_dialog     : 5,
+        cooking_game_1  : 6,
+        living_room     : 7,
+        dialog_room     : 8,
+        JR_title        : 9,
+        JR_bafoeg       : 10
     },
     // Maiko's
     warp : {
         count : 0
+    },
+
+    update_dialog_pointer : function(){
+        switch( game.data.dialog_pointer ){
+            // exit after first sequence
+            case 3:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+                     me.state.change(me.state.TITLE);
+                     break;
+            default: game.data.dialog_pointer += 1;
+
+        }
     },
 
 

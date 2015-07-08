@@ -49,7 +49,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     
 
     // add the cooking book button
-    var button = new game.HUD.myButton(250, 240, "Salat", 128,128);
+    var button = new game.HUD.myButton(250, 272, "kochbuch_zu", 128,128);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
       button.setMouseOverText("KOCHBUCH");

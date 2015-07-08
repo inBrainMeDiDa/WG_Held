@@ -143,6 +143,11 @@ game.resources = [
     },
     // misc.
     {
+        "name": "kochbuch_zu",
+        "type": "image",
+        "src": "data/img/sprite/Kochbuch-zu.png"
+    },
+    {
         "name": "timer_tex",
         "type": "image",
         "src": "data/img/sprite/timer.png"

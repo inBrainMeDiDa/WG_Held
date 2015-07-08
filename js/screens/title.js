@@ -162,6 +162,14 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.dialog_room:
+
+            // TODO: check dialog progress conditions!
+            game.update_dialog_pointer();
+
+            me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.kitchen: 
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
             me.state.change(me.state.TITLE);
@@ -216,6 +224,9 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.JR_bafoeg: 
             me.state.set(me.state.PLAY, new game.PlayScreen_JR());
             me.state.change(me.state.PLAY);
+            break;
+        case game.ultralink.next_dialog:
+            game.update_dialog_pointer();
             break;
         default:
             me.state.set(me.state.TITLE, new game.TitleScreen());

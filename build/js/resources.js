@@ -121,9 +121,25 @@ game.resources = [
     },
     // recipe screens
     {
-        "name": "recipe_dummy",
+        "name": "recipe_bc",
         "type": "image",
-        "src": "data/img/recipes/rezept_dummy.png"
+        "src": "data/img/recipes/brotchips.png"
+    },
+    // dialog screens
+    {
+        "name": "dialog_paul_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogpaul1.png"
+    },
+    {
+        "name": "dialog_paul_2",
+        "type": "image",
+        "src": "data/img/dialogs/dialogpaul2.png"
+    },
+    {
+        "name": "dialog_paula_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogpaula.png"
     },
     // misc.
     {

@@ -66,7 +66,7 @@ game.DetailedRecipeScreen_2 = me.ScreenObject.extend({
      me.game.world.addChild(
       new me.Sprite (
         0,0,
-        me.loader.getImage('recipe_dummy')
+        me.loader.getImage('recipe_bc')
       ),
       3
     );

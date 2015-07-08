@@ -91,7 +91,6 @@ game.HUD.JRGameController = me.Renderable.extend( {
         
         // add our child score object at the top left corner
         theHUD.addChild(new game.HUD.ScoreItem(380, 20));
-        theHUD.addChild(new game.HUD.WarpItem(10,10));
 
         // Do NOT load any level here if a level is loaded in
         // the playstate object since it will crash the game!
@@ -102,31 +101,4 @@ game.HUD.JRGameController = me.Renderable.extend( {
     }
     return false;
   },
-});
-
-
-game.HUD.WarpItem = me.Renderable.extend({
-    
-
-    //constructor
-    init: function(x,y){
-
-        this._super(me.Renderable, 'init', [x, y, 15, 10])
-    },
-
-    update : function (){
-
-        //changes to area03 on warp-count flip
-        if(game.warp.count == 1){
-           game.warp.count = 0;
-           me.levelDirector.loadLevel("area03");
-           return true;
-        }
-
-        return false;
-    },
-
-    draw : function (renderer) {
- 
-    }
 });

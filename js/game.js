@@ -76,11 +76,6 @@ var game = {
         JR_title        : 7,
         JR_bafoeg       : 8
     },
-    // Maiko's
-    warp : {
-        count : 0
-    },
-
 
     // Run on page load.
     "onload" : function () {
@@ -126,8 +121,8 @@ var game = {
         //add a Page with possible multiple iterations
         //to the entity pool
         me.pool.register("PageEntity", game.PageEntity, true);
-        //add a warp entity
-        me.pool.register("WarpEntity", game.WarpEntity);
+        //add a storage entity
+        me.pool.register("StorageEntity", game.StorageEntity);
 		
         me.pool.register("GoodsEntity", game.GoodsEntity, true);
 		me.pool.register("coin", game.IngredientEntity, true);

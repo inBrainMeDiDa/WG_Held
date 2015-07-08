@@ -2,45 +2,7 @@
  * /  /   /   / / / / / / / / / / / / / /
  *=======================================================================
  */
-/**
- * Warp Entity, (ein unsichtbarer Coin)
- */
- game.WarpEntity = me.CollectableEntity.extend({
 
-  init:function (x, y, settings) {
-        // call the constructor
-           // call the parent constructor
-    this._super(me.CollectableEntity, 'init', [x, y , settings]);
-  
-    this.b_selected = false;
-  },
-
-  update : function (dt) {
-    // handle collisions against other shapes
-    me.collision.check(this);
-
-    // return true if we moved or if the renderable was updated
-    return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
-  },
-
-
-  onCollision : function (response, other) {
-
-    //Warp-Count erhöhen um Levelsprung auszulösen
-    game.warp.count =+ 1;
-
-    console.log(game.warp.count);
-
-     // make sure it cannot be collected "again"
-    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
- 
-    // remove it
-    me.game.world.removeChild(this);
-
-    return false
-  },
-
- })
 
 /**
  * Player Entity
@@ -293,6 +255,47 @@ game.RespawnEntity = me.CollectableEntity.extend({
 
     player.pos.set(this.posX, this.posY);
 
+    return false
+  }
+});
+
+//A storage entity (for goods)
+game.StorageEntity = me.CollectableEntity.extend({
+
+  // extending the init function is not mandatory
+  // unless you need to add some extra initialization
+  init: function(x, y, settings) {
+  
+    // call the parent constructor
+  this._super(me.CollectableEntity, 'init', [x, y , settings]);
+  
+  this.b_selected = false;
+  this.z = 0;
+  
+  // default accel vector
+  this.body.setVelocity(3,15);
+ 
+  },
+ 
+  /**
+   * update the entity
+   */
+  update : function (dt) {
+
+    // handle collisions against other shapes
+    me.collision.check(this);
+
+    // return true if we moved or if the renderable was updated
+    return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+  },
+ 
+  // this function is called by the engine, when
+  // an object is touched by something (here collected)
+  onCollision : function (response, other) {
+    // do something when collided
+
+    // handles the "solidness"  true = things go through
+    //                          false= things don`t go through
     return false
   }
 });

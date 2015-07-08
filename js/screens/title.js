@@ -179,7 +179,6 @@ game.HUD.myButton = me.GUI_Object.extend(
             //Rolls:
             game.data.fridge.rolls += game.data.backpack.rolls;
             game.data.backpack.rolls = 0;
-
             break;
         case game.ultralink.fridge: 
             me.state.set(me.state.TITLE, new game.FridgeScreen());

@@ -56,6 +56,46 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       
 
     })), 3);
+
+    
+    // add the dialog holder
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [32, 500, me.game.viewport.width, me.game.viewport.height]);
+
+        this.name = "dialog_holder";
+        this.dialog_index = 1;
+        this.current_dialog_index = 0;
+        this.bShowDialog = false;
+        this.dialog_sprite = null;
+      },
+
+
+
+      update : function (dt) {
+        return true;
+      },
+
+      draw : function (renderer) {
+        if( !this.bShowDialog && this.current_dialog_index != this.dialog_index )
+        {
+          this.bShowDialog = true;
+          this.current_dialog_index = this.dialog_index;
+
+          if( this.dialog_sprite != null ){
+            me.game.world.removeChild( this.dialog_sprite );
+          }
+          this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paul_1'));
+          if( this.dialog_sprite != null ){
+            this.dialog_sprite.name = "dialog_sprite";
+            me.game.world.addChild( this.dialog_sprite );
+          }    
+        }
+      },
+      
+
+    })), 4);
     
 
     // add the kitchen link

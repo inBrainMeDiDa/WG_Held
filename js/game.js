@@ -59,6 +59,8 @@ var game = {
     // Because it's a cool idea, I call them ultralinks.
     ultralink : {
         nowhere         : 9999,
+        new_game        : 998,
+        resume_game     : 997,
         main_menu       : 0,
         kitchen         : 1,
         fridge          : 2,
@@ -79,8 +81,9 @@ var game = {
         cooking_game_1  : 6,
         living_room     : 7,
         dialog_room     : 8,
-        JR_title        : 9,
-        JR_bafoeg       : 10
+        hall_room       : 9,
+        JR_title        : 10,
+        JR_bafoeg       : 11
     },
     // Maiko's
     warp : {
@@ -98,6 +101,47 @@ var game = {
         }
     },
 
+    reset_game_state : function(){
+        game.data.dialog_pointer = 0;
+
+        game.data.fridge.tomatos         = 0;
+        game.data.fridge.baked_beans     = 0;
+        game.data.fridge.kidney_beans    = 0;
+        game.data.fridge.salat           = 0;
+        game.data.fridge.rolls           = 0; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 0;
+        game.data.fridge.sour_cream      = 0;
+        game.data.fridge.bacon           = 0;
+        game.data.fridge.onions          = 0;
+        game.data.fridge.garlic          = 0; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 0; // = Paprika
+        game.data.fridge.milk            = 0;
+        game.data.fridge.eggs            = 0;
+        game.data.fridge.butter          = 0;
+        game.data.fridge.curd            = 0; // = Quark
+        game.data.fridge.potatoes        = 0;
+        game.data.fridge.pasta           = 0;
+        game.data.fridge.mozzarella      = 0;
+
+        game.data.backpack.tomatos         = 0;
+        game.data.backpack.baked_beans     = 0;
+        game.data.backpack.kidney_beans    = 0;
+        game.data.backpack.salat           = 0;
+        game.data.backpack.rolls           = 0; // = Semmeln
+        game.data.backpack.tortilla_wraps  = 0;
+        game.data.backpack.sour_cream      = 0;
+        game.data.backpack.bacon           = 0;
+        game.data.backpack.onions          = 0;
+        game.data.backpack.garlic          = 0; // = Knoblauch
+        game.data.backpack.sweet_pepper    = 0; // = Paprika
+        game.data.backpack.milk            = 0;
+        game.data.backpack.eggs            = 0;
+        game.data.backpack.butter          = 0;
+        game.data.backpack.curd            = 0; // = Quark
+        game.data.backpack.potatoes        = 0;
+        game.data.backpack.pasta           = 0;
+        game.data.backpack.mozzarella      = 0;
+    },
 
     // Run on page load.
     "onload" : function () {

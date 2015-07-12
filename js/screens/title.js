@@ -44,9 +44,13 @@ game.TitleScreen = me.ScreenObject.extend({
  
       draw : function (renderer) {
         this.font.draw(renderer, "WG-HELD !", 320, 120);
-        this.font.draw(renderer, "DEMOS:", 360, 300);
-        this.font.draw(renderer, " JUMP+RUN", 400, 432);
-        this.font.draw(renderer, " WG", 310, 504);
+        this.font.draw(renderer, " JUMP+RUN", 400, 332);
+        this.font.draw(renderer, " NEUES SPIEL", 350, 414);
+        if( game.data.dialog_pointer > 0 ){
+          this.font.draw(renderer, " SPIEL FORTSETZEN", 310, 484);
+        }
+        
+
         this.font.draw(renderer, this.scroller, this.scrollerpos, 568);
       },
       onDestroyEvent : function() {
@@ -75,15 +79,25 @@ game.TitleScreen = me.ScreenObject.extend({
       bInitialized = true;
     }
 
-    // add the cooking game demo button
-    var button = new game.HUD.myButton(250, 480, "button_arrow_right", 64,64);
+    // add the new game button
+    var button = new game.HUD.myButton(270, 390, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.living_room );
+      button.setHyperlink( game.ultralink.new_game );
     }
     me.game.world.addChild( button );
 
+    if( game.data.dialog_pointer > 0 )
+    {
+      // add the resume game button
+      button = new game.HUD.myButton(250, 460, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.resume_game );
+      }
+      me.game.world.addChild( button );
+    }
+    
     // add the J&R game demo button
-    button = new game.HUD.myButton(330, 400, "button_arrow_right", 64,64);
+    button = new game.HUD.myButton(330, 300, "button_arrow_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.JR_title );
     }
@@ -158,6 +172,10 @@ game.HUD.myButton = me.GUI_Object.extend(
       }
       // do something
       switch( this.link_destination ){
+        case game.ultralink.new_game:
+            // reset game state, then pass on to living_room
+            game.reset_game_state(); 
+        case game.ultralink.resume_game: // just pass on to living_room
         case game.ultralink.living_room: 
 
             // on first visit, link directly to dialog screen
@@ -196,6 +214,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             game.data.fridge.rolls += game.data.backpack.rolls;
             game.data.backpack.rolls = 0;
 
+            break;
+        case game.ultralink.hall_room: 
+            me.state.set(me.state.TITLE, new game.HallScreen());
+            me.state.change(me.state.TITLE);
             break;
         case game.ultralink.fridge: 
             me.state.set(me.state.TITLE, new game.FridgeScreen());

@@ -32,7 +32,7 @@ game.resources = [
     {
         "name": "32x32_font",
         "type": "image",
-        "src": "data/img/font/32x32_font.png"
+        "src": "data/img/font/font2.png"
     },
     {
         "name": "title_screen",
@@ -288,6 +288,11 @@ game.resources = [
         "name": "Musiker_WG_Bew",
         "type": "image",
         "src": "data/img/mitbewohner.png"
+    },
+    {
+        "name": "Musiker_WG_Diele_BG",
+        "type": "image",
+        "src": "data/img/Diele.png"
     },
     //JnR resource files
 

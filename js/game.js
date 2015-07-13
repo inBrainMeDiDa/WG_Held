@@ -34,6 +34,8 @@ var game = {
         },
 
         backpack : {
+            load            : 0, // = space in backpack
+
             tomatos         : 0,
             baked_beans     : 0,
             kidney_beans    : 0,

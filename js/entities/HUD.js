@@ -93,6 +93,33 @@ game.HUD.ScoreItem = me.Renderable.extend( {
   }
 });
 
+game.HUD.BackpackItem = me.Renderable.extend({
+    
+
+    //constructor
+    init: function(x,y){
+
+        this._super(me.Renderable, 'init', [x, y, 15, 10]);
+
+   
+    },
+
+    update : function (){
+
+        
+        if(game.data.backpack.tomatos > 0){
+          bp.push('tomato');
+          bp.push();
+        }
+
+        return false;
+    },
+
+    draw : function (renderer) {
+ 
+    }
+});
+
 // time display and main game clock
 game.HUD.TimerItem = me.Renderable.extend( {
   /**

@@ -199,8 +199,15 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.kitchen: 
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
             me.state.change(me.state.TITLE);
+            //delete the backpack onscreen
+            game.killDisplayBackpack("backpack_icon_1");
+            game.killDisplayBackpack("backpack_icon_2");
+            game.killDisplayBackpack("backpack_icon_3");
+            game.killDisplayBackpack("backpack_icon_4");
+            game.emptyDisplayBackpack();
             // Fill the fridge with the stuff from your backpack
             // when entering the kitchen
+            game.data.backpackLoad = 0;
             //Tomatos:
             game.data.fridge.tomatos += game.data.backpack.tomatos;
             game.data.backpack.tomatos = 0;
@@ -321,6 +328,11 @@ game.HUD.Button_BackToMain = me.GUI_Object.extend(
 
       me.state.set(me.state.TITLE, new game.TitleScreen());
       me.state.change(me.state.TITLE);
+      game.killDisplayBackpack("backpack_icon_1");
+      game.killDisplayBackpack("backpack_icon_2");
+      game.killDisplayBackpack("backpack_icon_3");
+      game.killDisplayBackpack("backpack_icon_4");
+      game.emptyDisplayBackpack();
       return false;
    },
 });

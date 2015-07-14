@@ -94,29 +94,38 @@ game.HUD.ScoreItem = me.Renderable.extend( {
 });
 
 game.HUD.BackpackItem = me.Renderable.extend({
-    
-
     //constructor
-    init: function(x,y){
+    init: function(x, y){
 
         this._super(me.Renderable, 'init', [x, y, 15, 10]);
-
+       // var bp = [4];
+        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font.set("left");
+      },
    
-    },
+    // --> game.data.backpack[key] <---
 
     update : function (){
 
-        
-        if(game.data.backpack.tomatos > 0){
-          bp.push('tomato');
-          bp.push();
-        }
+            //for (var key in game.data.backpack) {
+            //  if (game.data.backpack.hasOwnProperty(key)) {
+            //    if(game.data.backpack[key] > 0){
+            //      for(i = 0; i < game.data.backpack[key]; i++){
+           //         console.log(key);
+            //      }
+            //    }
+            //  }
+            //}
 
+         // console.log("Rucksack Item an Stelle 0: " + bp[0] + "\n"
+           //         + "Rucksack Item an Stelle 1: " + bp[1] + "\n" 
+             //       + "Rucksack Item an Stelle 2: " + bp[2] + "\n" 
+               //     + "Rucksack Item an Stelle 3: " + bp[3] + "\n" );
         return false;
     },
 
     draw : function (renderer) {
- 
+      this.font.draw (renderer, "RUCKSACK: ", this.pos.x, this.pos.y);
     }
 });
 

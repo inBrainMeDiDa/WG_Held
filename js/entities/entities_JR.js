@@ -152,6 +152,7 @@ game.PlayerEntity = me.Entity.extend({
   this.body.setVelocity(3,15);
  
   },
+
    /**
    * update the entity
    */
@@ -168,16 +169,22 @@ game.PlayerEntity = me.Entity.extend({
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
     // do something when collected
-    if(this.description == "tomatos"){
-      game.data.backpack.tomatos += 1;
-      console.log("Tomaten im Rucksack: " + game.data.backpack.tomatos );
-    }else if(this.description == "baked_beans"){
-      game.data.backpack.baked_beans += 1;
-    }else if(this.description == "kidney_beans"){
-      game.data.backpack.kidney_beans += 1;
-    }else if(this.description == "rolls"){
-      game.data.backpack.rolls += 1;
-    }
+    if(game.data.backpackLoad < 4){
+      if(this.description == "tomatos"){
+        game.data.backpack.tomatos += 1;
+        game.data.backpackLoad += 1;
+        game.updateDisplayBackpack("Tomate_jr");
+      }else if(this.description == "baked_beans"){
+        game.data.backpack.baked_beans += 1;
+        game.data.backpackLoad += 1;
+      }else if(this.description == "kidney_beans"){
+        game.data.backpack.kidney_beans += 1;
+        game.data.backpackLoad += 1;
+      }else if(this.description == "rolls"){
+        game.data.backpack.rolls += 1;
+        game.data.backpackLoad += 1;
+      }
+
 
     //give some score
     game.data.score += 1;
@@ -192,6 +199,7 @@ game.PlayerEntity = me.Entity.extend({
  
     // remove it
     me.game.world.removeChild(this);
+  }
   
     return false
   }

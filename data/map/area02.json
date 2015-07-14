@@ -319,7 +319,7 @@
                 }, 
                 {
                  "height":40,
-                 "id":37,
+                 "id":41,
                  "name":"GoodsEntity",
                  "properties":
                     {
@@ -332,8 +332,80 @@
                  "type":"",
                  "visible":true,
                  "width":44,
-                 "x":215,
-                 "y":261
+                 "x":216,
+                 "y":154
+                }, 
+                {
+                 "height":40,
+                 "id":43,
+                 "name":"GoodsEntity",
+                 "properties":
+                    {
+                     "description":"tomatos",
+                     "image":"Tomate_jr",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":266,
+                 "y":265
+                }, 
+                {
+                 "height":40,
+                 "id":44,
+                 "name":"GoodsEntity",
+                 "properties":
+                    {
+                     "description":"tomatos",
+                     "image":"Tomate_jr",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":164,
+                 "y":271
+                }, 
+                {
+                 "height":40,
+                 "id":45,
+                 "name":"GoodsEntity",
+                 "properties":
+                    {
+                     "description":"tomatos",
+                     "image":"Tomate_jr",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":582,
+                 "y":204
+                }, 
+                {
+                 "height":40,
+                 "id":46,
+                 "name":"GoodsEntity",
+                 "properties":
+                    {
+                     "description":"tomatos",
+                     "image":"Tomate_jr",
+                     "spriteheight":"32",
+                     "spritewidth":"32"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":482,
+                 "y":296
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -342,7 +414,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":39,
+ "nextobjectid":47,
  "orientation":"orthogonal",
  "properties":
     {

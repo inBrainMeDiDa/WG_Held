@@ -34,11 +34,12 @@ var game = {
             mozzarella      : 0,
         },
 
-        backpack : {
-            load            : 0, // = space in backpack
+        backpackLoad : 0, // = space in backpack
 
+
+        backpack : {
             tomatos         : 0,
-            cheese          : 1,
+            cheese          : 0,
             baked_beans     : 0,
             kidney_beans    : 0,
             salat           : 0,
@@ -57,7 +58,13 @@ var game = {
             pasta           : 0,
             mozzarella      : 0,
         },
-        
+
+        displayBackpack : {
+        position1 : "",
+        position2 : "",
+        position3 : "",
+        position4 : "",
+        },  
     },
     // global hyperlinks used for navigation between screens.
     // Because it's a cool idea, I call them ultralinks.
@@ -89,10 +96,72 @@ var game = {
         JR_title        : 10,
         JR_bafoeg       : 11
     },
-    // Maiko's
-    warp : {
-        count : 0
+
+    emptyDisplayBackpack : function(){
+        game.data.displayBackpack.position1 = "";
+        game.data.displayBackpack.position2 = "";
+        game.data.displayBackpack.position3 = "";
+        game.data.displayBackpack.position4 = "";
     },
+
+    killDisplayBackpack : function(string){
+        icon = me.game.world.getChildByName(string);
+      for( var i=0; i < icon.length; ++i){
+        me.game.world.removeChild(icon[i]);
+      }
+    },
+ 
+    updateDisplayBackpack : function(string){
+    var icon = null;
+
+    if(game.data.displayBackpack.position1 == ""){
+      game.data.displayBackpack.position1 = string;
+
+      this.killDisplayBackpack("backpack_icon_1");
+      icon =  new game.HUD.myCanvas(294, 525,string, 32, 32);
+      if( icon != null ){
+        icon.name = "backpack_icon_1";
+        // persistent across level change
+        icon.isPersistent = true;
+        me.game.world.addChild( icon , Infinity);
+        console.log("child added. "+string);
+      }   
+    }else if(game.data.displayBackpack.position2 == ""){
+      game.data.displayBackpack.position2 = string;
+
+    this.killDisplayBackpack("backpack_icon_2");
+      icon =  new game.HUD.myCanvas(326, 525,string, 32, 32);
+      if( icon != null ){
+        icon.name = "backpack_icon_2";
+        // persistent across level change
+        icon.isPersistent = true;
+        me.game.world.addChild( icon , Infinity);
+      }
+    }else if(game.data.displayBackpack.position3 == ""){
+      game.data.displayBackpack.position3 = string;
+
+    this.killDisplayBackpack("backpack_icon_3");
+      icon =  new game.HUD.myCanvas(294, 560,string, 32, 32);
+      if( icon != null ){
+        icon.name = "backpack_icon_3";
+        // persistent across level change
+        icon.isPersistent = true;
+        me.game.world.addChild( icon , Infinity );
+      }
+    }else if(game.data.displayBackpack.position4 == ""){
+      game.data.displayBackpack.position4 = string;
+
+    this.killDisplayBackpack("backpack_icon_4");
+      icon =  new game.HUD.myCanvas(326, 560,string, 32, 32);
+      if( icon != null ){
+        icon.name = "backpack_icon_4";
+        // persistent across level change
+        icon.isPersistent = true;
+        me.game.world.addChild( icon , Infinity);
+      }
+    }
+  },
+
 
     update_dialog_pointer : function(){
         switch( game.data.dialog_pointer ){

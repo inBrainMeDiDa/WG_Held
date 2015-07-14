@@ -97,7 +97,7 @@ var game = {
     update_dialog_pointer : function(){
         switch( game.data.dialog_pointer ){
             // exit after first sequence
-            case 4:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+            case 5:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
                      break;
             default: game.data.dialog_pointer += 1;

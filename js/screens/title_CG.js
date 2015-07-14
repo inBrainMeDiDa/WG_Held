@@ -49,7 +49,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     
 
     // add the cooking book button
-    var button = new game.HUD.myButton(250, 272, "kochbuch_zu", 128,128);
+    var button = new game.HUD.myButton(340, 260, "kochbuch_zu", 128,128);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
       button.setMouseOverText("KOCHBUCH");
@@ -71,6 +71,22 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       button.setMouseOverText("KUEHLSCHRANK");
     }
     me.game.world.addChild( button, 4 );
+
+    // spices
+    button = new game.HUD.myButton( 100, 250, "Spices_tex", 128, 128);
+    if( button ){
+      button.setHyperlink( game.ultralink.nowhere );
+      button.setMouseOverText("GEWUERZE: VOLL");
+    }
+    me.game.world.addChild( button , 4);
+
+    // fruit basket
+    button = new game.HUD.myButton( 220, 220, "Fruits_tex", 128, 128);
+    if( button ){
+      button.setHyperlink( game.ultralink.nowhere );
+      button.setMouseOverText("OBSTKORB: VOLL");
+    }
+    me.game.world.addChild( button , 4);
 
     // add bottom bar with z-index 3
     me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
@@ -199,7 +215,34 @@ game.FridgeScreen = me.ScreenObject.extend({
         ingredient.setHyperlink( game.ultralink.nowhere );
         ingredient.setMouseOverText("QUARK:"+game.data.fridge.curd);
       }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // mozarella
+    if( game.data.fridge.mozzarella > 0 ){
+      ingredient = new game.HUD.myButton( 400, 70, "Mozarella_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("MOZARELLA:"+game.data.fridge.mozzarella);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // sweet pepper
+    if( game.data.fridge.sweet_pepper > 0 ){
+      ingredient = new game.HUD.myButton( 150, 16, "Paprika_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("PAPRIKA:"+game.data.fridge.sweet_pepper);
+      }
       me.game.world.addChild( ingredient , 4);
+    }
+    // bacon
+    if( game.data.fridge.bacon > 0 ){
+      ingredient = new game.HUD.myButton( 260, 50, "Schinken_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("SCHINKEN:"+game.data.fridge.bacon);
+      }
+      me.game.world.addChild( ingredient , 3);
     }
 
     // add the back (to kitchen) button

@@ -231,6 +231,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/dialogs/dialogpaula2.png"
     },
+     {
+        "name": "dialog_a_brotchips",
+        "type": "image",
+        "src": "data/img/dialogs/dialogAutragBrotchips.png"
+    },
     // misc.
     {
         "name": "kochbuch_zu",

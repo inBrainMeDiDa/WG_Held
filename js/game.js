@@ -106,24 +106,24 @@ var game = {
     reset_game_state : function(){
         game.data.dialog_pointer = 0;
 
-        game.data.fridge.tomatos         = 0;
-        game.data.fridge.baked_beans     = 0;
-        game.data.fridge.kidney_beans    = 0;
-        game.data.fridge.salat           = 0;
-        game.data.fridge.rolls           = 0; // = Semmeln
-        game.data.fridge.tortilla_wraps  = 0;
-        game.data.fridge.sour_cream      = 0;
-        game.data.fridge.bacon           = 0;
-        game.data.fridge.onions          = 0;
-        game.data.fridge.garlic          = 0; // = Knoblauch
-        game.data.fridge.sweet_pepper    = 0; // = Paprika
-        game.data.fridge.milk            = 0;
-        game.data.fridge.eggs            = 0;
-        game.data.fridge.butter          = 0;
-        game.data.fridge.curd            = 0; // = Quark
-        game.data.fridge.potatoes        = 0;
-        game.data.fridge.pasta           = 0;
-        game.data.fridge.mozzarella      = 0;
+        game.data.fridge.tomatos         = 3;
+        game.data.fridge.baked_beans     = 1;
+        game.data.fridge.kidney_beans    = 1;
+        game.data.fridge.salat           = 1;
+        game.data.fridge.rolls           = 1; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 1;
+        game.data.fridge.sour_cream      = 1;
+        game.data.fridge.bacon           = 1;
+        game.data.fridge.onions          = 1;
+        game.data.fridge.garlic          = 1; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 1; // = Paprika
+        game.data.fridge.milk            = 1;
+        game.data.fridge.eggs            = 1;
+        game.data.fridge.butter          = 1;
+        game.data.fridge.curd            = 1; // = Quark
+        game.data.fridge.potatoes        = 1;
+        game.data.fridge.pasta           = 1;
+        game.data.fridge.mozzarella      = 1;
 
         game.data.backpack.tomatos         = 0;
         game.data.backpack.baked_beans     = 0;
@@ -194,9 +194,29 @@ var game = {
 		
         me.pool.register("GoodsEntity", game.GoodsEntity, true);
 		me.pool.register("coin", game.IngredientEntity, true);
+
+        // register ingredient entities
 		me.pool.register("tomato", game.IngredientEntity, true);
 		me.pool.register("kaese", game.IngredientEntity, true);
         me.pool.register("baked_beans", game.IngredientEntity, true);
+        me.pool.register("kidney_beans", game.IngredientEntity, true);
+        me.pool.register("butter", game.IngredientEntity, true);
+        me.pool.register("chips", game.IngredientEntity, true);
+        me.pool.register("eggs", game.IngredientEntity, true);
+        me.pool.register("potatoes", game.IngredientEntity, true);
+        me.pool.register("garlic", game.IngredientEntity, true);
+        me.pool.register("milk", game.IngredientEntity, true);
+        me.pool.register("mozzarella", game.IngredientEntity, true);
+        me.pool.register("pasta", game.IngredientEntity, true);
+        me.pool.register("sweet_pepper", game.IngredientEntity, true);
+        me.pool.register("curd", game.IngredientEntity, true);
+        me.pool.register("sour_cream", game.IngredientEntity, true);
+        me.pool.register("bacon", game.IngredientEntity, true);
+        me.pool.register("rolls", game.IngredientEntity, true);
+        me.pool.register("tortilla_wraps", game.IngredientEntity, true);
+        me.pool.register("onions", game.IngredientEntity, true);
+
+
 		me.pool.register("pot", game.PotOfWisdomEntity,true);
 
          //new game

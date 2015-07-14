@@ -20,16 +20,6 @@ game.resources = [
         "src": "data/sfx/"
     },
     {
-        "name": "area01_bkg0",
-        "type": "image",
-        "src": "data/img/area01_bkg0.png"
-    },
-    {
-        "name": "area01_bkg1",
-        "type": "image",
-        "src": "data/img/area01_bkg1.png"
-    },
-    {
         "name": "32x32_font",
         "type": "image",
         "src": "data/img/font/font2.png"
@@ -43,21 +33,6 @@ game.resources = [
         "name": "area01_level_tiles",
         "type": "image",
         "src": "data/img/map/area01_level_tiles.png"
-    },
-    {
-        "name": "gripe_run_right",
-        "type": "image",
-        "src": "data/img/sprite/gripe_run_right.png"
-    },
-    {
-        "name": "spinning_coin_gold",
-        "type": "image",
-        "src": "data/img/sprite/spinning_coin_gold.png"
-    },
-    {
-        "name": "wheelie_right",
-        "type": "image",
-        "src": "data/img/sprite/wheelie_right.png"
     },
 	{
         "name": "bottom_bar",
@@ -108,6 +83,91 @@ game.resources = [
         "name": "KidneyBohnenCan_textur",
         "type": "image",
         "src": "data/img/sprite/KidneyBohnenDose.png"
+    },
+    {
+        "name": "Butter_textur",
+        "type": "image",
+        "src": "data/img/sprite/butter.png"
+    },
+    {
+        "name": "Chips_textur",
+        "type": "image",
+        "src": "data/img/sprite/Chips.png"
+    },
+    {
+        "name": "Eier_textur",
+        "type": "image",
+        "src": "data/img/sprite/eier.png"
+    },
+    {
+        "name": "Spices_tex",
+        "type": "image",
+        "src": "data/img/sprite/gewuerzregal.png"
+    },
+    {
+        "name": "Fruits_tex",
+        "type": "image",
+        "src": "data/img/sprite/Obstkorb.png"
+    },
+    {
+        "name": "Kartoffel_textur",
+        "type": "image",
+        "src": "data/img/sprite/kartoffeln.png"
+    },
+    {
+        "name": "Knoblauch_textur",
+        "type": "image",
+        "src": "data/img/sprite/Knoblauch.png"
+    },
+    {
+        "name": "Milch_textur",
+        "type": "image",
+        "src": "data/img/sprite/milch.png"
+    },
+    {
+        "name": "Mozarella_textur",
+        "type": "image",
+        "src": "data/img/sprite/mozarella.png"
+    },
+    {
+        "name": "Nudeln_textur",
+        "type": "image",
+        "src": "data/img/sprite/nudeln.png"
+    },
+    {
+        "name": "Paprika_textur",
+        "type": "image",
+        "src": "data/img/sprite/paprika.png"
+    },
+    {
+        "name": "Quark_textur",
+        "type": "image",
+        "src": "data/img/sprite/quark.png"
+    },
+    {
+        "name": "SaureSahne_textur",
+        "type": "image",
+        "src": "data/img/sprite/saure-sahne.png"
+    },
+    {
+        "name": "Schinken_textur",
+        "type": "image",
+        "src": "data/img/sprite/Schinken.png"
+    },
+    {
+        "name": "Semmeln_textur",
+        "type": "image",
+        "src": "data/img/sprite/Semmel.png"
+    },
+    {
+        "name": "Wraps_textur",
+        "type": "image",
+        "src": "data/img/sprite/TortillaWraps.png"
+    },
+    {
+        "name": "Zwiebel_textur",
+        "type": "image",
+        "src": "data/img/sprite/Zwiebel.png"
     },
 	{
         "name": "Topf",

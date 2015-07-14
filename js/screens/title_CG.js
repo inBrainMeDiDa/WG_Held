@@ -156,6 +156,51 @@ game.FridgeScreen = me.ScreenObject.extend({
       }
       me.game.world.addChild( ingredient , 4);
     }
+    // sour cream
+    if( game.data.fridge.sour_cream > 0 ){
+      ingredient = new game.HUD.myButton( 192, 150, "SaureSahne_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("SAURE SAHNE:"+game.data.fridge.sour_cream);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
+    // eggs
+    if( game.data.fridge.eggs > 0 ){
+      ingredient = new game.HUD.myButton( 240, 280, "Eier_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("EIER:"+game.data.fridge.eggs);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
+    // butter
+    if( game.data.fridge.butter > 0 ){
+      ingredient = new game.HUD.myButton( 80, 220, "Butter_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("BUTTER:"+game.data.fridge.butter);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // cheese
+    if( game.data.fridge.cheese > 0 ){
+      ingredient = new game.HUD.myButton( 256, 150, "Kaese_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("KAESE:"+game.data.fridge.cheese);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // curd
+    if( game.data.fridge.curd > 0 ){
+      ingredient = new game.HUD.myButton( 500, 80, "Quark_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("QUARK:"+game.data.fridge.curd);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
 
     // add the back (to kitchen) button
     var button = new game.HUD.myButton(720, 480, "button_back", 64,64);

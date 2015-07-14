@@ -14,6 +14,7 @@ var game = {
         // ingredient storage
         fridge : {
             tomatos         : 3,
+            cheese          : 1,
             baked_beans     : 1,
             kidney_beans    : 1,
             salat           : 1,
@@ -37,6 +38,7 @@ var game = {
             load            : 0, // = space in backpack
 
             tomatos         : 0,
+            cheese          : 1,
             baked_beans     : 0,
             kidney_beans    : 0,
             salat           : 0,
@@ -107,6 +109,7 @@ var game = {
         game.data.dialog_pointer = 0;
 
         game.data.fridge.tomatos         = 3;
+        game.data.fridge.cheese          = 1;
         game.data.fridge.baked_beans     = 1;
         game.data.fridge.kidney_beans    = 1;
         game.data.fridge.salat           = 1;
@@ -230,5 +233,11 @@ var game = {
 				
         // Start the game.
         me.state.change(me.state.MENU);
+
+        // FOR TESTING THE FRIDGE
+        /*game.reset_game_state(); 
+        me.state.set(me.state.TITLE, new game.FridgeScreen());
+        me.state.change(me.state.TITLE);
+        */
     }
 };

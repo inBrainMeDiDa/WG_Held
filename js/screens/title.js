@@ -175,12 +175,6 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.new_game:
             // reset game state, then pass on to living_room
             game.reset_game_state(); 
-
-            // FOR TESTING THE FRIDGE
-            me.state.set(me.state.TITLE, new game.FridgeScreen());
-            me.state.change(me.state.TITLE);
-            break;
-
         case game.ultralink.resume_game: // just pass on to living_room
         case game.ultralink.living_room: 
 

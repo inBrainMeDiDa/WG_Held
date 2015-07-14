@@ -64,11 +64,19 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     }
     me.game.world.addChild( button, 4 );
 
-     // add the fridge link
+    // add the fridge link
     button = new game.HUD.myButton(64, 360, "button_arrow_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.fridge );
       button.setMouseOverText("KUEHLSCHRANK");
+    }
+    me.game.world.addChild( button, 4 );
+
+    // add the shelf link
+    button = new game.HUD.myButton(64, 100, "button_arrow_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.shelf );
+      button.setMouseOverText("REGAL");
     }
     me.game.world.addChild( button, 4 );
 
@@ -155,22 +163,12 @@ game.FridgeScreen = me.ScreenObject.extend({
     // tomatos
     if( game.data.fridge.tomatos > 0 ){
       //me.game.world.addChild( new me.Sprite ( 128, 150, me.loader.getImage('Tomate') ), 3 );
-      ingredient = new game.HUD.myButton( 128, 150, "Tomate", 128, 128);
+      ingredient = new game.HUD.myButton( 64, 150, "Tomate", 128, 128);
       if( ingredient ){
         ingredient.setHyperlink( game.ultralink.nowhere );
         ingredient.setMouseOverText("TOMATEN:"+game.data.fridge.tomatos);
       }
       me.game.world.addChild( ingredient , 3);
-    }
-    // baked beans
-    if( game.data.fridge.baked_beans > 0 ){
-       //me.game.world.addChild( new me.Sprite ( 64, 150, me.loader.getImage('BakedBeansCan_textur') ), 4 );
-      ingredient = new game.HUD.myButton( 64, 150, "BakedBeansCan_textur", 128, 128);
-      if( ingredient ){
-        ingredient.setHyperlink( game.ultralink.nowhere );
-        ingredient.setMouseOverText("BAKED BEANS:"+game.data.fridge.baked_beans);
-      }
-      me.game.world.addChild( ingredient , 4);
     }
     // sour cream
     if( game.data.fridge.sour_cream > 0 ){
@@ -241,6 +239,166 @@ game.FridgeScreen = me.ScreenObject.extend({
       if( ingredient ){
         ingredient.setHyperlink( game.ultralink.nowhere );
         ingredient.setMouseOverText("SCHINKEN:"+game.data.fridge.bacon);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+
+    // add the back (to kitchen) button
+    var button = new game.HUD.myButton(720, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+      button.setMouseOverText("KUECHE");
+    }
+    me.game.world.addChild( button , 4);
+
+    // add bottom bar with z-index 3
+    me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
+  },
+
+ 
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  Shelft Screen
+ */
+game.ShelfScreen = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Regal_BG')
+      ),
+      2
+    );
+
+    // add a new renderable component to draw some text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font
+        this.font = new me.BitmapFont("32x32_font", 32);
+        this.name = "mouse_over_text_holder";
+        this.mouse_over_text = null;
+      },
+      update : function (dt) {
+        return true;
+      },
+      
+      drawMouseOverText : function(text){
+        this.mouse_over_text = text;       
+      },
+
+      draw : function (renderer) {
+
+        if( this.mouse_over_text != null ){
+          this.font.draw(renderer, this.mouse_over_text, 200, 500, "center");
+          this.mouse_over_text = null;
+        }
+      },
+      
+
+    })), 3);
+
+    // fill with available ingredients with z-index 3 or higher
+    var ingredient = null;
+    // bread rolls
+    if( game.data.fridge.rolls > 0 ){
+      ingredient = new game.HUD.myButton( 200, 290, "Semmeln_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("BROT:"+game.data.fridge.rolls);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // potatoes
+    if( game.data.fridge.potatoes > 0 ){
+      ingredient = new game.HUD.myButton( 320, 280, "Kartoffel_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("KARTOFFELN:"+game.data.fridge.potatoes);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // garlic
+    if( game.data.fridge.garlic > 0 ){
+      ingredient = new game.HUD.myButton( 440, 280, "Knoblauch_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("KNOBLAUCH:"+game.data.fridge.garlic);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
+    // onions
+    if( game.data.fridge.onions > 0 ){
+      ingredient = new game.HUD.myButton( 540, 280, "Zwiebel_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("ZWIEBELN:"+game.data.fridge.onions);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // milk
+    if( game.data.fridge.milk > 0 ){
+      ingredient = new game.HUD.myButton( 100, 280, "Milch_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("H-MILCH:"+game.data.fridge.milk);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // pasta
+    if( game.data.fridge.pasta > 0 ){
+      ingredient = new game.HUD.myButton( 100, 80, "Nudeln_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("NUDELN:"+game.data.fridge.pasta);
+      }
+      me.game.world.addChild( ingredient , 4);
+    }
+    // wraps
+    if( game.data.fridge.tortilla_wraps > 0 ){
+      ingredient = new game.HUD.myButton( 180, 80, "Wraps_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("WRAPS:"+game.data.fridge.tortilla_wraps);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // kidney beans
+    if( game.data.fridge.kidney_beans > 0 ){
+      ingredient = new game.HUD.myButton( 280, 80, "KidneyBohnenCan_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("KIDNEY BOHNEN:"+game.data.fridge.kidney_beans);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // baked beans
+    if( game.data.fridge.baked_beans > 0 ){
+      ingredient = new game.HUD.myButton( 380, 80, "BakedBeansCan_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("BAKED BEANS:"+game.data.fridge.baked_beans);
+      }
+      me.game.world.addChild( ingredient , 3);
+    }
+    // chips
+    if( game.data.fridge.chips > 0 ){
+      ingredient = new game.HUD.myButton( 530, 72, "Chips_textur", 128, 128);
+      if( ingredient ){
+        ingredient.setHyperlink( game.ultralink.nowhere );
+        ingredient.setMouseOverText("CHIPS:"+game.data.fridge.chips);
       }
       me.game.world.addChild( ingredient , 3);
     }
@@ -365,8 +523,8 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 100);
         this.font.draw(renderer, "MIT TOMATEN", 128, 150);
-        this.font.draw(renderer, "TOMATEN:", 128, 250); this.font.draw(renderer, game.data.fridge.tomatos+"/2", 432, 250);
-        this.font.draw(renderer, "BAKED BEANS:", 128, 300); this.font.draw(renderer, game.data.fridge.baked_beans+"/1", 432, 300);
+        this.font.draw(renderer, "2 TOMATEN", 128, 250);
+        this.font.draw(renderer, "1 BAKED BEANS", 128, 300);
 
         if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 ){
           this.font.draw(renderer, " START", 250, 500);
@@ -458,10 +616,10 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "BROTCHIPS", 128, 100);
    
-        this.font.draw(renderer, "BROT:", 128, 250); this.font.draw(renderer, game.data.fridge.rolls+"/1", 432, 250);
-        this.font.draw(renderer, "BUTTER:", 128, 300); this.font.draw(renderer, game.data.fridge.butter+"/1", 432, 300);
-        this.font.draw(renderer, "ZWIEBEL:", 128, 350); this.font.draw(renderer, game.data.fridge.onions+"/1", 432, 350);
-        this.font.draw(renderer, "KNOBLAUCH:", 128, 400); this.font.draw(renderer, game.data.fridge.garlic+"/1", 432, 400);
+        this.font.draw(renderer, "BROT:", 128, 250);
+        this.font.draw(renderer, "BUTTER:", 128, 300); 
+        this.font.draw(renderer, "1 ZWIEBEL:", 128, 350); 
+        this.font.draw(renderer, "1 KNOBLAUCH:", 128, 400); 
         
 
         if( game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
@@ -556,11 +714,11 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "FLAMMKUCHEN", 128, 100);
    
-        this.font.draw(renderer, "WRAPS:", 128, 250); this.font.draw(renderer, game.data.fridge.tortilla_wraps+"/1", 432, 250);
-        this.font.draw(renderer, "SAURE SAHNE:", 128, 300); this.font.draw(renderer, game.data.fridge.sour_cream+"/2", 432, 300);
-        this.font.draw(renderer, "ZWIEBEL:", 128, 350); this.font.draw(renderer, game.data.fridge.onions+"/1", 432, 350);
-        this.font.draw(renderer, "PAPRIKA:", 128, 400); this.font.draw(renderer, game.data.fridge.sweet_pepper+"/1", 432, 400);
-        this.font.draw(renderer, "SCHINKEN:", 128, 450); this.font.draw(renderer, game.data.fridge.bacon+"/1", 432, 450);
+        this.font.draw(renderer, "WRAPS", 128, 250);
+        this.font.draw(renderer, "2 SAURE SAHNE", 128, 300);
+        this.font.draw(renderer, "1 ZWIEBEL", 128, 350); 
+        this.font.draw(renderer, "1 PAPRIKA", 128, 400);
+        this.font.draw(renderer, "1 SCHINKEN", 128, 450);
         
 
         if( game.data.fridge.wraps > 0 && game.data.fridge.sour_cream > 1 &&
@@ -656,11 +814,11 @@ game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "GRIESSBREI", 128, 100);
    
-        this.font.draw(renderer, "MILCH:", 128, 250); this.font.draw(renderer, game.data.fridge.milk+"/1", 432, 250);
-        this.font.draw(renderer, "BUTTER:", 128, 300); this.font.draw(renderer, game.data.fridge.butter+"/2", 432, 300);
-        this.font.draw(renderer, "EIER:", 128, 350); this.font.draw(renderer, game.data.fridge.eggs+"/1", 432, 350);
-        this.font.draw(renderer, "GRIESS:", 128, 400); this.font.draw(renderer, "1/1", 432, 400);
-        this.font.draw(renderer, "ZUCKER:", 128, 450); this.font.draw(renderer, "1/1", 432, 450);
+        this.font.draw(renderer, "MILCH:", 128, 250); 
+        this.font.draw(renderer, "BUTTER", 128, 300);
+        this.font.draw(renderer, "2 EIER", 128, 350);
+        this.font.draw(renderer, "GRIESS (DA)", 128, 400);
+        this.font.draw(renderer, "ZUCKER (DA)", 128, 450);
         
 
         if( game.data.fridge.milk > 0 && game.data.fridge.butter > 0 && game.data.fridge.eggs > 0 )

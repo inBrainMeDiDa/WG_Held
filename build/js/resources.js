@@ -330,6 +330,11 @@ game.resources = [
         "src": "data/img/Kueche_BG.png"
     },
     {
+        "name": "Regal_BG",
+        "type": "image",
+        "src": "data/img/Regalbrett.png"
+    },
+    {
         "name": "Amt_aussen_BG",
         "type": "image",
         "src": "data/img/Amt_aussen_BG.png"

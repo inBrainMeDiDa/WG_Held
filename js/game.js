@@ -15,6 +15,7 @@ var game = {
         fridge : {
             tomatos         : 3,
             cheese          : 1,
+            chips           : 0,
             baked_beans     : 1,
             kidney_beans    : 1,
             salat           : 1,
@@ -38,7 +39,8 @@ var game = {
             load            : 0, // = space in backpack
 
             tomatos         : 0,
-            cheese          : 1,
+            cheese          : 0,
+            chips           : 0,
             baked_beans     : 0,
             kidney_beans    : 0,
             salat           : 0,
@@ -68,26 +70,27 @@ var game = {
         main_menu       : 0,
         kitchen         : 1,
         fridge          : 2,
+        shelf           : 3,
         // CG welcome screen
-        cooking_book    : 3, 
+        cooking_book    : 4, 
         // recipes
-        cooking_book_1  : 31, 
-        cooking_book_2  : 32, 
-        cooking_book_3  : 33, 
-        cooking_book_4  : 34, 
+        cooking_book_1  : 41, 
+        cooking_book_2  : 42, 
+        cooking_book_3  : 43, 
+        cooking_book_4  : 44, 
         // detailed recipes
-        recipe_1        : 41,
-        recipe_2        : 42,
-        recipe_3        : 43,
-        recipe_4        : 44,
+        recipe_1        : 51,
+        recipe_2        : 52,
+        recipe_3        : 53,
+        recipe_4        : 54,
         // misc.
-        next_dialog     : 5,
-        cooking_game_1  : 6,
-        living_room     : 7,
-        dialog_room     : 8,
-        hall_room       : 9,
-        JR_title        : 10,
-        JR_bafoeg       : 11
+        next_dialog     : 6,
+        cooking_game_1  : 7,
+        living_room     : 8,
+        dialog_room     : 9,
+        hall_room       : 10,
+        JR_title        : 11,
+        JR_bafoeg       : 12
     },
     // Maiko's
     warp : {
@@ -110,6 +113,7 @@ var game = {
 
         game.data.fridge.tomatos         = 3;
         game.data.fridge.cheese          = 1;
+        game.data.fridge.chips           = 1;
         game.data.fridge.baked_beans     = 1;
         game.data.fridge.kidney_beans    = 1;
         game.data.fridge.salat           = 1;
@@ -236,7 +240,7 @@ var game = {
 
         // FOR TESTING THE FRIDGE
         /*game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.FridgeScreen());
+        me.state.set(me.state.TITLE, new game.ShelfScreen());
         me.state.change(me.state.TITLE);
         */
     }

@@ -223,6 +223,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.FridgeScreen());
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.shelf: 
+            me.state.set(me.state.TITLE, new game.ShelfScreen());
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.cooking_book: 
             me.state.set(me.state.TITLE, new game.CookingGameWelcomeScreen() );
             me.state.change(me.state.TITLE);

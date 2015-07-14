@@ -41,10 +41,7 @@ var game = {
         backpack : {
             tomatos         : 0,
             cheese          : 0,
-<<<<<<< HEAD
-=======
             chips           : 0,
->>>>>>> a27c4113073bae88ff8d3317dd1a0ce8ef7620cb
             baked_beans     : 0,
             kidney_beans    : 0,
             salat           : 0,

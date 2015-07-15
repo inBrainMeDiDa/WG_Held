@@ -350,26 +350,8 @@
                  "type":"",
                  "visible":true,
                  "width":44,
-                 "x":266,
-                 "y":265
-                }, 
-                {
-                 "height":40,
-                 "id":44,
-                 "name":"GoodsEntity",
-                 "properties":
-                    {
-                     "description":"tomatos",
-                     "image":"Tomate_jr",
-                     "spriteheight":"32",
-                     "spritewidth":"32"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":44,
-                 "x":164,
-                 "y":271
+                 "x":173,
+                 "y":256
                 }, 
                 {
                  "height":40,
@@ -377,8 +359,8 @@
                  "name":"GoodsEntity",
                  "properties":
                     {
-                     "description":"tomatos",
-                     "image":"Tomate_jr",
+                     "description":"rolls",
+                     "image":"Semmel_jr",
                      "spriteheight":"32",
                      "spritewidth":"32"
                     },
@@ -386,8 +368,8 @@
                  "type":"",
                  "visible":true,
                  "width":44,
-                 "x":582,
-                 "y":204
+                 "x":587,
+                 "y":196
                 }, 
                 {
                  "height":40,

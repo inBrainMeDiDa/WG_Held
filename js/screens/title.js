@@ -207,9 +207,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             game.emptyDisplayBackpack();
             // Fill the fridge with the stuff from your backpack
             // when entering the kitchen
+
             game.data.backpackLoad = 0;
             //Tomatos:
-            game.data.fridge.tomatos += game.data.backpack.tomatos;
+            game.data.fridge.tomatos += (4 * game.data.backpack.tomatos);
             game.data.backpack.tomatos = 0;
             //Backed beans:
             game.data.fridge.baked_beans += game.data.backpack.baked_beans;
@@ -220,6 +221,48 @@ game.HUD.myButton = me.GUI_Object.extend(
             //Rolls:
             game.data.fridge.rolls += game.data.backpack.rolls;
             game.data.backpack.rolls = 0;
+            //Salat:
+            game.data.fridge.salat += game.data.backpack.salat;
+            game.data.backpack.salat = 0;
+            //Tortilla wraps:
+            game.data.fridge.tortilla_wraps += (4 * game.data.backpack.tortilla_wraps);
+            game.data.backpack.tortilla_wraps = 0;
+            //Sour cream:
+            game.data.fridge.sour_cream += game.data.backpack.sour_cream;
+            game.data.backpack.sour_cream = 0;
+            //Bacon:
+            game.data.fridge.bacon += game.data.backpack.bacon;
+            game.data.backpack.bacon = 0;
+            //Onions:
+            game.data.fridge.onions += game.data.backpack.onions;
+            game.data.backpack.onions = 0;
+            //Garlic:
+            game.data.fridge.garlic += game.data.backpack.garlic;
+            game.data.backpack.garlic = 0;
+            //Sweet Pepper:
+            game.data.fridge.sweet_pepper += game.data.backpack.sweet_pepper;
+            game.data.backpack.sweet_pepper = 0;
+            //Milk:
+            game.data.fridge.milk += game.data.backpack.milk;
+            game.data.backpack.milk = 0;
+            //Eggs:
+            game.data.fridge.eggs += (6 * game.data.backpack.eggs);
+            game.data.backpack.eggs = 0;
+            //Butter:
+            game.data.fridge.butter += game.data.backpack.butter;
+            game.data.backpack.butter = 0;
+            //Curd:
+            game.data.fridge.curd += game.data.backpack.curd;
+            game.data.backpack.curd = 0;
+            //Potatoes:
+            game.data.fridge.potatoes += (5 * game.data.backpack.potatoes);
+            game.data.backpack.potatoes = 0;
+            //Pasta:
+            game.data.fridge.pasta += game.data.backpack.pasta;
+            game.data.backpack.pasta = 0;
+            //Morzarella:
+            game.data.fridge.mozzarella += game.data.backpack.mozzarella;
+            game.data.backpack.mozzarella = 0;
 
             break;
         case game.ultralink.hall_room: 

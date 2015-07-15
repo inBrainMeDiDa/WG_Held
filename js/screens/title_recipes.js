@@ -36,10 +36,10 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 100);
         this.font.draw(renderer, "MIT TOMATEN", 128, 150);
-        this.font.draw(renderer, "2 TOMATEN", 128, 250);
-        this.font.draw(renderer, "1 BAKED BEANS", 128, 300);
+        this.font.draw(renderer, "5 TOMATEN", 128, 250);
+        this.font.draw(renderer, "2 BAKED BEANS", 128, 300);
 
-        if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 ){
+        if( game.data.fridge.tomatos > 4 && game.data.fridge.baked_beans > 1 ){
           this.font.draw(renderer, " START", 250, 500);
         }
       },
@@ -49,7 +49,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     
     var button = null;
 
-    if( game.data.fridge.tomatos > 1 && game.data.fridge.baked_beans > 0 )
+    if( game.data.fridge.tomatos > 4 && game.data.fridge.baked_beans > 1 )
     {
        // add the start button
       button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
@@ -179,9 +179,9 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
         this.font.draw(renderer, "1 KNOBLAUCH", 128, 400); 
         
 
-        if( game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
+        if( !game.data.flag_oven_clickable && game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
             game.data.fridge.onions > 0 && game.data.fridge.garlic > 0){
-          this.font.draw(renderer, " START", 250, 500);
+          this.font.draw(renderer, "OFEN", 250, 500);
         }
       },
       
@@ -191,7 +191,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
 
     var button = null;
 
-    if( game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
+    if( !game.data.flag_oven_clickable && game.data.fridge.rolls > 0 && game.data.fridge.butter > 0 &&
         game.data.fridge.onions > 0 && game.data.fridge.garlic > 0 )
     {
        // add the start button
@@ -323,10 +323,10 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
         this.font.draw(renderer, "1 SCHINKEN", 128, 450);
         
 
-        if( game.data.fridge.wraps > 0 && game.data.fridge.sour_cream > 1 &&
+        if( !game.data.flag_oven_clickable && game.data.fridge.tortilla_wraps > 0 && game.data.fridge.sour_cream > 1 &&
             game.data.fridge.onions > 0 && game.data.fridge.sweet_pepper > 0 && game.data.fridge.bacon > 0 )
         {
-          this.font.draw(renderer, " START", 250, 500);
+          this.font.draw(renderer, " OFEN", 250, 500);
         }
       },
       
@@ -336,7 +336,7 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
 
     var button = null;
 
-    if( game.data.fridge.wraps > 0 && game.data.fridge.sour_cream > 1 &&
+    if( !game.data.flag_oven_clickable && game.data.fridge.tortilla_wraps > 0 && game.data.fridge.sour_cream > 1 &&
         game.data.fridge.onions > 0 && game.data.fridge.sweet_pepper > 0 && game.data.fridge.bacon > 0 )
     {
        // add the start button
@@ -905,7 +905,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     })), 3);
     
     var button = null;
-    
+
     {
        // add the start button
       button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);

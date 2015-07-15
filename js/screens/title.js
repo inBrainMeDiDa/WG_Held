@@ -299,12 +299,23 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.cooking_game_2:
-            me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_2"));
-            me.state.change(me.state.PLAY);
+            // consume ingredients
+            game.data.fridge.rolls -= 1; 
+            game.data.fridge.butter -= 1;
+            game.data.fridge.onions -= 1; 
+            game.data.fridge.garlic -= 1;
+            // switch to kitchen with oven ready
+            game.switch_to_kitchen_oven();
             break;
         case game.ultralink.cooking_game_3:
-            me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_3"));
-            me.state.change(me.state.PLAY);
+            // consume ingredients
+            game.data.fridge.tortilla_wraps -= 1; 
+            game.data.fridge.sour_cream -= 2;
+            game.data.fridge.onions -= 1; 
+            game.data.fridge.sweet_pepper -= 1; 
+            game.data.fridge.bacon -= 1;
+            // switch to kitchen with oven ready
+            game.switch_to_kitchen_oven();
             break;
         case game.ultralink.cooking_game_4:
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_4"));
@@ -332,6 +343,9 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.next_dialog:
             game.update_dialog_pointer();
+            break;
+        case game.ultralink.reset_oven:
+            game.reset_kitchen_oven();
             break;
         default: console.log( "Button pressed with destination "+this.link_destination ); 
       }

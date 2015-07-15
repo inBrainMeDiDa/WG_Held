@@ -96,6 +96,17 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     }
     me.game.world.addChild( button , 4);
 
+    // oven button
+    if( game.data.flag_oven_clickable )
+    {
+      button = new game.HUD.myButton(500, 400, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.reset_oven );
+        button.setMouseOverText("IM OFEN BACKEN");
+      }
+      me.game.world.addChild( button );
+    }
+
     // add bottom bar with z-index 3
     me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
 

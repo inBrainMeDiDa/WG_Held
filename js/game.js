@@ -85,11 +85,17 @@ var game = {
         cooking_book_2  : 42, 
         cooking_book_3  : 43, 
         cooking_book_4  : 44, 
+        cooking_book_5  : 45, 
+        cooking_book_6  : 46,
+        cooking_book_7  : 47, 
         // detailed recipes
         recipe_1        : 51,
         recipe_2        : 52,
         recipe_3        : 53,
         recipe_4        : 54,
+        recipe_5        : 55,
+        recipe_6        : 56,
+        recipe_7        : 57,
         // misc.
         next_dialog     : 6,
         cooking_game_1  : 7,

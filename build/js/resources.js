@@ -201,7 +201,7 @@ game.resources = [
         "src": "data/img/recipes/kartquark.png"
     },
     {
-        "name": "recipe_nuto",
+        "name": "recipe_pasta",
         "type": "image",
         "src": "data/img/recipes/nudelntomo.png"
     },

@@ -10,7 +10,8 @@ var game = {
         money : 200,
         // dialog pointer
         dialog_pointer : 0,
-        
+        // flag whether the oven should be clicked or not
+        flag_oven_clickable : false,
         // ingredient storage
         fridge : {
             tomatos         : 3,
@@ -72,6 +73,7 @@ var game = {
     // Because it's a cool idea, I call them ultralinks.
     ultralink : {
         nowhere         : 9999,
+        reset_oven      : 9998,
         new_game        : 998,
         resume_game     : 997,
         main_menu       : 0,
@@ -85,14 +87,26 @@ var game = {
         cooking_book_2  : 42, 
         cooking_book_3  : 43, 
         cooking_book_4  : 44, 
+        cooking_book_5  : 45, 
+        cooking_book_6  : 46,
+        cooking_book_7  : 47, 
         // detailed recipes
         recipe_1        : 51,
         recipe_2        : 52,
         recipe_3        : 53,
         recipe_4        : 54,
+        recipe_5        : 55,
+        recipe_6        : 56,
+        recipe_7        : 57,
         // misc.
         next_dialog     : 6,
-        cooking_game_1  : 7,
+        cooking_game_1  : 71,
+        cooking_game_2  : 72,
+        cooking_game_3  : 73,
+        cooking_game_4  : 74,
+        cooking_game_5  : 75,
+        cooking_game_6  : 76,
+        cooking_game_7  : 77,
         living_room     : 8,
         dialog_room     : 9,
         hall_room       : 10,
@@ -165,7 +179,20 @@ var game = {
     }
   },
 
-
+    switch_to_kitchen_oven : function(){
+        if( game.data.flag_oven_clickable ){
+            return;
+        } else {
+            game.data.flag_oven_clickable = true;
+            me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+        }
+    },
+    reset_kitchen_oven : function(){
+            game.data.flag_oven_clickable = false;
+            me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+    },
     update_dialog_pointer : function(){
         switch( game.data.dialog_pointer ){
             // exit after first sequence
@@ -180,26 +207,26 @@ var game = {
     reset_game_state : function(){
         game.data.dialog_pointer = 0;
 
-        game.data.fridge.tomatos         = 3;
-        game.data.fridge.cheese          = 1;
-        game.data.fridge.chips           = 1;
-        game.data.fridge.baked_beans     = 1;
-        game.data.fridge.kidney_beans    = 1;
-        game.data.fridge.salat           = 1;
-        game.data.fridge.rolls           = 1; // = Semmeln
-        game.data.fridge.tortilla_wraps  = 1;
-        game.data.fridge.sour_cream      = 1;
-        game.data.fridge.bacon           = 1;
-        game.data.fridge.onions          = 1;
-        game.data.fridge.garlic          = 1; // = Knoblauch
-        game.data.fridge.sweet_pepper    = 1; // = Paprika
-        game.data.fridge.milk            = 1;
-        game.data.fridge.eggs            = 1;
-        game.data.fridge.butter          = 1;
-        game.data.fridge.curd            = 1; // = Quark
-        game.data.fridge.potatoes        = 1;
-        game.data.fridge.pasta           = 1;
-        game.data.fridge.mozzarella      = 1;
+        game.data.fridge.tomatos         = 300;
+        game.data.fridge.cheese          = 100;
+        game.data.fridge.chips           = 100;
+        game.data.fridge.baked_beans     = 100;
+        game.data.fridge.kidney_beans    = 100;
+        game.data.fridge.salat           = 100;
+        game.data.fridge.rolls           = 100; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 100;
+        game.data.fridge.sour_cream      = 100;
+        game.data.fridge.bacon           = 100;
+        game.data.fridge.onions          = 100;
+        game.data.fridge.garlic          = 100; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 100; // = Paprika
+        game.data.fridge.milk            = 100;
+        game.data.fridge.eggs            = 100;
+        game.data.fridge.butter          = 100;
+        game.data.fridge.curd            = 100; // = Quark
+        game.data.fridge.potatoes        = 100;
+        game.data.fridge.pasta           = 100;
+        game.data.fridge.mozzarella      = 100;
 
         game.data.backpack.tomatos         = 0;
         game.data.backpack.baked_beans     = 0;

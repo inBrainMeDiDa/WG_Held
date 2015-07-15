@@ -26,16 +26,14 @@
 
   onCollision : function (response, other) {
 
-    //Warp-Count erhöhen um Levelsprung auszulösen
-    game.warp.count =+ 1;
-
-    console.log(game.warp.count);
-
      // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
  
     // remove it
     me.game.world.removeChild(this);
+
+    me.state.set(me.state.TITLE, new game.HallScreen());
+    me.state.change(me.state.TITLE);
 
     return false
   },

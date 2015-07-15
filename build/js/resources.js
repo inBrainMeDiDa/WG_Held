@@ -388,11 +388,113 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/floating_page.png"
     },
+    //Goods for the JR
     {
         "name": "Tomate_jr",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Tomate.png"
     },
+    {
+        "name": "Apfel_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Apfel.png"
+    },
+    {
+        "name": "Butter_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Butter.png"
+    },
+    {
+        "name": "Chips_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Chips.png"
+    },
+    {
+        "name": "Eier_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Eier.png"
+    },
+    {
+        "name": "GebBohnenDose_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/GebackeneBohnenDose.png"
+    },
+    {
+        "name": "Kaese_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Kaese_textur.png"
+    },
+    {
+        "name": "KidBohnenDose_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/KidneyBohnenDose.png"
+    },
+    {
+        "name": "Knoblauch_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Knoblauch.png"
+    },
+    {
+        "name": "Milch_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Milch.png"
+    },
+    {
+        "name": "Mozarella_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Mozarella.png"
+    },
+    {
+        "name": "Nudeln_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Nudeln.png"
+    },
+    {
+        "name": "Paprika_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Paprika.png"
+    },
+    {
+        "name": "Quark_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Quark.png"
+    },
+    {
+        "name": "Salat_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Salat.png"
+    },
+    {
+        "name": "Saure-sahne_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Saure-sahne.png"
+    },
+    {
+        "name": "Schinken_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Schinken.png"
+    },
+    {
+        "name": "Schokolade_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Schokolade.png"
+    },
+    {
+        "name": "Semmel_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Semmel.png"
+    },
+    {
+        "name": "TortillaWraps_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/TortillaWraps.png"
+    },
+    {
+        "name": "Zwiebel_jr",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Zwiebel.png"
+    },
+
 
     //Tilesets
     {

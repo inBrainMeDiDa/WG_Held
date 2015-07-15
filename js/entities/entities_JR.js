@@ -164,6 +164,12 @@ game.PlayerEntity = me.Entity.extend({
     // return true if we moved or if the renderable was updated
     return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
   },
+
+  updateBackpack : function (Dstring, BPstring){
+    game.data.backpack[BPstring] += 1;
+    game.data.backpackLoad += 1;
+    game.updateDisplayBackpack(Dstring);
+  },
  
 // this function is called by the engine, when
   // an object is touched by something (here collected)
@@ -171,19 +177,39 @@ game.PlayerEntity = me.Entity.extend({
     // do something when collected
     if(game.data.backpackLoad < 4){
       if(this.description == "tomatos"){
-        game.data.backpack.tomatos += 1;
-        game.data.backpackLoad += 1;
-        game.updateDisplayBackpack("Tomate_jr");
+        this.updateBackpack("Tomate_jr", "tomatos");
       }else if(this.description == "baked_beans"){
-        game.data.backpack.baked_beans += 1;
-        game.data.backpackLoad += 1;
+        this.updateBackpack("GebBohnenDose_jr", "baked_beans");
       }else if(this.description == "kidney_beans"){
-        game.data.backpack.kidney_beans += 1;
-        game.data.backpackLoad += 1;
+        this.updateBackpack("KidBohnenDose_jr", "kidney_beans");
       }else if(this.description == "rolls"){
-        game.data.backpack.rolls += 1;
-        game.data.backpackLoad += 1;
+        this.updateBackpack("Semmel_jr", "rolls");
+      }else if(this.description == "tortilla_wraps"){
+        this.updateBackpack("TortillaWraps_jr", "tortilla_wraps");
+      }else if(this.description == "sour_cream"){
+        this.updateBackpack("Saure-sahne_jr", "sour_cream");
+      }else if(this.description == "bacon"){
+        this.updateBackpack("Schinken_jr", "bacon");
+      }else if(this.description == "onions"){
+        this.updateBackpack("Zwiebel_jr", "onions");
+      }else if(this.description == "garlic"){
+        this.updateBackpack("Knoblauch_jr", "garlic");
+      }else if(this.description == "sweet_pepper"){
+        this.updateBackpack("Paprika_jr", "sweet_pepper");
+      }else if(this.description == "milk"){
+        this.updateBackpack("Milch_jr", "milk");
+      }else if(this.description == "eggs"){
+        this.updateBackpack("Eier_jr", "eggs");
+      }else if(this.description == "butter"){
+        this.updateBackpack("Butter_jr", "butter");
+      }else if(this.description == "curd"){
+        this.updateBackpack("Quark_jr", "curd");
+      }else if(this.description == "potatoes"){
+        this.updateBackpack("Kartoffeln_jr", "potatoes");
+      }else if(this.description == "mozzarella"){
+        this.updateBackpack("Mozarella_jr", "mozzarella");
       }
+
 
 
     //give some score

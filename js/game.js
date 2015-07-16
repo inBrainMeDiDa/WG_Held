@@ -273,6 +273,7 @@ var game = {
     me.loader.preload(game.resources);
 
     // Initialize melonJS and display a loading screen.
+    me.state.set(me.state.LOADING, new game.LoadingScreen());
     me.state.change(me.state.LOADING);
 },
 
@@ -281,6 +282,10 @@ var game = {
     "loaded" : function () {
 
         // set the "Play/Ingame" Screen Objects
+
+        //Brit Intro
+        //me.state.set(me.state.INTRO, new game.IntroScreen());
+        //End
         me.state.set(me.state.MENU, new game.TitleScreen() );
         me.state.set(me.state.PLAY, new game.PlayScreen_CG() );
      

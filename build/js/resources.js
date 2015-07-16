@@ -532,6 +532,24 @@ game.resources = [
         "name": "area04",
         "type": "tmx",
         "src": "data/map/area04.json"
+    },
+    //Brit
+    //LoadingScreen
+
+    {
+        "name": "inBrainLogo01",
+        "type": "image",
+        "src": "icons/Load01.png"
+    },
+    {
+        "name": "inBrainLogo02",
+        "type": "image",
+        "src": "icons/Load02.png"
+    },
+    {
+        "name": "inBrainLogo03",
+        "type": "image",
+        "src": "icons/Load03.png"
     }
     
 ];

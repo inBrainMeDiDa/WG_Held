@@ -284,7 +284,7 @@ var game = {
         // set the "Play/Ingame" Screen Objects
 
         //Brit Intro
-        //me.state.set(me.state.INTRO, new game.IntroScreen());
+        me.state.set(me.state.INTRO, new game.IntroScreen());
         //End
         me.state.set(me.state.MENU, new game.TitleScreen() );
         me.state.set(me.state.PLAY, new game.PlayScreen_CG() );
@@ -337,7 +337,7 @@ var game = {
 		me.input.bindKey(me.input.KEY.X,     "jump", true);
 				
         // Start the game.
-        me.state.change(me.state.MENU);
+        me.state.change(me.state.INTRO);
 
         // FOR TESTING THE FRIDGE
         /*game.reset_game_state(); 

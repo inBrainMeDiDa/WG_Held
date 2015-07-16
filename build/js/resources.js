@@ -550,6 +550,87 @@ game.resources = [
         "name": "inBrainLogo03",
         "type": "image",
         "src": "icons/Load03.png"
-    }
-    
+    },
+
+    //Intro
+    {
+        "name": "Intro01",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro01.png"
+    },
+    {
+        "name": "Intro02",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro02.png"
+    },
+    {
+        "name": "Intro03",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro03.png"
+    },
+    {
+        "name": "Intro04",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro04.png"
+    },
+    {
+        "name": "Intro05",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro05.png"
+    },
+    {
+        "name": "Intro06",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro06.png"
+    },
+    {
+        "name": "Intro07",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro07.png"
+    },
+    {
+        "name": "Intro08",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro08.png"
+    },
+    {
+        "name": "Intro09",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro09.png"
+    },
+    {
+        "name": "Intro10",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro10.png"
+    },
+    {
+        "name": "Intro11",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro11.png"
+    },
+    {
+        "name": "Intro12",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro12.png"
+    },
+    {
+        "name": "Intro13",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro13.png"
+    },
+    {
+        "name": "Intro14",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro14.png"
+    },
+    {
+        "name": "Intro15",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro15.png"
+    },
+    {
+        "name": "Intro16",
+        "type": "image",
+        "src": "data/img/IntroOutro/Intro16.png"
+    },
 ];

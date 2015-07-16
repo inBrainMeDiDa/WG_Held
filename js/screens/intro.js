@@ -5,8 +5,23 @@ game.IntroScreen = me.ScreenObject.extend({
     onResetEvent: function () {
         me.game.reset();
 
+        var that = this;
+        this.handle = me.event.subscribe(
+            me.event.KEYDOWN,
+            function (action, keyCode) {
+                if (keyCode == me.input.KEY.ESC) {
+                    that.switchToMenu();
+            }
+        });
+
         this.introIndex = 0;
         this.setRemainingTimeAndImageByIntroIndex();
+    },
+
+    switchToMenu: function()
+    {
+        me.state.set(me.state.MENU, new game.TitleScreen());
+        me.state.change(me.state.MENU);
     },
 
     init: function (x, y) {
@@ -39,19 +54,13 @@ game.IntroScreen = me.ScreenObject.extend({
 
     setRemainingTimeAndImageByIntroIndex: function ()
     {
-        if (me.event.keyCode == 27) {
-            me.state.set(me.state.MENU, new game.TitleScreen());
-            me.state.change(me.state.MENU);
-        }
-
         if (this.introIndex >= (this.current_introPic.length / 2))
         {
-            me.state.set(me.state.MENU, new game.TitleScreen());
-            me.state.change(me.state.MENU);
+            that.switchToMenu();
             return;
         }
 
-        if (this.current_child != null)
+        if (this.current_child)
             me.game.world.removeChild(this.current_child);
 
         this.current_child = new me.ImageLayer("loadscreenbg03", 800, 600, this.current_introPic[this.introIndex * 2], 1)

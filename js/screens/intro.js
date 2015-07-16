@@ -25,7 +25,7 @@ game.IntroScreen = me.ScreenObject.extend({
     },
 
     init: function (x, y) {
-        this.current_introPic = ["Intro01", 5000,
+        this.current_introPic = ["Intro01", 6000,
                                  "Intro02", 3000,
                                  "Intro03", 1000,
                                  "Intro04", 1000,
@@ -56,7 +56,7 @@ game.IntroScreen = me.ScreenObject.extend({
     {
         if (this.introIndex >= (this.current_introPic.length / 2))
         {
-            that.switchToMenu();
+            this.switchToMenu();
             return;
         }
 

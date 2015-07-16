@@ -51,6 +51,23 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 				tomatos = me.game.world.getChildByName("tomato");
 				cheese = me.game.world.getChildByName("kaese");
 				baked_beans = me.game.world.getChildByName("baked_beans");
+        kidney_beans = me.game.world.getChildByName("kidney_beans");
+        butter = me.game.world.getChildByName("butter");
+        chips = me.game.world.getChildByName("chips");
+        eggs = me.game.world.getChildByName("eggs");
+        potatoes = me.game.world.getChildByName("potatoes");
+        garlic = me.game.world.getChildByName("garlic");
+        milk = me.game.world.getChildByName("milk");
+        mozzarella = me.game.world.getChildByName("mozzarella");
+        pasta = me.game.world.getChildByName("pasta");
+        sweet_pepper = me.game.world.getChildByName("sweet_pepper");
+        curd = me.game.world.getChildByName("curd");
+        sour_cream = me.game.world.getChildByName("sour_cream");
+        bacon = me.game.world.getChildByName("bacon");
+        rolls = me.game.world.getChildByName("rolls");
+        wraps = me.game.world.getChildByName("tortilla_wraps");
+        onions = me.game.world.getChildByName("onions");
+
 
 				// append tomatos to ingredients-array
 				for(var i = 0; i < tomatos.length; ++i)
@@ -76,6 +93,55 @@ game.PlayScreen_CG = me.ScreenObject.extend({
 					// append to ingredients
 					ingredients.push(baked_beans[i]);
 				}
+        // append kidney beans
+        for(var i = 0; i < kidney_beans.length; ++i)
+        {
+          kidney_beans[i].set_texture_string("KidneyBohnen_textur");
+          // append to ingredients
+          ingredients.push(kidney_beans[i]);
+        }
+        // append Butter
+        for(var i = 0; i < butter.length; ++i)
+        {
+          butter[i].set_texture_string("Butter_textur");
+          // append to ingredients
+          ingredients.push(butter[i]);
+        }
+        // append chips
+        for(var i = 0; i < chips.length; ++i)
+        {
+          chips[i].set_texture_string("Chips_textur");
+          // append to ingredients
+          ingredients.push(chips[i]);
+        }
+        // append eggs
+        for(var i = 0; i < eggs.length; ++i)
+        {
+          eggs[i].set_texture_string("Eier_textur");
+          // append to ingredients
+          ingredients.push(eggs[i]);
+        }
+        // append potatoes
+        for(var i = 0; i < potatoes.length; ++i)
+        {
+          potatoes[i].set_texture_string("Kartoffel_textur");
+          // append to ingredients
+          ingredients.push(potatoes[i]);
+        }
+        // append garlic
+        for(var i = 0; i < garlic.length; ++i)
+        {
+          garlic[i].set_texture_string("Knoblauch_textur");
+          // append to ingredients
+          ingredients.push(garlic[i]);
+        }
+        // append milk
+        for(var i = 0; i < milk.length; ++i)
+        {
+          milk[i].set_texture_string("Milch_textur");
+          // append to ingredients
+          ingredients.push(milk[i]);
+        }
 
 				for(var i = 0; i < ingredients.length; ++i)
 				{
@@ -142,17 +208,37 @@ game.PlayScreen_CG = me.ScreenObject.extend({
     	if( GC ){
     		// configure recipe depending on current map
 			if( current_map == "CG_Recipe_1" ){
-				GC.set_recipe(["timer_tex", 5000,
+				GC.set_recipe([   "timer_tex", 5000,
 		                      "BakedBeans_textur", 2000, 
+                          "timer_tex", 1000,
+                          "BakedBeans_textur", 2000, 
 		                      "timer_tex", 6000,
 		                      "Tomate", 2000,
-		                      "timer_tex", 3000,
+                          "timer_tex", 2000,
+                          "Tomate", 2000,
+                          "timer_tex", 2000,
+                          "Tomate", 2000,
+                          "timer_tex", 2000,
+                          "Tomate", 2000,
+		                      "timer_tex", 2000,
 		                      "Tomate", 2000] );
 
-				game.data.fridge.tomatos -= 2; 
-				game.data.fridge.baked_beans -= 1;
+				game.data.fridge.tomatos -= 5; 
+				game.data.fridge.baked_beans -= 2;
 			}
-    		else if( current_map == "testmap" ){
+      else if( current_map == "CG_Recipe_4" ){
+        GC.set_recipe([   "Milch_textur", 2000, 
+                          "timer_tex", 10000,
+                          "Eier_textur", 2000, 
+                          "timer_tex", 2000,
+                          "Butter_textur", 2000,
+                          "timer_tex", 4000] );
+
+        game.data.fridge.milk -= 1; 
+        game.data.fridge.butter -= 1; 
+        game.data.fridge.eggs -= 2;
+      }
+    	else if( current_map == "testmap" ){
     			GC.set_recipe(["Kaese_textur", 10000,
 		                      "timer_tex", 3000,
 		                      "Kaese_textur", 5000, 
@@ -213,8 +299,8 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     this.score = -1;
 
     if( theHUD ){
-      // add bottom bar with z-index 3
-      me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 3);
+      // add bottom bar with z-index 4
+      me.game.world.addChild(new me.Sprite (0,400,me.loader.getImage('bottom_bar') ), 4);
 
       // add our child score object at the right-bottom position
       theHUD.addChild(new game.HUD.ScoreItem(10, 540));
@@ -297,7 +383,6 @@ game.HUD.CookingGameController = me.Renderable.extend( {
     if( this.recipe_pointer >= this.current_recipe.length-2 ){
 
       // display end screen
-      //theHUD.addChild( new game.HUD.myCanvas(0,0,"book_BG", 800, 600) );
       me.game.world.addChild(
       new me.Sprite (
         0,0,

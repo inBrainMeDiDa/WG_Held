@@ -15,7 +15,8 @@ game.TitleScreen = me.ScreenObject.extend({
       ),
       1
     );
- 
+
+
     // add a new renderable component with the scrolling text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
@@ -77,6 +78,10 @@ game.TitleScreen = me.ScreenObject.extend({
       me.game.world.addChild( button );
 
       bInitialized = true;
+
+      // play some music
+      game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
+      me.audio.playTrack( game.current_music_track );
     }
 
     // add the new game button
@@ -519,7 +524,9 @@ game.HUD.Button_Music = me.GUI_Object.extend(
         
         // play sound if sound is turned on
         if( my_state_holder[0].get_state_index() > 0 ){
-           me.audio.play("cling");
+          me.audio.playTrack( game.current_music_track );
+        }else{
+          me.audio.stopTrack();
         }
       }
       return false;

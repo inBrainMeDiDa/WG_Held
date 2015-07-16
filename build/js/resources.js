@@ -19,6 +19,38 @@ game.resources = [
         "type": "audio",
         "src": "data/sfx/"
     },
+    // music
+    {
+        "name": "Electric_Mirrors_Dream_Unlimited_Company",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "Jahzzar_A_Message",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "Jahzzar_Dory_Honey",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "Jahzzar_Placeholder",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "Jahzzar_Sometimes",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "Steve_Combs__Delta_Is_Theme_Y",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    // GUI content
     {
         "name": "32x32_font",
         "type": "image",

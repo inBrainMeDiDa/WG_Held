@@ -31,10 +31,10 @@
                 {
                  "height":1,
                  "id":7,
-                 "name":"tomato",
+                 "name":"milk",
                  "properties":
                     {
-                     "image":"Tomate",
+                     "image":"Milch_textur",
                      "spriteheight":"128",
                      "spritewidth":"128"
                     },
@@ -48,10 +48,10 @@
                 {
                  "height":1,
                  "id":13,
-                 "name":"tomato",
+                 "name":"butter",
                  "properties":
                     {
-                     "image":"Tomate",
+                     "image":"Butter_textur",
                      "spriteheight":"128",
                      "spritewidth":"128"
                     },
@@ -65,10 +65,10 @@
                 {
                  "height":1,
                  "id":14,
-                 "name":"tomato",
+                 "name":"eggs",
                  "properties":
                     {
-                     "image":"Tomate",
+                     "image":"Eier_textur",
                      "spriteheight":"128",
                      "spritewidth":"128"
                     },
@@ -78,74 +78,6 @@
                  "width":1,
                  "x":565.5,
                  "y":135.5
-                }, 
-                {
-                 "height":1,
-                 "id":15,
-                 "name":"baked_beans",
-                 "properties":
-                    {
-                     "image":"BakedBeansCan_textur",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":483,
-                 "y":58
-                }, 
-                {
-                 "height":1,
-                 "id":21,
-                 "name":"baked_beans",
-                 "properties":
-                    {
-                     "image":"BakedBeansCan_textur",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":622.5,
-                 "y":81.5
-                }, 
-                {
-                 "height":1,
-                 "id":22,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":463.5,
-                 "y":134.5
-                }, 
-                {
-                 "height":1,
-                 "id":23,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":688.5,
-                 "y":155.5
                 }, 
                 {
                  "height":80,

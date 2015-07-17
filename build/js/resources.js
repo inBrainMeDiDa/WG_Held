@@ -25,6 +25,7 @@ game.resources = [
         "type": "audio",
         "src": "data/music/"
     },
+    /*
     {
         "name": "Jahzzar_A_Message",
         "type": "audio",
@@ -49,7 +50,7 @@ game.resources = [
         "name": "Steve_Combs__Delta_Is_Theme_Y",
         "type": "audio",
         "src": "data/music/"
-    },
+    },*/
     // GUI content
     {
         "name": "32x32_font",

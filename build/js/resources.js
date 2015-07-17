@@ -468,6 +468,11 @@ game.resources = [
         "src": "data/img/sprite/jr_sprites/Kartoffeln.png"
     },
     {
+        "name": "fruits",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Obstkorb.png"
+    },
+    {
         "name": "kidney_beans",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/KidneyBohnenDose.png"

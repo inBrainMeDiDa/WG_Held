@@ -32,6 +32,12 @@
     // remove it
     me.game.world.removeChild(this);
 
+    game.killDisplayBackpack("backpack_icon_1");
+    game.killDisplayBackpack("backpack_icon_2");
+    game.killDisplayBackpack("backpack_icon_3");
+    game.killDisplayBackpack("backpack_icon_4");
+    game.emptyDisplayBackpack();
+
     me.state.set(me.state.TITLE, new game.HallScreen());
     me.state.change(me.state.TITLE);
 

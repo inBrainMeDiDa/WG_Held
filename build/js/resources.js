@@ -205,7 +205,7 @@ game.resources = [
 	{
         "name": "Topf",
         "type": "image",
-        "src": "data/img/sprite/Topf.png"
+        "src": "data/img/sprite/Topf_2.png"
     },
     {
         "name": "Salat",
@@ -242,6 +242,11 @@ game.resources = [
         "name": "recipe_os",
         "type": "image",
         "src": "data/img/recipes/obstsalat1.png"
+    },
+    {
+        "name": "recipe_chili",
+        "type": "image",
+        "src": "data/img/recipes/chiliconcarne.png"
     },
     // dialog screens
     {
@@ -309,6 +314,11 @@ game.resources = [
         "name": "CG_Recipe_6",
         "type": "tmx",
         "src": "data/map/CG_Recipe_6.json"
+    },
+    {
+        "name": "CG_Recipe_8",
+        "type": "tmx",
+        "src": "data/map/CG_Recipe_8.json"
     },
     //Buttons:
     {

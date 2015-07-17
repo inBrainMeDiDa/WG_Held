@@ -314,6 +314,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_7 );
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.cooking_book_8:
+            me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen_8 );
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.recipe_1:
             me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_1 );
             me.state.change(me.state.TITLE);
@@ -340,6 +344,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.recipe_7:
             me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_7 );
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.recipe_8:
+            me.state.set(me.state.TITLE, new game.DetailedRecipeScreen_8 );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:
@@ -379,6 +387,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.cooking_game_7:
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_7"));
+            me.state.change(me.state.PLAY);
+            break;
+        case game.ultralink.cooking_game_8:
+            me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_8"));
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.JR_title: 

@@ -39,6 +39,8 @@ var ProgressBar = me.Renderable.extend({
     // draw function
     draw: function (renderer) {
         // draw the progress bar
+        renderer.setColor("#5555aa");
+        renderer.fillRect(208, (this.height - 46) - (this.barHeight / 2), this.width+2, this.barHeight+4);
         renderer.setColor("#ffdd00");
         renderer.fillRect(210, (this.height - 44) - (this.barHeight / 2), this.progress, this.barHeight);
     }

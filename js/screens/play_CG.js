@@ -142,6 +142,71 @@ game.PlayScreen_CG = me.ScreenObject.extend({
           // append to ingredients
           ingredients.push(milk[i]);
         }
+        // append mozzarella
+        for(var i = 0; i < mozzarella.length; ++i)
+        {
+          mozzarella[i].set_texture_string("Mozarella_textur");
+          // append to ingredients
+          ingredients.push(mozzarella[i]);
+        }
+        // append pasta
+        for(var i = 0; i < pasta.length; ++i)
+        {
+          pasta[i].set_texture_string("Nudeln_textur");
+          // append to ingredients
+          ingredients.push(pasta[i]);
+        }
+        // append sweet_pepper
+        for(var i = 0; i < sweet_pepper.length; ++i)
+        {
+          sweet_pepper[i].set_texture_string("Paprika_textur");
+          // append to ingredients
+          ingredients.push(sweet_pepper[i]);
+        }
+        // append Curd Cobain
+        for(var i = 0; i < curd.length; ++i)
+        {
+          curd[i].set_texture_string("Quark_textur");
+          // append to ingredients
+          ingredients.push(curd[i]);
+        }
+        // append sour_cream
+        for(var i = 0; i < sour_cream.length; ++i)
+        {
+          sour_cream[i].set_texture_string("SaureSahne_textur");
+          // append to ingredients
+          ingredients.push(sour_cream[i]);
+        }
+        // append Kevin Bacon
+        for(var i = 0; i < bacon.length; ++i)
+        {
+          bacon[i].set_texture_string("Schinken_textur");
+          // append to ingredients
+          ingredients.push(bacon[i]);
+        }
+        // append bread rolls
+        for(var i = 0; i < rolls.length; ++i)
+        {
+          rolls[i].set_texture_string("Semmeln_textur");
+          // append to ingredients
+          ingredients.push(rolls[i]);
+        }
+        // append wraps
+        for(var i = 0; i < wraps.length; ++i)
+        {
+          wraps[i].set_texture_string("Wraps_textur");
+          // append to ingredients
+          ingredients.push(wraps[i]);
+        }
+        // append onions
+        for(var i = 0; i < onions.length; ++i)
+        {
+          onions[i].set_texture_string("Zwiebel_textur");
+          // append to ingredients
+          ingredients.push(onions[i]);
+        }
+
+
 
 				for(var i = 0; i < ingredients.length; ++i)
 				{
@@ -237,6 +302,60 @@ game.PlayScreen_CG = me.ScreenObject.extend({
         game.data.fridge.milk -= 1; 
         game.data.fridge.butter -= 1; 
         game.data.fridge.eggs -= 2;
+      }
+      else if( current_map == "CG_Recipe_5" ){
+        GC.set_recipe([   "timer_tex", 5000,
+                          "Kartoffel_textur", 2000, 
+                          "timer_tex", 1000,
+                          "Kartoffel_textur", 2000, 
+                          "timer_tex", 1000,
+                          "Kartoffel_textur", 2000, 
+                          "timer_tex", 1000,
+                          "Kartoffel_textur", 2000, 
+                          "timer_tex", 1000,
+                          "Quark_textur", 2000, 
+                          "timer_tex", 2000,
+                          "Zwiebel_textur", 2000,
+                          "timer_tex", 1000,
+                          "Zwiebel_textur", 2000,
+                          "timer_tex", 1000,
+                          "Paprika_textur", 2000] );
+
+        game.data.fridge.potatoes -= 12; 
+        game.data.fridge.curd -= 1; 
+        game.data.fridge.onions -= 2;
+        game.data.fridge.sweet_pepper -= 1;
+      }
+      else if( current_map == "CG_Recipe_6" ){
+        GC.set_recipe([   "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Mozarella_textur", 2000, 
+                          "timer_tex", 2000,
+                          "Zwiebel_textur", 2000,
+                          "timer_tex", 1000,
+                          "Knoblauch_textur", 2000,
+                          "timer_tex", 1000] );
+
+        game.data.fridge.tomatos -= 9; 
+        game.data.fridge.mozzarella -= 1; 
+        game.data.fridge.onions -= 1;
+        game.data.fridge.garlic -= 1;
       }
     	else if( current_map == "testmap" ){
     			GC.set_recipe(["Kaese_textur", 10000,

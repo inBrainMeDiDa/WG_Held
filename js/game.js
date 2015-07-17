@@ -36,6 +36,7 @@ var game = {
             potatoes        : 0,
             pasta           : 0,
             mozzarella      : 0,
+            fruits          : 0
         },
 
         backpackLoad : 0, // = space in backpack
@@ -62,6 +63,7 @@ var game = {
             potatoes        : 0,
             pasta           : 0,
             mozzarella      : 0,
+            fruits          : 0
         },
 
         displayBackpack : {
@@ -237,6 +239,7 @@ var game = {
         game.data.fridge.potatoes        = 100;
         game.data.fridge.pasta           = 100;
         game.data.fridge.mozzarella      = 100;
+        game.data.fridge.fruits          = 1;
 
         game.data.backpack.tomatos         = 0;
         game.data.backpack.baked_beans     = 0;
@@ -256,6 +259,7 @@ var game = {
         game.data.backpack.potatoes        = 0;
         game.data.backpack.pasta           = 0;
         game.data.backpack.mozzarella      = 0;
+        game.data.backpack.fruits          = 0;
     },
 
     // Run on page load.

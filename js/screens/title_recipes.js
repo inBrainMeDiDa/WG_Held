@@ -951,7 +951,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
    }
 });
 /* =======================================================================
- *  Detail View of Recipe 7 (Nudeln mit Tomatensosse)
+ *  Detail View of Recipe 7 (Obstsalat)
  */
 game.DetailedRecipeScreen_7 = me.ScreenObject.extend({
  

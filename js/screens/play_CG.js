@@ -357,6 +357,25 @@ game.PlayScreen_CG = me.ScreenObject.extend({
         game.data.fridge.onions -= 1;
         game.data.fridge.garlic -= 1;
       }
+      else if( current_map == "CG_Recipe_8" ){
+        GC.set_recipe([   "KidneyBohnen_textur", 5000, 
+                          "timer_tex", 5000,
+                          "Tomate", 2000, 
+                          "timer_tex", 1000,
+                          "Tomate", 2000, 
+                          "timer_tex", 8000,
+                          "Paprika_textur", 2000, 
+                          "timer_tex", 2000,
+                          "Zwiebel_textur", 2000,
+                          "timer_tex", 1000,
+                          "Zwiebel_textur", 2000,
+                          "timer_tex", 1000] );
+
+        game.data.fridge.tomatos -= 2; 
+        game.data.fridge.kidney_beans -= 1; 
+        game.data.fridge.onions -= 2;
+        game.data.fridge.sweet_pepper -= 1;
+      }
     	else if( current_map == "testmap" ){
     			GC.set_recipe(["Kaese_textur", 10000,
 		                      "timer_tex", 3000,

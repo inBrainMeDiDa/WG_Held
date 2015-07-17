@@ -893,9 +893,14 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
         this.font.draw(renderer, "GESUNDER", 128, 100);
         this.font.draw(renderer, "OBSTSALAT", 128, 150);
    
-        this.font.draw(renderer, "VOLLER", 128, 250); 
-        this.font.draw(renderer, "OBSTKORB", 128, 300);
+        this.font.draw(renderer, "KIDNEY BOHNEN", 128, 250); 
+        this.font.draw(renderer, "2 TOMATEN", 128, 300);
+        this.font.draw(renderer, "2 ZWIEBELN", 128, 350);
+        this.font.draw(renderer, "1 PABRIKA", 128, 400);
         
+
+        if( game.data.fridge.tomatos > 1 && game.data.fridge.kidney_beans > 0
+           && game.data.fridge.onions > 1 && game.data.fridge.sweet_pepper > 0 )
         {
           this.font.draw(renderer, " START", 250, 500);
         }
@@ -982,6 +987,137 @@ game.DetailedRecipeScreen_7 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_7 );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+
+
+/* =======================================================================
+ *  TitleScreen for Recipe 8 ( Chili con Carne )
+ */
+game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+ 
+    // add a new renderable component to draw some text
+    me.game.world.addChild(new (me.Renderable.extend ({
+      // constructor
+      init : function() {
+        this._super(me.Renderable, 'init', [0, 0, me.game.viewport.width, me.game.viewport.height]);
+        // font
+        this.font = new me.BitmapFont("32x32_font", 32, 0.75);
+      },
+      update : function (dt) {
+        return true;
+      },
+ 
+      draw : function (renderer) {
+        this.font.draw(renderer, "CHILI CON", 128, 100);
+        this.font.draw(renderer, "CARNE", 128, 150);
+   
+        this.font.draw(renderer, "VOLLER", 128, 250); 
+        this.font.draw(renderer, "OBSTKORB", 128, 300);
+        
+        {
+          this.font.draw(renderer, " START", 250, 500);
+        }
+      },
+      
+
+    })), 3);
+    
+    var button = null;
+
+    {
+       // add the start button
+      button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.cooking_game_8 );
+      }
+      me.game.world.addChild( button );
+    }
+   
+    // add view recipe button
+    button = new game.HUD.myButton(568, 100, "button_info", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.recipe_8 );
+    }
+    me.game.world.addChild( button );
+
+    // add the back (to previous page) button
+    button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_7 );
+    }
+    me.game.world.addChild( button );
+
+
+    // add the back (to kitchen) button
+    button = new game.HUD.myButton(8, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.kitchen );
+    }
+    me.game.world.addChild( button );
+  },
+
+  /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+   }
+});
+/* =======================================================================
+ *  Detail View of Recipe 8 ( Chili con Carne )
+ */
+game.DetailedRecipeScreen_8 = me.ScreenObject.extend({
+ 
+  /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+    // background
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('book_BG')
+      ),
+      2
+    );
+    // recipe
+     me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('recipe_chili')
+      ),
+      3
+    );
+
+    // add the return button
+    var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.cooking_book_8 );
     }
     me.game.world.addChild( button );
   },

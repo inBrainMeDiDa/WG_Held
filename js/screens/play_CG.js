@@ -142,6 +142,71 @@ game.PlayScreen_CG = me.ScreenObject.extend({
           // append to ingredients
           ingredients.push(milk[i]);
         }
+        // append mozzarella
+        for(var i = 0; i < mozzarella.length; ++i)
+        {
+          mozzarella[i].set_texture_string("Mozarella_textur");
+          // append to ingredients
+          ingredients.push(mozzarella[i]);
+        }
+        // append pasta
+        for(var i = 0; i < pasta.length; ++i)
+        {
+          pasta[i].set_texture_string("Nudeln_textur");
+          // append to ingredients
+          ingredients.push(pasta[i]);
+        }
+        // append sweet_pepper
+        for(var i = 0; i < sweet_pepper.length; ++i)
+        {
+          sweet_pepper[i].set_texture_string("Paprika_textur");
+          // append to ingredients
+          ingredients.push(sweet_pepper[i]);
+        }
+        // append Curd Cobain
+        for(var i = 0; i < curd.length; ++i)
+        {
+          curd[i].set_texture_string("Quark_textur");
+          // append to ingredients
+          ingredients.push(curd[i]);
+        }
+        // append sour_cream
+        for(var i = 0; i < sour_cream.length; ++i)
+        {
+          sour_cream[i].set_texture_string("SaureSahne_textur");
+          // append to ingredients
+          ingredients.push(sour_cream[i]);
+        }
+        // append Kevin Bacon
+        for(var i = 0; i < bacon.length; ++i)
+        {
+          bacon[i].set_texture_string("Schinken_textur");
+          // append to ingredients
+          ingredients.push(bacon[i]);
+        }
+        // append bread rolls
+        for(var i = 0; i < rolls.length; ++i)
+        {
+          rolls[i].set_texture_string("Semmeln_textur");
+          // append to ingredients
+          ingredients.push(rolls[i]);
+        }
+        // append wraps
+        for(var i = 0; i < wraps.length; ++i)
+        {
+          wraps[i].set_texture_string("Wraps_textur");
+          // append to ingredients
+          ingredients.push(wraps[i]);
+        }
+        // append onions
+        for(var i = 0; i < onions.length; ++i)
+        {
+          onions[i].set_texture_string("Zwiebel_textur");
+          // append to ingredients
+          ingredients.push(onions[i]);
+        }
+
+
 
 				for(var i = 0; i < ingredients.length; ++i)
 				{

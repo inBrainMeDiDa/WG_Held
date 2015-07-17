@@ -233,6 +233,21 @@
                  "width":34,
                  "x":748,
                  "y":417
+                }, 
+                {
+                 "height":10,
+                 "id":52,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70,
+                 "x":675,
+                 "y":420
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -354,7 +369,7 @@
                  "properties":
                     {
                      "description":"tomatos",
-                     "image":"Tomate_jr",
+                     "image":"tomatos",
                      "spriteheight":"32",
                      "spritewidth":"32"
                     },
@@ -372,7 +387,7 @@
                  "properties":
                     {
                      "description":"tomatos",
-                     "image":"Tomate_jr",
+                     "image":"tomatos",
                      "spriteheight":"32",
                      "spritewidth":"32"
                     },
@@ -390,7 +405,7 @@
                  "properties":
                     {
                      "description":"rolls",
-                     "image":"Semmel_jr",
+                     "image":"rolls",
                      "spriteheight":"32",
                      "spritewidth":"32"
                     },
@@ -408,7 +423,7 @@
                  "properties":
                     {
                      "description":"tomatos",
-                     "image":"Tomate_jr",
+                     "image":"tomatos",
                      "spriteheight":"32",
                      "spritewidth":"32"
                     },
@@ -420,19 +435,21 @@
                  "y":296
                 }, 
                 {
-                 "height":5,
-                 "id":48,
-                 "name":"WarpEntity",
+                 "height":39,
+                 "id":53,
+                 "name":"me.LevelEntity",
                  "properties":
                     {
-
+                     "duration":"250",
+                     "fade":"#FFFFFF",
+                     "to":"smarkt_kasse"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":66,
-                 "x":678,
-                 "y":419
+                 "width":40,
+                 "x":844,
+                 "y":360.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -441,7 +458,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":52,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "properties":
     {

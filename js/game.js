@@ -142,6 +142,8 @@ var game = {
         icon.name = "backpack_icon_1";
         // persistent across level change
         icon.isPersistent = true;
+        icon.alwaysUpdate = true;
+        icon.updateWhenPaused =true;
         me.game.world.addChild( icon , Infinity);
         console.log("child added. "+string);
       }   
@@ -154,6 +156,8 @@ var game = {
         icon.name = "backpack_icon_2";
         // persistent across level change
         icon.isPersistent = true;
+        icon.alwaysUpdate = true;
+        icon.updateWhenPaused =true;
         me.game.world.addChild( icon , Infinity);
       }
     }else if(game.data.displayBackpack.position3 == ""){
@@ -165,6 +169,8 @@ var game = {
         icon.name = "backpack_icon_3";
         // persistent across level change
         icon.isPersistent = true;
+        icon.alwaysUpdate = true;
+        icon.updateWhenPaused =true;
         me.game.world.addChild( icon , Infinity );
       }
     }else if(game.data.displayBackpack.position4 == ""){
@@ -176,6 +182,8 @@ var game = {
         icon.name = "backpack_icon_4";
         // persistent across level change
         icon.isPersistent = true;
+        icon.alwaysUpdate = true;
+        icon.updateWhenPaused =true;
         me.game.world.addChild( icon , Infinity);
       }
     }
@@ -333,10 +341,12 @@ var game = {
         me.pool.register("RespawnEntity", game.RespawnEntity, true);
 		
 		// enable the keyboard
+        me.input.bindKey(me.input.KEY.E,    "empty", true);
 		me.input.bindKey(me.input.KEY.LEFT,  "left");
 		me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.UP,    "jump", true);
 		me.input.bindKey(me.input.KEY.X,     "jump", true);
+        me.input.bindKey(me.input.KEY.SPACE,     "jump", true);
 				
         // Start the game.
         me.state.change(me.state.MENU);

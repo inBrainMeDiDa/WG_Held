@@ -427,7 +427,7 @@ game.resources = [
     },
     //Goods for the JR
     {
-        "name": "Tomate_jr",
+        "name": "tomatos",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Tomate.png"
     },
@@ -437,77 +437,82 @@ game.resources = [
         "src": "data/img/sprite/jr_sprites/Apfel.png"
     },
     {
-        "name": "Butter_jr",
+        "name": "butter",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Butter.png"
     },
     {
-        "name": "Chips_jr",
+        "name": "chips",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Chips.png"
     },
     {
-        "name": "Eier_jr",
+        "name": "eggs",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Eier.png"
     },
     {
-        "name": "GebBohnenDose_jr",
+        "name": "baked_beans",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/GebackeneBohnenDose.png"
     },
     {
-        "name": "Kaese_jr",
+        "name": "cheese",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Kaese_textur.png"
     },
     {
-        "name": "KidBohnenDose_jr",
+        "name": "potatoes",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/Kartoffeln.png"
+    },
+    {
+        "name": "kidney_beans",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/KidneyBohnenDose.png"
     },
     {
-        "name": "Knoblauch_jr",
+        "name": "garlic",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Knoblauch.png"
     },
     {
-        "name": "Milch_jr",
+        "name": "milk",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Milch.png"
     },
     {
-        "name": "Mozarella_jr",
+        "name": "mozzarella",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Mozarella.png"
     },
     {
-        "name": "Nudeln_jr",
+        "name": "pasta",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Nudeln.png"
     },
     {
-        "name": "Paprika_jr",
+        "name": "sweet_pepper",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Paprika.png"
     },
     {
-        "name": "Quark_jr",
+        "name": "curd",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Quark.png"
     },
     {
-        "name": "Salat_jr",
+        "name": "salat",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Salat.png"
     },
     {
-        "name": "Saure-sahne_jr",
+        "name": "sour_cream",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Saure-sahne.png"
     },
     {
-        "name": "Schinken_jr",
+        "name": "bacon",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Schinken.png"
     },
@@ -517,17 +522,17 @@ game.resources = [
         "src": "data/img/sprite/jr_sprites/Schokolade.png"
     },
     {
-        "name": "Semmel_jr",
+        "name": "rolls",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Semmel.png"
     },
     {
-        "name": "TortillaWraps_jr",
+        "name": "tortilla_wraps",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/TortillaWraps.png"
     },
     {
-        "name": "Zwiebel_jr",
+        "name": "onions",
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Zwiebel.png"
     },
@@ -543,6 +548,11 @@ game.resources = [
         "name": "Tileset-Immatrikulationsamt",
         "type": "image",
         "src": "data/img/map/Tileset-Immatrikulationsamt.png"
+    },
+    {
+        "name": "Tileset-Supermarkt",
+        "type": "image",
+        "src": "data/img/map/Tileset-Supermarkt.png"
     },
     // Maps
     {
@@ -564,6 +574,11 @@ game.resources = [
         "name": "area04",
         "type": "tmx",
         "src": "data/map/area04.json"
+    },
+    {
+        "name": "smarkt_kasse",
+        "type": "tmx",
+        "src": "data/map/smarkt_kasse.json"
     },
     //Brit
     //LoadingScreen

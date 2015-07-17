@@ -76,6 +76,36 @@ game.PlayerEntity = me.Entity.extend({
      */
     update : function (dt) {
   
+      if(me.input.isKeyPressed('empty')){
+        console.log("E was pressed");
+        if(game.data.displayBackpack.position4 != ""){
+           game.killDisplayBackpack("backpack_icon_4");
+           game.data.backpack[game.data.displayBackpack.position4] = 0;
+           game.data.displayBackpack.position4 ="";
+           game.data.backpackLoad = 0;
+           return;
+         }else if(game.data.displayBackpack.position3 != ""){
+           game.killDisplayBackpack("backpack_icon_3");
+           game.data.backpack[game.data.displayBackpack.position3] = 0;
+           game.data.displayBackpack.position3 ="";
+           game.data.backpackLoad = 0;
+           return;
+         }else if(game.data.displayBackpack.position2 != ""){
+           game.killDisplayBackpack("backpack_icon_2");
+           game.data.backpack[game.data.displayBackpack.position2] = 0;
+           game.data.displayBackpack.position2 ="";
+           game.data.backpackLoad = 0;
+           return;
+        }else if(game.data.displayBackpack.position1 != ""){
+           game.killDisplayBackpack("backpack_icon_1");
+           game.data.backpack[game.data.displayBackpack.position1] = 0;
+           console.log(game.data.displayBackpack.position1);
+           game.data.displayBackpack.position1 = "";
+           game.data.backpackLoad = 0;
+           return;
+        }
+      }
+
       if (me.input.isKeyPressed('left')) {
       // flip the sprite on horizontal axis
       this.renderable.flipX(true);
@@ -175,37 +205,37 @@ game.PlayerEntity = me.Entity.extend({
     // do something when collected
     if(game.data.backpackLoad < 4){
       if(this.description == "tomatos"){
-        this.updateBackpack("Tomate_jr", "tomatos");
+        this.updateBackpack("tomatos", "tomatos");
       }else if(this.description == "baked_beans"){
-        this.updateBackpack("GebBohnenDose_jr", "baked_beans");
+        this.updateBackpack("baked_beans", "baked_beans");
       }else if(this.description == "kidney_beans"){
-        this.updateBackpack("KidBohnenDose_jr", "kidney_beans");
+        this.updateBackpack("kidney_beans", "kidney_beans");
       }else if(this.description == "rolls"){
-        this.updateBackpack("Semmel_jr", "rolls");
+        this.updateBackpack("rolls", "rolls");
       }else if(this.description == "tortilla_wraps"){
-        this.updateBackpack("TortillaWraps_jr", "tortilla_wraps");
+        this.updateBackpack("tortilla_wraps", "tortilla_wraps");
       }else if(this.description == "sour_cream"){
-        this.updateBackpack("Saure-sahne_jr", "sour_cream");
+        this.updateBackpack("sour_cream", "sour_cream");
       }else if(this.description == "bacon"){
-        this.updateBackpack("Schinken_jr", "bacon");
+        this.updateBackpack("bacon", "bacon");
       }else if(this.description == "onions"){
-        this.updateBackpack("Zwiebel_jr", "onions");
+        this.updateBackpack("onions", "onions");
       }else if(this.description == "garlic"){
-        this.updateBackpack("Knoblauch_jr", "garlic");
+        this.updateBackpack("garlic", "garlic");
       }else if(this.description == "sweet_pepper"){
-        this.updateBackpack("Paprika_jr", "sweet_pepper");
+        this.updateBackpack("sweet_pepper", "sweet_pepper");
       }else if(this.description == "milk"){
-        this.updateBackpack("Milch_jr", "milk");
+        this.updateBackpack("milk", "milk");
       }else if(this.description == "eggs"){
-        this.updateBackpack("Eier_jr", "eggs");
+        this.updateBackpack("eggs", "eggs");
       }else if(this.description == "butter"){
-        this.updateBackpack("Butter_jr", "butter");
+        this.updateBackpack("butter", "butter");
       }else if(this.description == "curd"){
-        this.updateBackpack("Quark_jr", "curd");
+        this.updateBackpack("curd", "curd");
       }else if(this.description == "potatoes"){
-        this.updateBackpack("Kartoffeln_jr", "potatoes");
+        this.updateBackpack("potatoes", "potatoes");
       }else if(this.description == "mozzarella"){
-        this.updateBackpack("Mozarella_jr", "mozzarella");
+        this.updateBackpack("mozzarella", "mozzarella");
       }
 
 

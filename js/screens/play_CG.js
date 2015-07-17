@@ -304,7 +304,7 @@ game.PlayScreen_CG = me.ScreenObject.extend({
         game.data.fridge.eggs -= 2;
       }
       else if( current_map == "CG_Recipe_5" ){
-        GC.set_recipe([   "timer_tex", 5000
+        GC.set_recipe([   "timer_tex", 5000,
                           "Kartoffel_textur", 2000, 
                           "timer_tex", 1000,
                           "Kartoffel_textur", 2000, 

@@ -364,42 +364,6 @@
                 }, 
                 {
                  "height":40,
-                 "id":41,
-                 "name":"GoodsEntity",
-                 "properties":
-                    {
-                     "description":"tomatos",
-                     "image":"tomatos",
-                     "spriteheight":"32",
-                     "spritewidth":"32"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":44,
-                 "x":216,
-                 "y":154
-                }, 
-                {
-                 "height":40,
-                 "id":43,
-                 "name":"GoodsEntity",
-                 "properties":
-                    {
-                     "description":"tomatos",
-                     "image":"tomatos",
-                     "spriteheight":"32",
-                     "spritewidth":"32"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":44,
-                 "x":173,
-                 "y":256
-                }, 
-                {
-                 "height":40,
                  "id":45,
                  "name":"GoodsEntity",
                  "properties":
@@ -491,7 +455,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":59,
+ "nextobjectid":60,
  "orientation":"orthogonal",
  "properties":
     {

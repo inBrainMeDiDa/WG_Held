@@ -18,13 +18,13 @@ var game = {
         flag_fruit_basket_clickable : false,
         // ingredient storage
         fridge : {
-            tomatos         : 3,
-            cheese          : 1,
-            chips           : 0,
-            baked_beans     : 1,
-            kidney_beans    : 1,
-            salat           : 1,
-            rolls           : 0, // = Semmeln
+            tomatos         : 3,    tomatos_cost : 10,
+            cheese          : 1,    cheese_cost : 5,
+            chips           : 0,    chips_cost : 5,
+            baked_beans     : 1,    baked_beans_cost : 8,
+            kidney_beans    : 1,    kidney_beans_cost : 8,
+            salat           : 1,    salat_cost : 6,
+            rolls           : 0,    rolls_cost : 12,// = Semmeln 
             tortilla_wraps  : 0,
             sour_cream      : 0,
             bacon           : 0,

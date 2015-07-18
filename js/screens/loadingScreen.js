@@ -47,12 +47,6 @@ var ProgressBar = me.Renderable.extend({
     }
 });
 
-/** 
- * a default loading screen
- * @memberOf Brit
- * @ignore
- * @constructor
- */
 game.LoadingScreen = me.ScreenObject.extend({
     // call when the loader is resetted
     onResetEvent: function () {

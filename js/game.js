@@ -14,6 +14,8 @@ var game = {
         dialog_pointer : 0,
         // flag whether the oven should be clicked or not
         flag_oven_clickable : false,
+        // flag whether the fruit_basket should be clicked or not
+        flag_fruit_basket_clickable : false,
         // ingredient storage
         fridge : {
             tomatos         : 3,
@@ -78,6 +80,7 @@ var game = {
     ultralink : {
         nowhere         : 9999,
         reset_oven      : 9998,
+        reset_fruit_basket : 9997,
         new_game        : 998,
         resume_game     : 997,
         main_menu       : 0,
@@ -94,6 +97,7 @@ var game = {
         cooking_book_5  : 45, 
         cooking_book_6  : 46,
         cooking_book_7  : 47, 
+        cooking_book_8  : 48, 
         // detailed recipes
         recipe_1        : 51,
         recipe_2        : 52,
@@ -102,6 +106,7 @@ var game = {
         recipe_5        : 55,
         recipe_6        : 56,
         recipe_7        : 57,
+        recipe_8        : 58,
         // misc.
         next_dialog     : 6,
         cooking_game_1  : 71,
@@ -111,6 +116,7 @@ var game = {
         cooking_game_5  : 75,
         cooking_game_6  : 76,
         cooking_game_7  : 77,
+        cooking_game_8  : 78,
         living_room     : 8,
         dialog_room     : 9,
         hall_room       : 10,
@@ -208,6 +214,20 @@ var game = {
     },
     reset_kitchen_oven : function(){
             game.data.flag_oven_clickable = false;
+            me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+    },
+    switch_to_kitchen_fruit_basket : function(){
+        if( game.data.flag_fruit_basket_clickable ){
+            return;
+        } else {
+            game.data.flag_fruit_basket_clickable = true;
+            me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
+            me.state.change(me.state.TITLE);
+        }
+    },
+    reset_kitchen_fruit_basket : function(){
+            game.data.flag_fruit_basket_clickable = false;
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
             me.state.change(me.state.TITLE);
     },

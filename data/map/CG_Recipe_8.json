@@ -29,93 +29,25 @@
          "name":"things",
          "objects":[
                 {
-                 "height":0,
-                 "id":7,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":583,
-                 "y":225
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"baked_beans",
-                 "properties":
-                    {
-                     "image":"BakedBeansCan_textur",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":755,
-                 "y":152
-                }, 
-                {
-                 "height":0,
-                 "id":25,
-                 "name":"baked_beans",
-                 "properties":
-                    {
-                     "image":"BakedBeansCan_textur",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":611.5,
-                 "y":158.5
-                }, 
-                {
-                 "height":0,
-                 "id":26,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":496.5,
-                 "y":156
-                }, 
-                {
-                 "height":0,
-                 "id":27,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":559.5,
-                 "y":127
-                }, 
-                {
-                 "height":0,
+                 "height":1,
                  "id":28,
+                 "name":"onions",
+                 "properties":
+                    {
+                     "image":"Zwiebel_textur",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":1,
+                 "x":478.5,
+                 "y":166.5
+                }, 
+                {
+                 "height":1,
+                 "id":37,
                  "name":"tomato",
                  "properties":
                     {
@@ -126,47 +58,81 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
-                 "x":466.5,
-                 "y":53
+                 "width":1,
+                 "x":603.5,
+                 "y":80.5
                 }, 
                 {
-                 "height":0,
-                 "id":31,
-                 "name":"eggs",
+                 "height":1,
+                 "id":38,
+                 "name":"tomato",
                  "properties":
                     {
-                     "image":"Eier_textur",
+                     "image":"Tomate",
                      "spriteheight":"128",
                      "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
-                 "x":703.5,
-                 "y":56
+                 "width":1,
+                 "x":610.5,
+                 "y":24.5
                 }, 
                 {
-                 "height":0,
-                 "id":32,
-                 "name":"eggs",
+                 "height":1,
+                 "id":40,
+                 "name":"onions",
                  "properties":
                     {
-                     "image":"Eier_textur",
+                     "image":"Zwiebel_textur",
                      "spriteheight":"128",
                      "spritewidth":"128"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
-                 "x":648.5,
-                 "y":57
+                 "width":1,
+                 "x":551.5,
+                 "y":161.5
+                }, 
+                {
+                 "height":1,
+                 "id":42,
+                 "name":"sweet_pepper",
+                 "properties":
+                    {
+                     "image":"Paprika_textur",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":1,
+                 "x":704.5,
+                 "y":126.5
+                }, 
+                {
+                 "height":1,
+                 "id":45,
+                 "name":"kidney_beans",
+                 "properties":
+                    {
+                     "image":"KidneyBohnenCan_textur",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":1,
+                 "x":617.5,
+                 "y":165.5
                 }, 
                 {
                  "height":80,
-                 "id":33,
+                 "id":46,
                  "name":"pot",
                  "properties":
                     {
@@ -178,8 +144,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":200,
-                 "y":300
+                 "x":195,
+                 "y":325
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -188,7 +154,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":34,
+ "nextobjectid":47,
  "orientation":"orthogonal",
  "properties":
     {

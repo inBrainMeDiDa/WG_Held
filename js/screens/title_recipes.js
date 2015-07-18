@@ -36,10 +36,15 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "GEBACKENE BOHNEN", 128, 100);
         this.font.draw(renderer, "MIT TOMATEN", 128, 150);
-        this.font.draw(renderer, "5 TOMATEN", 128, 250);
-        this.font.draw(renderer, "2 BAKED BEANS", 128, 300);
+        this.font.draw(renderer, "2 BAKED BEANS", 128, 250);
+        this.font.draw(renderer, "4 EIER", 128, 300);
+        this.font.draw(renderer, "4 TOMATEN", 128, 350);
+        this.font.draw(renderer, "2 ZWIEBELN", 128, 400);
+        this.font.draw(renderer, "2 BROT", 128, 450);
 
-        if( game.data.fridge.tomatos > 4 && game.data.fridge.baked_beans > 1 ){
+        if( game.data.fridge.tomatos > 3 && game.data.fridge.baked_beans > 1 &&
+            game.data.fridge.onions > 1 && game.data.fridge.rolls > 1 && 
+            game.data.fridge.eggs > 3 ){
           this.font.draw(renderer, " START", 250, 500);
         }
       },
@@ -49,7 +54,9 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     
     var button = null;
 
-    if( game.data.fridge.tomatos > 4 && game.data.fridge.baked_beans > 1 )
+    if( game.data.fridge.tomatos > 3 && game.data.fridge.baked_beans > 1 &&
+        game.data.fridge.onions > 1 && game.data.fridge.rolls > 1 && 
+        game.data.fridge.eggs > 3 )
     {
        // add the start button
       button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
@@ -114,14 +121,14 @@ game.DetailedRecipeScreen_1 = me.ScreenObject.extend({
       2
     );
     // recipe
-    /* me.game.world.addChild(
+     me.game.world.addChild(
       new me.Sprite (
         0,0,
-        me.loader.getImage('recipe_dummy')
+        me.loader.getImage('recipe_eggnbeans')
       ),
       3
     );
-    */
+    
     // add the return button
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){

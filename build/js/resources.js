@@ -214,6 +214,11 @@ game.resources = [
     },
     // recipe screens
     {
+        "name": "recipe_eggnbeans",
+        "type": "image",
+        "src": "data/img/recipes/eggnbeans.png"
+    },
+    {
         "name": "recipe_bc",
         "type": "image",
         "src": "data/img/recipes/brotchips.png"

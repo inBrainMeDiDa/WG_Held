@@ -29,7 +29,7 @@
          "name":"things",
          "objects":[
                 {
-                 "height":1,
+                 "height":0,
                  "id":7,
                  "name":"tomato",
                  "properties":
@@ -41,46 +41,12 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":1,
-                 "x":625,
-                 "y":290
+                 "width":0,
+                 "x":583,
+                 "y":225
                 }, 
                 {
-                 "height":1,
-                 "id":13,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":502,
-                 "y":226
-                }, 
-                {
-                 "height":1,
-                 "id":14,
-                 "name":"tomato",
-                 "properties":
-                    {
-                     "image":"Tomate",
-                     "spriteheight":"128",
-                     "spritewidth":"128"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":1,
-                 "x":565.5,
-                 "y":135.5
-                }, 
-                {
-                 "height":1,
+                 "height":0,
                  "id":15,
                  "name":"baked_beans",
                  "properties":
@@ -92,13 +58,13 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":1,
-                 "x":483,
-                 "y":58
+                 "width":0,
+                 "x":755,
+                 "y":152
                 }, 
                 {
-                 "height":1,
-                 "id":21,
+                 "height":0,
+                 "id":25,
                  "name":"baked_beans",
                  "properties":
                     {
@@ -109,13 +75,13 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":1,
-                 "x":622.5,
-                 "y":81.5
+                 "width":0,
+                 "x":611.5,
+                 "y":158.5
                 }, 
                 {
-                 "height":1,
-                 "id":22,
+                 "height":0,
+                 "id":26,
                  "name":"tomato",
                  "properties":
                     {
@@ -126,13 +92,13 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":1,
-                 "x":463.5,
-                 "y":134.5
+                 "width":0,
+                 "x":496.5,
+                 "y":156
                 }, 
                 {
-                 "height":1,
-                 "id":23,
+                 "height":0,
+                 "id":27,
                  "name":"tomato",
                  "properties":
                     {
@@ -143,13 +109,64 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":1,
-                 "x":688.5,
-                 "y":155.5
+                 "width":0,
+                 "x":559.5,
+                 "y":127
+                }, 
+                {
+                 "height":0,
+                 "id":28,
+                 "name":"tomato",
+                 "properties":
+                    {
+                     "image":"Tomate",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":466.5,
+                 "y":53
+                }, 
+                {
+                 "height":0,
+                 "id":31,
+                 "name":"eggs",
+                 "properties":
+                    {
+                     "image":"Eier_textur",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":703.5,
+                 "y":56
+                }, 
+                {
+                 "height":0,
+                 "id":32,
+                 "name":"eggs",
+                 "properties":
+                    {
+                     "image":"Eier_textur",
+                     "spriteheight":"128",
+                     "spritewidth":"128"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":648.5,
+                 "y":57
                 }, 
                 {
                  "height":80,
-                 "id":24,
+                 "id":33,
                  "name":"pot",
                  "properties":
                     {
@@ -162,7 +179,7 @@
                  "visible":true,
                  "width":128,
                  "x":200,
-                 "y":303
+                 "y":300
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -171,7 +188,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":25,
+ "nextobjectid":34,
  "orientation":"orthogonal",
  "properties":
     {

@@ -9,7 +9,7 @@ var game = {
         // score
         score : 0,
         // money
-        money : 200,
+        money : 200,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
         // flag whether the oven should be clicked or not
@@ -19,26 +19,26 @@ var game = {
         // ingredient storage
         fridge : {
             tomatos         : 3,    tomatos_cost : 10,
-            cheese          : 1,    cheese_cost : 5,
+            cheese          : 1,    cheese_cost : 15,
             chips           : 0,    chips_cost : 5,
             baked_beans     : 1,    baked_beans_cost : 8,
             kidney_beans    : 1,    kidney_beans_cost : 8,
             salat           : 1,    salat_cost : 6,
             rolls           : 0,    rolls_cost : 12,// = Semmeln 
-            tortilla_wraps  : 0,
-            sour_cream      : 0,
-            bacon           : 0,
-            onions          : 0,
-            garlic          : 0, // = Knoblauch
-            sweet_pepper    : 0, // = Paprika
-            milk            : 0,
-            eggs            : 0,
-            butter          : 0,
-            curd            : 0, // = Quark
-            potatoes        : 0,
-            pasta           : 0,
-            mozzarella      : 0,
-            fruits          : 0
+            tortilla_wraps  : 0,    tortilla_wraps_cost : 10,
+            sour_cream      : 0,    sour_cream_cost : 2,
+            bacon           : 0,    bacon_cost : 25,
+            onions          : 0,    onions_cost : 1,
+            garlic          : 0,    garlic_cost : 2,// = Knoblauch
+            sweet_pepper    : 0,    sweet_pepper_cost : 3,// = Paprika
+            milk            : 0,    milk_cost : 10,
+            eggs            : 0,    eggs_cost : 12,
+            butter          : 0,    butter_cost : 5,
+            curd            : 0,    curd_cost : 2, // = Quark
+            potatoes        : 0,    potatoes_cost : 15,
+            pasta           : 0,    pasta_cost : 10,
+            mozzarella      : 0,    mozzarella_cost : 12,
+            fruits          : 0,    fruits_cost : 30,
         },
 
         backpackLoad : 0, // = space in backpack

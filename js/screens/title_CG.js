@@ -42,6 +42,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
+        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
       },
       
 

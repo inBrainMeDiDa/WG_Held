@@ -89,13 +89,16 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     me.game.world.addChild( button , 4);
 
     // fruit basket
-    button = new game.HUD.myButton( 220, 220, "Fruits_tex", 128, 128);
-    if( button ){
-      button.setHyperlink( game.ultralink.nowhere );
-      button.setMouseOverText("OBSTKORB: VOLL");
+    if( game.data.fridge.fruits > 0 )
+    {
+      button = new game.HUD.myButton( 220, 220, "Fruits_tex", 128, 128);
+      if( button ){
+        button.setHyperlink( game.ultralink.nowhere );
+        button.setMouseOverText("OBSTKORB: VOLL");
+      }
+      me.game.world.addChild( button , 4);
     }
-    me.game.world.addChild( button , 4);
-
+    
     // oven button
     if( game.data.flag_oven_clickable )
     {
@@ -103,6 +106,16 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.reset_oven );
         button.setMouseOverText("IM OFEN BACKEN");
+      }
+      me.game.world.addChild( button );
+    }
+    // fruit basket button
+    if( game.data.flag_fruit_basket_clickable )
+    {
+      button = new game.HUD.myButton(220, 220, "button_arrow_right", 64,64);
+      if( button ){
+        button.setHyperlink( game.ultralink.reset_fruit_basket );
+        button.setMouseOverText("OBSTSALAT ZUBEREITEN");
       }
       me.game.world.addChild( button );
     }

@@ -899,15 +899,11 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "GESUNDER", 128, 100);
         this.font.draw(renderer, "OBSTSALAT", 128, 150);
-   
-        this.font.draw(renderer, "KIDNEY BOHNEN", 128, 250); 
-        this.font.draw(renderer, "2 TOMATEN", 128, 300);
-        this.font.draw(renderer, "2 ZWIEBELN", 128, 350);
-        this.font.draw(renderer, "1 PABRIKA", 128, 400);
         
-
-        if( game.data.fridge.tomatos > 1 && game.data.fridge.kidney_beans > 0
-           && game.data.fridge.onions > 1 && game.data.fridge.sweet_pepper > 0 )
+        this.font.draw(renderer, "VOLLER", 128, 250); 
+        this.font.draw(renderer, "OBSTKORB", 128, 300);
+        
+         if( game.data.fridge.fruits > 0 ) 
         {
           this.font.draw(renderer, " START", 250, 500);
         }
@@ -917,7 +913,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     })), 3);
     
     var button = null;
-
+    if( !game.flag_fruit_basket_clickable && game.data.fridge.fruits > 0 )
     {
        // add the start button
       button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);
@@ -1041,10 +1037,14 @@ game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "CHILI CON", 128, 100);
         this.font.draw(renderer, "CARNE", 128, 150);
-   
-        this.font.draw(renderer, "VOLLER", 128, 250); 
-        this.font.draw(renderer, "OBSTKORB", 128, 300);
         
+        this.font.draw(renderer, "KIDNEY BOHNEN", 128, 250); 
+        this.font.draw(renderer, "2 TOMATEN", 128, 300);
+        this.font.draw(renderer, "2 ZWIEBELN", 128, 350);
+        this.font.draw(renderer, "1 PABRIKA", 128, 400);
+        
+        if( game.data.fridge.tomatos > 1 && game.data.fridge.kidney_beans > 0
+           && game.data.fridge.onions > 1 && game.data.fridge.sweet_pepper > 0 )
         {
           this.font.draw(renderer, " START", 250, 500);
         }
@@ -1055,6 +1055,8 @@ game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
     
     var button = null;
 
+    if( game.data.fridge.tomatos > 1 && game.data.fridge.kidney_beans > 0
+           && game.data.fridge.onions > 1 && game.data.fridge.sweet_pepper > 0 )
     {
        // add the start button
       button = new game.HUD.myButton(408, 480, "button_arrow_right", 64,64);

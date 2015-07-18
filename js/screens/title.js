@@ -145,7 +145,7 @@ game.HUD.myButton = me.GUI_Object.extend(
       this.font = this.font[0];
   
       this.mouse_over_text = "TEST";
-      this.click_sound = "cling";
+      this.click_sound = "click";
       this.vector_to_pointer = new me.Vector2d(0,0);
    },
 

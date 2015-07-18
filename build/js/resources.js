@@ -10,6 +10,11 @@ game.resources = [
         "src": "data/sfx/"
     },
     {
+        "name": "click",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
         "name": "fridge_open",
         "type": "audio",
         "src": "data/sfx/"
@@ -26,6 +31,21 @@ game.resources = [
     },
     {
         "name": "page_turn",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "oven_sfx",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "squelch_1",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "knive_on_plate",
         "type": "audio",
         "src": "data/sfx/"
     },

@@ -99,6 +99,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.nowhere );
         button.setMouseOverText("OBSTKORB: VOLL");
+        button.setClickSound("squelch_1");
       }
       me.game.world.addChild( button , 4);
     }
@@ -110,6 +111,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.reset_oven );
         button.setMouseOverText("IM OFEN BACKEN");
+        button.setClickSound( "oven_sfx" );
       }
       me.game.world.addChild( button );
     }
@@ -120,6 +122,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.reset_fruit_basket );
         button.setMouseOverText("OBSTSALAT ZUB.");
+        button.setClickSound("knive_on_plate");
       }
       me.game.world.addChild( button );
     }

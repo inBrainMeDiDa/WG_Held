@@ -191,6 +191,7 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(700, 536, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.next_dialog );
+      
     }
     me.game.world.addChild( button );
 

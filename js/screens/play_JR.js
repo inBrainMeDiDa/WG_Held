@@ -25,6 +25,14 @@ game.PlayScreen_JR = me.ScreenObject.extend({
 
         //this.HUD.set_active_gamecontroller( new game.HUD.CookingGameController(888,888) );
         this.HUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
+        var bottomBar = new game.HUD.myButton(0, 450, "bottom_bar", 1024, 256);
+        if( bottomBar ){
+          bottomBar.setHyperlink( game.ultralink.nowhere );
+          bottomBar.isPersistent = true;
+          bottomBar.name = "jr_bottomBar";
+        }
+          me.game.world.addChild( bottomBar , 3);
+
     },
 
 	
@@ -35,6 +43,11 @@ game.PlayScreen_JR = me.ScreenObject.extend({
     onDestroyEvent: function() {
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
+        var bottomBarArray = me.game.world.getChildByName("jr_bottomBar");
+        for (var i = 0; i < bottomBarArray.length; ++i) {
+          me.game.world.removeChild(bottomBarArray[i]);
+        };
+        
     }
 });
 

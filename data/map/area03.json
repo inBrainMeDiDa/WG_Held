@@ -241,8 +241,8 @@
                  "name":"RespawnEntity",
                  "properties":
                     {
-                     "posX":"64",
-                     "posY":"320"
+                     "posX":"130",
+                     "posY":"337"
                     },
                  "rotation":0,
                  "type":"",

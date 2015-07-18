@@ -9,6 +9,26 @@ game.resources = [
         "type": "audio",
         "src": "data/sfx/"
     },
+    {
+        "name": "fridge_open",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "fridge_close",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "door_close",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
+    {
+        "name": "page_turn",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
     // music
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",

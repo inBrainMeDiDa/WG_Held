@@ -70,6 +70,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_1 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -77,6 +78,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -84,6 +86,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_2 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -91,6 +94,7 @@ game.CookingGameRecipeScreen_1 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -133,6 +137,7 @@ game.DetailedRecipeScreen_1 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_1 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -213,6 +218,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_2 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -220,6 +226,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_1 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -227,6 +234,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_3 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -234,6 +242,7 @@ game.CookingGameRecipeScreen_2 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -278,6 +287,7 @@ game.DetailedRecipeScreen_2 = me.ScreenObject.extend({
       button.setHyperlink( game.ultralink.cooking_book_2 );
     }
     me.game.world.addChild( button );
+    button.setClickSound( "page_turn" );
   },
 
   /**
@@ -358,6 +368,7 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_3 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -365,6 +376,7 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_2 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -372,6 +384,7 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_4 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -379,6 +392,7 @@ game.CookingGameRecipeScreen_3 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -423,6 +437,7 @@ game.DetailedRecipeScreen_3 = me.ScreenObject.extend({
       button.setHyperlink( game.ultralink.cooking_book_3 );
     }
     me.game.world.addChild( button );
+    button.setClickSound( "page_turn" );
   },
 
   /**
@@ -500,6 +515,7 @@ game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_4 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -507,6 +523,7 @@ game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_3 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -514,6 +531,7 @@ game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_5 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -521,6 +539,7 @@ game.CookingGameRecipeScreen_4 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -563,6 +582,7 @@ game.DetailedRecipeScreen_4 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_4 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -645,6 +665,7 @@ game.CookingGameRecipeScreen_5 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_5 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -652,6 +673,7 @@ game.CookingGameRecipeScreen_5 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_4 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -659,6 +681,7 @@ game.CookingGameRecipeScreen_5 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_6 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -666,6 +689,7 @@ game.CookingGameRecipeScreen_5 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -708,6 +732,7 @@ game.DetailedRecipeScreen_5 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_5 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -789,6 +814,7 @@ game.CookingGameRecipeScreen_6 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_6 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -796,6 +822,7 @@ game.CookingGameRecipeScreen_6 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_5 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -803,6 +830,7 @@ game.CookingGameRecipeScreen_6 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_7 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -810,6 +838,7 @@ game.CookingGameRecipeScreen_6 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -852,6 +881,7 @@ game.DetailedRecipeScreen_6 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_6 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -927,6 +957,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_7 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -934,6 +965,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_6 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -941,6 +973,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_8 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -948,6 +981,7 @@ game.CookingGameRecipeScreen_7 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -990,6 +1024,7 @@ game.DetailedRecipeScreen_7 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_7 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -1070,6 +1105,7 @@ game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
     button = new game.HUD.myButton(568, 100, "button_info", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.recipe_8 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -1077,6 +1113,7 @@ game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
     button = new game.HUD.myButton(128, 480, "button_arrow_book_left", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_7 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -1085,6 +1122,7 @@ game.CookingGameRecipeScreen_8 = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -1127,6 +1165,7 @@ game.DetailedRecipeScreen_8 = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_8 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },

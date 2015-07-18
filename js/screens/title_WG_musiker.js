@@ -64,6 +64,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
       button.setMouseOverText("KUECHE");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
     
@@ -72,6 +73,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.hall_room );
       button.setMouseOverText("DIELE");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
     
@@ -260,6 +262,7 @@ game.HallScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.living_room );
       button.setMouseOverText("WOHNZIMMER");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
 
@@ -268,6 +271,7 @@ game.HallScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.JR_title );
       button.setMouseOverText("ZUM SUPERMARKT");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
 

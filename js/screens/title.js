@@ -145,6 +145,7 @@ game.HUD.myButton = me.GUI_Object.extend(
       this.font = this.font[0];
   
       this.mouse_over_text = "TEST";
+      this.click_sound = "cling";
       this.vector_to_pointer = new me.Vector2d(0,0);
    },
 
@@ -167,13 +168,17 @@ game.HUD.myButton = me.GUI_Object.extend(
       this.mouse_over_text = text;
    },
 
+   // hand over NULL to play no sound on click
+   setClickSound : function( snd ){
+      this.click_sound = snd;
+   },
 
    onClick:function (event)
    {
       // play sound if sound is turned on
       var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-        me.audio.play("cling");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 && this.click_sound != null ){
+        me.audio.play( this.click_sound );
       }
       // do something
       switch( this.link_destination ){

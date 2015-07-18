@@ -4,6 +4,7 @@ var game = {
 
     current_music_track : "Electric_Mirrors_Dream_Unlimited_Company",
 
+
     // an object where to store game information
     data : {
         // score

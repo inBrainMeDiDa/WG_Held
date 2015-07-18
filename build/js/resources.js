@@ -596,6 +596,11 @@ game.resources = [
         "type": "tmx",
         "src": "data/map/smarkt_kasse.json"
     },
+    {
+        "name": "smarkt_start",
+        "type": "tmx",
+        "src": "data/map/smarkt_start.json"
+    },
     //Brit
     //LoadingScreen
 

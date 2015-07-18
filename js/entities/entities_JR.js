@@ -3,6 +3,53 @@
  *=======================================================================
  */
 /**
+ *Return field entity
+ */
+ game.ReturnFieldEntity = me.Entity.extend({
+  
+  init:function (x, y, settings) {
+        // call the constructor
+           // call the parent constructor
+    this._super(me.Entity, 'init', [x, y , settings]);
+    
+    this.name = "ReturnFieldEntity";
+    this.timerRunning = false;
+    this.timerLength = 1000;
+    this.currentTime = 0;
+
+    this.b_selected = false;
+  },
+
+  getTimerRunning : function(){
+    return this.timerRunning;
+  },
+
+  update : function (dt) {
+    // handle collisions against other shapes
+    me.collision.check(this);
+
+    if(this.timerRunning){
+      if(this.currentTime < this.timerLength){
+        this.currentTime += dt;
+      }else{
+        this.currentTime = 0;
+        this.timerRunning = false;
+      }
+    }
+
+    // return true if we moved or if the renderable was updated
+    return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+  },
+
+
+  onCollision : function (response, other) {
+    this.timerRunning = true;
+    return false;
+  },
+
+ })
+
+/**
  * Warp Entity, (ein unsichtbarer Coin)
  */
  game.WarpEntity = me.CollectableEntity.extend({
@@ -83,31 +130,45 @@ game.PlayerEntity = me.Entity.extend({
     update : function (dt) {
   
       if(me.input.isKeyPressed('empty')){
+        var returnEntities = me.game.world.getChildByName("ReturnFieldEntity");
+        var escapeFlag = true;
+        if( returnEntities.length > 0){
+          for(var i =0; i < returnEntities.length; ++ i){
+            if(returnEntities[i].getTimerRunning() == true){
+              escapeFlag = false;
+              break;
+            }
+          }
+        }
+        if(escapeFlag){
+          return;
+        }
+
         console.log("E was pressed");
         if(game.data.displayBackpack.position4 != ""){
            game.killDisplayBackpack("backpack_icon_4");
            game.data.backpack[game.data.displayBackpack.position4] = 0;
            game.data.displayBackpack.position4 ="";
-           game.data.backpackLoad = 0;
+           game.lowerBackpackLoad();
            return;
          }else if(game.data.displayBackpack.position3 != ""){
            game.killDisplayBackpack("backpack_icon_3");
            game.data.backpack[game.data.displayBackpack.position3] = 0;
            game.data.displayBackpack.position3 ="";
-           game.data.backpackLoad = 0;
+           game.lowerBackpackLoad();
            return;
          }else if(game.data.displayBackpack.position2 != ""){
            game.killDisplayBackpack("backpack_icon_2");
            game.data.backpack[game.data.displayBackpack.position2] = 0;
            game.data.displayBackpack.position2 ="";
-           game.data.backpackLoad = 0;
+           game.lowerBackpackLoad();
            return;
         }else if(game.data.displayBackpack.position1 != ""){
            game.killDisplayBackpack("backpack_icon_1");
            game.data.backpack[game.data.displayBackpack.position1] = 0;
            console.log(game.data.displayBackpack.position1);
            game.data.displayBackpack.position1 = "";
-           game.data.backpackLoad = 0;
+           game.lowerBackpackLoad();
            return;
         }
       }
@@ -360,7 +421,6 @@ game.RespawnEntity = me.CollectableEntity.extend({
   onCollision : function (response, other) {
     // do something when collided
     var player = me.game.world.getChildByName("mainPlayer")[0];
-
     player.pos.set(this.posX, this.posY);
 
     return false

@@ -216,8 +216,8 @@
                  "type":"",
                  "visible":true,
                  "width":114,
-                 "x":560,
-                 "y":420
+                 "x":559,
+                 "y":418
                 }, 
                 {
                  "height":14,
@@ -231,11 +231,11 @@
                  "type":"",
                  "visible":true,
                  "width":34,
-                 "x":748,
-                 "y":417
+                 "x":747,
+                 "y":420
                 }, 
                 {
-                 "height":10,
+                 "height":19,
                  "id":52,
                  "name":"",
                  "properties":
@@ -245,9 +245,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":70,
-                 "x":675,
-                 "y":420
+                 "width":81,
+                 "x":660,
+                 "y":434
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -442,7 +442,7 @@
                     {
                      "duration":"250",
                      "fade":"#FFFFFF",
-                     "to":"smarkt_kasse"
+                     "to":"smarkt_start"
                     },
                  "rotation":0,
                  "type":"",
@@ -468,6 +468,21 @@
                  "width":44,
                  "x":377,
                  "y":184
+                }, 
+                {
+                 "height":9,
+                 "id":56,
+                 "name":"ReturnFieldEntity",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":67,
+                 "x":677,
+                 "y":419
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -476,7 +491,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":55,
+ "nextobjectid":59,
  "orientation":"orthogonal",
  "properties":
     {

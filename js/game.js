@@ -131,6 +131,12 @@ var game = {
         me.game.world.removeChild(icon[i]);
       }
     },
+
+    lowerBackpackLoad : function(){
+        if(game.data.backpackLoad > 0){
+            game.data.backpackLoad -= 1;
+        }
+    },
  
     updateDisplayBackpack : function(string){
     var icon = null;
@@ -316,6 +322,7 @@ var game = {
 		
         me.pool.register("GoodsEntity", game.GoodsEntity, true);
 		me.pool.register("coin", game.IngredientEntity, true);
+         me.pool.register("ReturnFieldEntity", game.ReturnFieldEntity, true);
 
         // register ingredient entities
 		me.pool.register("tomato", game.IngredientEntity, true);

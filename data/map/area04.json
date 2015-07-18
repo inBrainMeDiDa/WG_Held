@@ -41,8 +41,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":53,
-                 "y":316.5
+                 "x":80,
+                 "y":342.5
                 }, 
                 {
                  "height":9,
@@ -108,6 +108,23 @@
                  "width":66,
                  "x":416,
                  "y":385.5
+                }, 
+                {
+                 "height":39,
+                 "id":20,
+                 "name":"me.LevelEntity",
+                 "properties":
+                    {
+                     "duration":"250",
+                     "fade":"#FFFFFF",
+                     "to":"area03"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":40,
+                 "x":14,
+                 "y":370.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -203,7 +220,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "properties":
     {

@@ -9,16 +9,6 @@ game.resources = [
         "type": "audio",
         "src": "data/sfx/"
     },
-    {
-        "name": "jump",
-        "type": "audio",
-        "src": "data/sfx/"
-    },
-    {
-        "name": "stomp",
-        "type": "audio",
-        "src": "data/sfx/"
-    },
     // music
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",

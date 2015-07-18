@@ -20,7 +20,8 @@ var ProgressBar = me.Renderable.extend({
 
     // make sure the screen is refreshed every frame
     onProgressUpdate: function (progress) {
-        this.progress = ~~(progress * this.width);
+        //this.progress = ~~(progress * this.width);
+        this.progress = (progress * (this.width+1));
         this.invalidate = true;
     },
 

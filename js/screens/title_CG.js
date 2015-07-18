@@ -42,6 +42,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
+        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
       },
       
 
@@ -61,6 +62,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.living_room );
       button.setMouseOverText("WOHNZIMMER");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button, 4 );
 
@@ -69,6 +71,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.fridge );
       button.setMouseOverText("KUEHLSCHRANK");
+      button.setClickSound( "fridge_open" );
     }
     me.game.world.addChild( button, 4 );
 
@@ -77,6 +80,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.shelf );
       button.setMouseOverText("REGAL");
+      button.setClickSound( null );
     }
     me.game.world.addChild( button, 4 );
 
@@ -95,6 +99,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.nowhere );
         button.setMouseOverText("OBSTKORB: VOLL");
+        button.setClickSound("squelch_1");
       }
       me.game.world.addChild( button , 4);
     }
@@ -106,6 +111,7 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       if( button ){
         button.setHyperlink( game.ultralink.reset_oven );
         button.setMouseOverText("IM OFEN BACKEN");
+        button.setClickSound( "oven_sfx" );
       }
       me.game.world.addChild( button );
     }
@@ -115,7 +121,8 @@ game.CookingGameTitleScreen = me.ScreenObject.extend({
       button = new game.HUD.myButton(220, 220, "button_arrow_right", 64,64);
       if( button ){
         button.setHyperlink( game.ultralink.reset_fruit_basket );
-        button.setMouseOverText("OBSTSALAT ZUBEREITEN");
+        button.setMouseOverText("OBSTSALAT ZUB.");
+        button.setClickSound("knive_on_plate");
       }
       me.game.world.addChild( button );
     }
@@ -272,6 +279,7 @@ game.FridgeScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
       button.setMouseOverText("KUECHE");
+      button.setClickSound( "fridge_close" );
     }
     me.game.world.addChild( button , 4);
 
@@ -432,6 +440,7 @@ game.ShelfScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
       button.setMouseOverText("KUECHE");
+      button.setClickSound( null );
     }
     me.game.world.addChild( button , 4);
 
@@ -493,6 +502,7 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.cooking_book_1 );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
 
@@ -500,6 +510,7 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
     button = new game.HUD.myButton(8, 480, "button_back", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
+      button.setClickSound( "page_turn" );
     }
     me.game.world.addChild( button );
   },
@@ -509,42 +520,4 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
    */
   onDestroyEvent : function() {
    }
-});
-
-
-
-/*
- *  Button to get to the Cooking Book screen
- */
-game.HUD.Button_CookingBook = me.GUI_Object.extend(
-{
-  init:function (x, y, img, w, h)
-   {
-      var settings = {}
-      settings.image = "Topf";
-      if(img && img != "")
-      {
-        settings.image = img;
-      }
-      settings.spritewidth = w;
-      settings.spriteheight = h;
-      // super constructor
-      this._super(me.GUI_Object, "init", [x, y, settings]);
-      // give a name
-      this.name = "cooking_screen_button_icon"
-      // define the object z order
-      this.z = Infinity;
-   },
-   onClick:function (event)
-   {
-      // play sound if sound is turned on
-      var my_state_holder = me.game.world.getChildByName("sound_state_holder");
-      if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
-        me.audio.play("cling");
-      }
-
-      me.state.set(me.state.TITLE, new game.CookingGameRecipeScreen());
-      me.state.change(me.state.TITLE);
-      return false;
-   },
 });

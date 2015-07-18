@@ -51,6 +51,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
+        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
         
       },
       
@@ -63,6 +64,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.kitchen );
       button.setMouseOverText("KUECHE");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
     
@@ -71,6 +73,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.hall_room );
       button.setMouseOverText("DIELE");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
     
@@ -188,6 +191,7 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
     var button = new game.HUD.myButton(700, 536, "button_arrow_book_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.next_dialog );
+      
     }
     me.game.world.addChild( button );
 
@@ -247,7 +251,7 @@ game.HallScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
-        
+        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
       },
       
 
@@ -259,6 +263,7 @@ game.HallScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.living_room );
       button.setMouseOverText("WOHNZIMMER");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
 
@@ -267,6 +272,7 @@ game.HallScreen = me.ScreenObject.extend({
     if( button ){
       button.setHyperlink( game.ultralink.JR_title );
       button.setMouseOverText("ZUM SUPERMARKT");
+      button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
 

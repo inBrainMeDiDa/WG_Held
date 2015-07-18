@@ -616,6 +616,16 @@ game.resources = [
         "type": "tmx",
         "src": "data/map/smarkt_start.json"
     },
+    {
+        "name": "smarkt_area01",
+        "type": "tmx",
+        "src": "data/map/smarkt_area01.json"
+    },
+    {
+        "name": "smarkt_area02",
+        "type": "tmx",
+        "src": "data/map/smarkt_area02.json"
+    },
     //Brit
     //LoadingScreen
 

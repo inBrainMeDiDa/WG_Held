@@ -275,6 +275,8 @@ game.PlayerEntity = me.Entity.extend({
         this.updateBackpack("tomatos", "tomatos");
       }else if(this.description == "baked_beans"){
         this.updateBackpack("baked_beans", "baked_beans");
+      }else if(this.description == "cheese"){
+        this.updateBackpack("cheese", "cheese");
       }else if(this.description == "kidney_beans"){
         this.updateBackpack("kidney_beans", "kidney_beans");
       }else if(this.description == "rolls"){
@@ -305,6 +307,8 @@ game.PlayerEntity = me.Entity.extend({
         this.updateBackpack("mozzarella", "mozzarella");
       }else if(this.description == "fruits"){
         this.updateBackpack("fruits", "fruits");
+      }else if(this.description == "chips"){
+        this.updateBackpack("chips", "chips");
       }
 
 

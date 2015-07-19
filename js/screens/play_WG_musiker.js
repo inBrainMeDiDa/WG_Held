@@ -14,6 +14,11 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
    */
   onResetEvent : function() {
  
+    if( game.data.canonic_stuff_happened )
+    {
+    	game.data.canonic_stuff_happened = false;
+    	game.data.dialog_pointer = game.data.last_canonic_dialog_pointer + 1;
+    }
     // title screen
     me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
     me.game.world.addChild(

@@ -10,7 +10,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
  
     // we may redirect to dialog screen
     this.checkMilestones();
-
+  
     // title screen
     me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
     me.game.world.addChild(
@@ -122,6 +122,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
     );
   },
 
+
   // check for campain milestones and advance dialogs and assignments
   checkMilestones : function(){
 
@@ -137,15 +138,17 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
           case 2: game.data.dialog_pointer = game.data.dialogs.FEEDBACK_2; 
                   break;
       }
+      
+      // switch to dialog screen
+      //game.update_dialog_pointer();
+      me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
+      me.state.change(me.state.TITLE);
 
       if( game.data.last_recipe_index == game.data.last_recommented_recipe_index )
       {
-          
+          game.data.canonic_stuff_happened = true;
+          console.log("canonic_stuff_happened");
       }
-      // switch to dialog screen
-      game.update_dialog_pointer();
-      me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
-      me.state.change(me.state.TITLE);
     }
     
   },

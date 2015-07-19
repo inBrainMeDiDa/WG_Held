@@ -210,10 +210,6 @@ game.HUD.myButton = me.GUI_Object.extend(
             }
             break;
         case game.ultralink.dialog_room:
-
-            // TODO: check dialog progress conditions!
-            //game.update_dialog_pointer();
-
             me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
             me.state.change(me.state.TITLE);
             break;

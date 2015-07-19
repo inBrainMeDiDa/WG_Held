@@ -13,6 +13,9 @@ var game = {
         money : 40,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
+        last_canonic_dialog_pointer : 0,
+        canonic_stuff_happened : false,
+
         dialogs : {
             FEEDBACK_0      : 4000,
             FEEDBACK_1      : 4004,
@@ -296,10 +299,12 @@ var game = {
             case game.data.dialogs.A_BROTCHIPS: 
                      me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
+                     game.data.last_canonic_dialog_pointer = game.data.dialog_pointer;
                      break;
 
 
-            default: game.data.dialog_pointer += 1;
+            default: game.data.last_canonic_dialog_pointer = game.data.dialog_pointer;
+                     game.data.dialog_pointer += 1;
         }
     },
     evaluate_meal : function(){

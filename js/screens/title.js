@@ -217,7 +217,7 @@ game.HUD.myButton = me.GUI_Object.extend(
             game.emptyDisplayBackpack();
             // Fill the fridge with the stuff from your backpack
             // when entering the kitchen
-            emptyRealBackpackIntoFridge();
+            game.emptyRealBackpackIntoFridge();
             
 
             break;

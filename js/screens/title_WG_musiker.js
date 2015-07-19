@@ -26,6 +26,9 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       3
     );
  
+
+    // call recipe evaluation here
+
     // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
@@ -102,6 +105,11 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       3
     );
   },
+
+  payday : function(){
+
+  },
+
 });
 
 

@@ -497,6 +497,13 @@ game.CookingGameWelcomeScreen = me.ScreenObject.extend({
 
     })), 3);
     
+    // play new music track
+    if( game.current_music_track != "Jahzzar_Sometimes" )
+    {
+        game.current_music_track = "Jahzzar_Sometimes";
+        me.audio.stopTrack();
+        me.audio.playTrack( game.current_music_track );
+    }
 
     // add the start button
     var button = new game.HUD.myButton(632, 480, "button_arrow_book_right", 64,64);

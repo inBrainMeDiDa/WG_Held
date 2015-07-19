@@ -14,6 +14,14 @@ game.IntroScreen = me.ScreenObject.extend({
             }
         });
 
+        // play new music track
+        if( game.current_music_track != "Jahzzar_Placeholder" )
+        {
+            game.current_music_track = "Jahzzar_Placeholder";
+            me.audio.stopTrack();
+            me.audio.playTrack( game.current_music_track );
+        }
+
         this.timeoutTarget = null;
 
         this.introIndex = 0;

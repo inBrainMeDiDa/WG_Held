@@ -43,8 +43,15 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
 
     })), 3);
     
+    // play new music track
+    if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
+    {
+        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        me.audio.stopTrack();
+        me.audio.playTrack( game.current_music_track );
+    }
 
-    // add the J&R game demo button
+    // add the J&R game button
     var button = new game.HUD.myButton(450, 480, "button_arrow_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.JR_bafoeg );
@@ -135,7 +142,15 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
 
     })), 3);
 
-    // add the J&R game demo button
+    // play new music track
+    if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
+    {
+        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        me.audio.stopTrack();
+        me.audio.playTrack( game.current_music_track );
+    }
+
+    // add the J&R gamebutton
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
     if( button ){
       button.setHyperlink( game.ultralink.JR_bafoeg );

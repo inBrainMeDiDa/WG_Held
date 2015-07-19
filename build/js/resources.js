@@ -433,6 +433,11 @@ game.resources = [
         "src": "data/img/Amt_aussen_BG.png"
     },
     {
+        "name": "Nero_aussen_BG",
+        "type": "image",
+        "src": "data/img/Nero_aussen_BG.png"
+    },
+    {
         "name": "Kuechenzeile_BG",
         "type": "image",
         "src": "data/img/Kueche.png"

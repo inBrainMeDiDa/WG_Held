@@ -128,7 +128,8 @@ var game = {
         dialog_room     : 9,
         hall_room       : 10,
         JR_title        : 11,
-        JR_bafoeg       : 12
+        JR_Discounter   : 12,
+        JR_bafoeg       : 13
     },
 
     emptyRealBackpackIntoFridge : function(){

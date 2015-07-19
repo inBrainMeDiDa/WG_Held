@@ -170,7 +170,7 @@ game.HallScreen = me.ScreenObject.extend({
     // add the door link
     button = new game.HUD.myButton(320, 200, "button_arrow_left", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.JR_title );
+      button.setHyperlink( game.ultralink.JR_Discounter );
       button.setMouseOverText("ZUM SUPERMARKT");
       button.setClickSound( "door_close" );
     }

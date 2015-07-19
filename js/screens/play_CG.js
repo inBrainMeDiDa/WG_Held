@@ -558,10 +558,13 @@ game.HUD.CookingGameController = me.Renderable.extend( {
 
       if( game.data.score >= (this.current_recipe.length/4) ){
         this.endgame_font.draw(renderer, "EXZELLENT !", 300, 320);
+        game.data.last_recipe_ranking = 2;
       }else if( game.data.score < 1 ){
         this.endgame_font.draw(renderer, "DAS WAR NIX !", 250, 320);
+        game.data.last_recipe_ranking = 0;
       }else{
         this.endgame_font.draw(renderer, "NA JA...ESSBAR.", 220, 320);
+        game.data.last_recipe_ranking = 1;
       }
 
     }

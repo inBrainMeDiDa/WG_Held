@@ -14,6 +14,11 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
    */
   onResetEvent : function() {
  
+    if( game.data.canonic_stuff_happened )
+    {
+    	game.data.canonic_stuff_happened = false;
+    	game.data.dialog_pointer = game.data.last_canonic_dialog_pointer + 1;
+    }
     // title screen
     me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
     me.game.world.addChild(
@@ -61,6 +66,16 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
           // pick dialog image
           switch( this.current_dialog_index )
           {
+            case game.data.dialogs.FEEDBACK_0:
+            		this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_feedback_0_1'));
+                    break;
+            case game.data.dialogs.FEEDBACK_1:
+            		this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_feedback_1_1'));
+                    break;
+            case game.data.dialogs.FEEDBACK_2:
+            		this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_feedback_2_1'));
+                    break;
+
             case 1: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paul_1'));
                     break;
             case 2: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paul_2'));
@@ -75,6 +90,7 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
             default: console.log( "dialog pointer: "+this.current_dialog_index );
                      this.dialog_sprite = null;
           }
+
           
           if( this.dialog_sprite != null ){
             this.dialog_sprite.name = "dialog_sprite";
@@ -87,12 +103,17 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
     })), 4);
     
     // play new music track
-    if( game.current_music_track != "Jahzzar_A_Message" )
-    {
-      game.current_music_track = "Jahzzar_A_Message";
-      me.audio.stopTrack();
-      me.audio.playTrack( game.current_music_track );
-    }
+	if( game.current_music_track != "Jahzzar_A_Message" )
+	{
+	      game.current_music_track = "Jahzzar_A_Message";
+	      me.audio.stopTrack();
+	      me.audio.playTrack( game.current_music_track );     
+	 }
+	 var my_state_holder = me.game.world.getChildByName("music_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
+      {
+        me.audio.pauseTrack();
+      }
 
     // next button
     var button = new game.HUD.myButton(700, 536, "button_arrow_book_right", 64,64);

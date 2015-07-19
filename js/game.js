@@ -129,7 +129,8 @@ var game = {
         hall_room       : 10,
         JR_title        : 11,
         JR_Discounter   : 12,
-        JR_bafoeg       : 13
+        JR_DiscounterInfo   : 13,
+        JR_bafoeg       : 14
     },
 
     emptyRealBackpackIntoFridge : function(){
@@ -497,9 +498,9 @@ var game = {
         // Start the game.
         me.state.change(me.state.INTRO);
 
-        // FOR TESTING THE FRIDGE
+        // FOR TESTING 
         /*game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.ShelfScreen());
+        me.state.set(me.state.TITLE, new game.JRDiscountInfoScreen());
         me.state.change(me.state.TITLE);
         */
     }

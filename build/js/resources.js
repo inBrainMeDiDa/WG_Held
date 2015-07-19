@@ -766,4 +766,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/IntroOutro/Intro16.png"
     },
+
+    //Outro
+    {
+        "name": "Outro",
+        "type": "image",
+        "src": "data/img/IntroOutro/Outro.png"
+    },
 ];

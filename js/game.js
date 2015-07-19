@@ -66,7 +66,8 @@ var game = {
             potatoes        : 0,
             pasta           : 0,
             mozzarella      : 0,
-            fruits          : 0
+            fruits          : 0,
+            page            : 0,
         },
 
         displayBackpack : {
@@ -123,6 +124,39 @@ var game = {
         hall_room       : 10,
         JR_title        : 11,
         JR_bafoeg       : 12
+    },
+
+    emptyRealBackpackIntoFridge : function(){
+        for (var key in game.data.backpack) {
+            if (game.data.backpack.hasOwnProperty(key)) {
+                if(key == "tomatos"){
+                    game.data.fridge.tomatos += (4 * game.data.backpack.tomatos);
+                    game.data.backpack.tomatos = 0;
+                }else if(key == "tortilla_wraps"){
+                    game.data.fridge.tortilla_wraps += (4 * game.data.backpack.tortilla_wraps);
+                    game.data.backpack.tortilla_wraps = 0;
+                }else if (key == "potatoes"){
+                    game.data.fridge.potatoes += (5 * game.data.backpack.potatoes);
+                    game.data.backpack.potatoes = 0;
+                }else if (key == "eggs"){
+                    game.data.fridge.eggs += (6 * game.data.backpack.eggs);
+                    game.data.backpack.eggs = 0;
+                } else {
+                    game.data.fridge[key] += game.data.backpack[key];
+                    game.data.backpack[key] = 0;
+                }
+            }
+        }
+        game.data.backpackLoad = 0;
+    },
+
+    emptyBackpack : function(){
+        for (var key in game.data.backpack) {
+            if (game.data.backpack.hasOwnProperty(key)) {
+                    game.data.backpack[key] = 0;
+            }
+        }
+        game.data.backpackLoad = 0;
     },
 
     emptyDisplayBackpack : function(){

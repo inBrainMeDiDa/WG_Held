@@ -84,6 +84,7 @@
     game.killDisplayBackpack("backpack_icon_3");
     game.killDisplayBackpack("backpack_icon_4");
     game.emptyDisplayBackpack();
+    game.emptyRealBackpackIntoFridge();
 
     me.state.set(me.state.TITLE, new game.HallScreen());
     me.state.change(me.state.TITLE);
@@ -260,10 +261,10 @@ game.PlayerEntity = me.Entity.extend({
     return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
   },
 
-  updateBackpack : function (Dstring, BPstring){
-    game.data.backpack[BPstring] += 1;
+  updateBackpack : function (string){
+    game.data.backpack[string] += 1;
     game.data.backpackLoad += 1;
-    game.updateDisplayBackpack(Dstring);
+    game.updateDisplayBackpack(string);
   },
  
 // this function is called by the engine, when
@@ -272,43 +273,43 @@ game.PlayerEntity = me.Entity.extend({
     // do something when collected
     if(game.data.backpackLoad < 4){
       if(this.description == "tomatos"){
-        this.updateBackpack("tomatos", "tomatos");
+        this.updateBackpack("tomatos");
       }else if(this.description == "baked_beans"){
-        this.updateBackpack("baked_beans", "baked_beans");
+        this.updateBackpack("baked_beans");
       }else if(this.description == "cheese"){
-        this.updateBackpack("cheese", "cheese");
+        this.updateBackpack("cheese");
       }else if(this.description == "kidney_beans"){
-        this.updateBackpack("kidney_beans", "kidney_beans");
+        this.updateBackpack("kidney_beans");
       }else if(this.description == "rolls"){
-        this.updateBackpack("rolls", "rolls");
+        this.updateBackpack("rolls");
       }else if(this.description == "tortilla_wraps"){
-        this.updateBackpack("tortilla_wraps", "tortilla_wraps");
+        this.updateBackpack("tortilla_wraps");
       }else if(this.description == "sour_cream"){
-        this.updateBackpack("sour_cream", "sour_cream");
+        this.updateBackpack("sour_cream");
       }else if(this.description == "bacon"){
-        this.updateBackpack("bacon", "bacon");
+        this.updateBackpack("bacon");
       }else if(this.description == "onions"){
-        this.updateBackpack("onions", "onions");
+        this.updateBackpack("onions");
       }else if(this.description == "garlic"){
-        this.updateBackpack("garlic", "garlic");
+        this.updateBackpack("garlic");
       }else if(this.description == "sweet_pepper"){
-        this.updateBackpack("sweet_pepper", "sweet_pepper");
+        this.updateBackpack("sweet_pepper");
       }else if(this.description == "milk"){
-        this.updateBackpack("milk", "milk");
+        this.updateBackpack("milk");
       }else if(this.description == "eggs"){
-        this.updateBackpack("eggs", "eggs");
+        this.updateBackpack("eggs");
       }else if(this.description == "butter"){
-        this.updateBackpack("butter", "butter");
+        this.updateBackpack("butter");
       }else if(this.description == "curd"){
-        this.updateBackpack("curd", "curd");
+        this.updateBackpack("curd");
       }else if(this.description == "potatoes"){
-        this.updateBackpack("potatoes", "potatoes");
+        this.updateBackpack("potatoes");
       }else if(this.description == "mozzarella"){
-        this.updateBackpack("mozzarella", "mozzarella");
+        this.updateBackpack("mozzarella");
       }else if(this.description == "fruits"){
-        this.updateBackpack("fruits", "fruits");
+        this.updateBackpack("fruits");
       }else if(this.description == "chips"){
-        this.updateBackpack("chips", "chips");
+        this.updateBackpack("chips");
       }
 
 

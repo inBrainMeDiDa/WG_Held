@@ -10,7 +10,7 @@ var game = {
         // score
         score : 0,
         // money
-        money : 200,    money_required_to_win : 1701,
+        money : 40,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
         // last meal
@@ -44,6 +44,7 @@ var game = {
             pasta           : 0,    pasta_cost : 10,
             mozzarella      : 0,    mozzarella_cost : 12,
             fruits          : 0,    fruits_cost : 30,
+            page            : 0,    page_cost : 0,
         },
 
         backpackCost : 0,
@@ -181,7 +182,7 @@ var game = {
 
     lowerBackpackLoad : function(){
         if(game.data.backpackLoad > 0){
-            game.data.backpackLoad -= 1;
+            game.data.backpackLoad = game.data.backpackLoad - 1;
         }
     },
  

@@ -14,9 +14,9 @@ game.PlayScreen_JR = me.ScreenObject.extend({
          // load a level
 		me.levelDirector.loadLevel("area02");
 		me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
-		console.log("levelcount: "+me.levelDirector.levelCount());
+		console.log("levelcount: " + me.levelDirector.levelCount());
 
-		// reset the score
+		  // reset the score
         game.data.score = 0;
 
         // add our HUD to the game world
@@ -58,6 +58,8 @@ game.PlayScreen_JR = me.ScreenObject.extend({
    
 
         draw : function (renderer) {
+
+
           this.font.draw(renderer, "GELD: "+game.data.money, 500, 570, "left");
           this.font.draw(renderer, "KOSTEN: " + game.data.backpackCost, 500, 530, "left");
         },

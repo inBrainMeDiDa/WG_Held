@@ -72,21 +72,39 @@
  })
 
 /**
- * Warp Entity, (ein unsichtbarer Coin)
+ * Warp Entity
  */
- game.WarpEntity = me.CollectableEntity.extend({
-
+ game.WarpEntity = me.Entity.extend({
+  
   init:function (x, y, settings) {
         // call the constructor
            // call the parent constructor
-    this._super(me.CollectableEntity, 'init', [x, y , settings]);
-  
+    this._super(me.Entity, 'init', [x, y , settings]);
+    
+    this.name = "WarpEntity";
+    this.timerRunning = false;
+    this.timerLength = 1000;
+    this.currentTime = 0;
+
     this.b_selected = false;
+  },
+
+  getTimerRunning : function(){
+    return this.timerRunning;
   },
 
   update : function (dt) {
     // handle collisions against other shapes
     me.collision.check(this);
+
+    if(this.timerRunning){
+      if(this.currentTime < this.timerLength){
+        this.currentTime += dt;
+      }else{
+        this.currentTime = 0;
+        this.timerRunning = false;
+      }
+    }
 
     // return true if we moved or if the renderable was updated
     return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
@@ -94,30 +112,12 @@
 
 
   onCollision : function (response, other) {
-
-     // make sure it cannot be collected "again"
-    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
-    
-    if(me.input.isKeyPressed('empty') && game.data.backpackCost <= game.data.money){
-
-      game.data.money -= game.data.backpackCost;
-      game.data.backpackCost = 0;
-      game.killDisplayBackpack("backpack_icon_1");
-      game.killDisplayBackpack("backpack_icon_2");
-      game.killDisplayBackpack("backpack_icon_3");
-      game.killDisplayBackpack("backpack_icon_4");
-      game.emptyDisplayBackpack();
-      game.emptyRealBackpackIntoFridge();
-
-      me.state.set(me.state.TITLE, new game.HallScreen());
-      me.state.change(me.state.TITLE);
-
-    }
-
-    return false
+    this.timerRunning = true;
+    return false;
   },
 
  })
+
 
 /**
  * Player Entity
@@ -156,8 +156,36 @@ game.PlayerEntity = me.Entity.extend({
     update : function (dt) {
   
       if(me.input.isKeyPressed('empty')){
+
+        var warpEntities = me.game.world.getChildByName("WarpEntity");
+        var escapeFlag = false;
+        if( warpEntities.length > 0){
+          for(var i =0; i < warpEntities.length; ++ i){
+            if(warpEntities[i].getTimerRunning() == true){
+              escapeFlag = true;
+              break;
+            }
+          }
+        }
+        if(escapeFlag && game.data.backpackCost <= game.data.money){
+          game.data.money -= game.data.backpackCost;
+          game.data.backpackCost = 0;
+          game.killDisplayBackpack("backpack_icon_1");
+          game.killDisplayBackpack("backpack_icon_2");
+          game.killDisplayBackpack("backpack_icon_3");
+          game.killDisplayBackpack("backpack_icon_4");
+          game.emptyDisplayBackpack();
+          game.emptyRealBackpackIntoFridge();
+          me.state.set(me.state.TITLE, new game.HallScreen());
+          me.state.change(me.state.TITLE);
+
+          return;
+        }
+
+        escapeFlag = true;
+
+
         var returnEntities = me.game.world.getChildByName("ReturnFieldEntity");
-        var escapeFlag = true;
         if( returnEntities.length > 0){
           for(var i =0; i < returnEntities.length; ++ i){
             if(returnEntities[i].getTimerRunning() == true){
@@ -174,24 +202,28 @@ game.PlayerEntity = me.Entity.extend({
         if(game.data.displayBackpack.position4 != ""){
            game.killDisplayBackpack("backpack_icon_4");
            game.data.backpack[game.data.displayBackpack.position4] = 0;
+           game.data.backpackCost -= game.data.fridge[game.data.displayBackpack.position4 + "_cost"];
            game.data.displayBackpack.position4 ="";
            game.lowerBackpackLoad();
            return;
          }else if(game.data.displayBackpack.position3 != ""){
            game.killDisplayBackpack("backpack_icon_3");
            game.data.backpack[game.data.displayBackpack.position3] = 0;
+           game.data.backpackCost -= game.data.fridge[game.data.displayBackpack.position3 + "_cost"];
            game.data.displayBackpack.position3 ="";
            game.lowerBackpackLoad();
            return;
          }else if(game.data.displayBackpack.position2 != ""){
            game.killDisplayBackpack("backpack_icon_2");
            game.data.backpack[game.data.displayBackpack.position2] = 0;
-           game.data.displayBackpack.position2 ="";
+           game.data.backpackCost -= game.data.fridge[game.data.displayBackpack.position2 + "_cost"];
+           game.data.displayBackpack.position2 ="";        
            game.lowerBackpackLoad();
            return;
         }else if(game.data.displayBackpack.position1 != ""){
            game.killDisplayBackpack("backpack_icon_1");
            game.data.backpack[game.data.displayBackpack.position1] = 0;
+           game.data.backpackCost -= game.data.fridge[game.data.displayBackpack.position1 +"_cost"];
            console.log(game.data.displayBackpack.position1);
            game.data.displayBackpack.position1 = "";
            game.lowerBackpackLoad();
@@ -395,22 +427,24 @@ game.PageEntity = me.CollectableEntity.extend({
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
     // do something when collected
+    if(game.data.backpackLoad < 4){
         game.data.backpack.page += 1;
         game.data.backpackLoad += 1;
         game.updateDisplayBackpack("page");
-    //give some score
-    game.data.score += 1;
-   // play sound if sound is turned on
+      //give some score
+      game.data.score += 1;
+      // play sound if sound is turned on
       var my_state_holder = me.game.world.getChildByName("sound_state_holder");
       if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
         me.audio.play("cling");
       }
 
-    // make sure it cannot be collected "again"
-    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+      // make sure it cannot be collected "again"
+      this.body.setCollisionMask(me.collision.types.NO_OBJECT);
  
-    // remove it
-    me.game.world.removeChild(this);
+      // remove it
+      me.game.world.removeChild(this);
+    }
   
     return false
   }

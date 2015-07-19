@@ -350,6 +350,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.JR_Discounter:
+            me.state.set(me.state.TITLE, new game.JRDiscountTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.JR_bafoeg: 
             me.state.set(me.state.PLAY, new game.PlayScreen_JR());
             me.state.change(me.state.PLAY);

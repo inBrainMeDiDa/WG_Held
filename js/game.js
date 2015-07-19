@@ -297,11 +297,11 @@ var game = {
 
         switch( game.data.last_recipe_ranking )
         {
-            case 0: reward_modifier = 0.5;
+            case 0: reward_modifier = 0.75; break;
 
-            case 1: reward_modifier = 1.25;
+            case 1: reward_modifier = 1.25; break;
 
-            case 2: reward_modifier = 1.5;
+            case 2: reward_modifier = 2.0; break;
         }
 
         // if we cooked the meal they wanted

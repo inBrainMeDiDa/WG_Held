@@ -25,8 +25,15 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       ),
       3
     );
- 
 
+    // play new music track
+    if( game.current_music_track != "Jahzzar_A_Message" )
+    {
+      game.current_music_track = "Jahzzar_A_Message";
+      me.audio.stopTrack();
+      me.audio.playTrack( game.current_music_track );
+    }
+    
     // call recipe evaluation here
     this.payday();
 

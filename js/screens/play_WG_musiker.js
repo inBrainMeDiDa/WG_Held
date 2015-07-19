@@ -86,6 +86,13 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
 
     })), 4);
     
+    // play new music track
+    if( game.current_music_track != "Jahzzar_A_Message" )
+    {
+      game.current_music_track = "Jahzzar_A_Message";
+      me.audio.stopTrack();
+      me.audio.playTrack( game.current_music_track );
+    }
 
     // next button
     var button = new game.HUD.myButton(700, 536, "button_arrow_book_right", 64,64);

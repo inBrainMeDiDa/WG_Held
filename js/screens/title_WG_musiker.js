@@ -28,6 +28,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
  
 
     // call recipe evaluation here
+    this.payday();
 
     // add a new renderable component to draw some text
     me.game.world.addChild(new (me.Renderable.extend ({
@@ -54,7 +55,7 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
-        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
+        this.font.draw(renderer, "GELD:"+parseInt(game.data.money)+"/"+parseInt(game.data.money_required_to_win), 350, 550, "left");
         
       },
       
@@ -108,6 +109,23 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
 
   payday : function(){
 
+    console.log("payday "+ game.data.last_recipe_index);
+    // we may update the dialog pointer
+    if( game.data.last_recipe_index >= 0 )
+    {
+
+      var reward = game.evaluate_meal();
+      console.log("payday reward = "+ reward);
+      // play sound if sound is turned on
+      if( reward > 0 )
+      {
+        var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+        if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+          me.audio.play( "cash_bell" );
+        }
+        game.data.money += reward;
+      }
+    }
   },
 
 });
@@ -159,7 +177,7 @@ game.HallScreen = me.ScreenObject.extend({
           this.font.draw(renderer, this.mouse_over_text, 300, 500, "center");
           this.mouse_over_text = null;
         }
-        this.font.draw(renderer, "GELD:"+game.data.money+"/"+game.data.money_required_to_win, 350, 550, "left");
+        this.font.draw(renderer, "GELD:"+parseInt(game.data.money)+"/"+parseInt(game.data.money_required_to_win), 350, 550, "left");
       },
       
 

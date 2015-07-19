@@ -288,14 +288,14 @@ var game = {
     },
     evaluate_meal : function(){
 
-        if( last_recipe_index < 0 ){
+        if( game.data.last_recipe_index < 0 ){
             return 0;
         }
 
         // the money we get in relation to the money we spent 
         var reward_modifier = 1.0;
 
-        switch( last_recipe_ranking )
+        switch( game.data.last_recipe_ranking )
         {
             case 0: reward_modifier = 0.5;
 
@@ -305,13 +305,13 @@ var game = {
         }
 
         // if we cooked the meal they wanted
-        if( last_recipe_index == last_recommented_recipe_index ){
+        if( game.data.last_recipe_index == game.data.last_recommented_recipe_index ){
             reward_modifier *= 1.5;
         }
 
         var reward = 0;
 
-        switch( last_recipe_index )
+        switch( game.data.last_recipe_index )
         {
             case 1: reward =    2*game.data.fridge.baked_beans_cost +
                                 0.6666 * game.data.fridge.eggs_cost +
@@ -322,13 +322,16 @@ var game = {
             case 2: reward =    game.data.fridge.rolls_cost +
                                 game.data.fridge.butter_cost +
                                 game.data.fridge.onions_cost +
-                                game.data.fridge.garlic_cost; break;
+                                game.data.fridge.garlic_cost; 
+
+                                
+                                break;
 
             case 3: reward =    game.data.fridge.tortilla_wraps_cost +
                                 2*game.data.fridge.sour_cream_cost +
                                 game.data.fridge.onions_cost +
                                 game.data.fridge.sweet_pepper_cost +
-                                game.data.fridge.bacon_cost; break;
+                                game.data.fridge.bacon_cost; 
 
             case 4: reward =    game.data.fridge.milk_cost +
                                 game.data.fridge.butter_cost +
@@ -353,7 +356,11 @@ var game = {
                                 game.data.fridge.sweet_pepper_cost; break;
 
         }
-        return reward *= reward_modifier;
+        console.log("evaluate_meal "+ reward+"*"+reward_modifier);
+        // reset index
+        game.data.last_recipe_index = -1;
+        // return reward
+        return parseInt(reward * reward_modifier);
     },
 
     reset_game_state : function(){

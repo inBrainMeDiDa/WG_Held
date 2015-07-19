@@ -49,6 +49,11 @@ game.resources = [
         "type": "audio",
         "src": "data/sfx/"
     },
+     {
+        "name": "cash_bell",
+        "type": "audio",
+        "src": "data/sfx/"
+    },
     // music
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",

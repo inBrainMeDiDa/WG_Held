@@ -325,24 +325,25 @@ game.HUD.myButton = me.GUI_Object.extend(
             game.switch_to_kitchen_oven();
             break;
         case game.ultralink.cooking_game_4:
+            game.data.last_recipe_index = 4;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_4"));
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.cooking_game_5:
+            game.data.last_recipe_index = 5;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_5"));
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.cooking_game_6:
+            game.data.last_recipe_index = 6;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_6"));
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.cooking_game_7:
-            //me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_7"));
-            //me.state.change(me.state.PLAY);
-           
             game.switch_to_kitchen_fruit_basket();
             break;
         case game.ultralink.cooking_game_8:
+            game.data.last_recipe_index = 8;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_8"));
             me.state.change(me.state.PLAY);
             break;
@@ -367,10 +368,14 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.reset_oven:
             game.reset_kitchen_oven();
+            game.data.last_recipe_index = 3;
+            game.data.last_recipe_ranking = 1;
             break;
          case game.ultralink.reset_fruit_basket:
             game.data.fridge.fruits -= 1;
             game.reset_kitchen_fruit_basket();
+            game.data.last_recipe_index = 7;
+            game.data.last_recipe_ranking = 1;
             break;
         default: console.log( "Button pressed with destination "+this.link_destination ); 
       }

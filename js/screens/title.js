@@ -81,12 +81,19 @@ game.TitleScreen = me.ScreenObject.extend({
     }
 
     // play new music track
-    if( game.current_music_track != "Electric_Mirrors_Dream_Unlimited_Company" )
-    {
-        game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
-        me.audio.stopTrack();
-        me.audio.playTrack( game.current_music_track );
-    }
+    
+      if( game.current_music_track != "Electric_Mirrors_Dream_Unlimited_Company" )
+      {
+          game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
+          me.audio.stopTrack();
+          me.audio.playTrack( game.current_music_track );
+      }
+      var my_state_holder = me.game.world.getChildByName("music_state_holder");
+          if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
+          {
+            me.audio.pauseTrack();
+          }
+  
 
     // add the new game button
     var button = new game.HUD.myButton(270, 390, "button_arrow_right", 64,64);
@@ -205,7 +212,7 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.dialog_room:
 
             // TODO: check dialog progress conditions!
-            game.update_dialog_pointer();
+            //game.update_dialog_pointer();
 
             me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
             me.state.change(me.state.TITLE);

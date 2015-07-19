@@ -46,9 +46,14 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
     // play new music track
     if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
     {
-        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
-        me.audio.stopTrack();
-        me.audio.playTrack( game.current_music_track );
+          game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+          me.audio.stopTrack();
+          me.audio.playTrack( game.current_music_track );
+    }
+    var my_state_holder = me.game.world.getChildByName("music_state_holder");
+    if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
+    {
+      me.audio.pauseTrack();
     }
 
     // add the J&R game button
@@ -149,6 +154,11 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
         me.audio.stopTrack();
         me.audio.playTrack( game.current_music_track );
     }
+    var my_state_holder = me.game.world.getChildByName("music_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
+      {
+        me.audio.pauseTrack();
+      }
 
     // add the J&R gamebutton
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);

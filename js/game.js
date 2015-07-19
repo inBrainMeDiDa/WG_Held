@@ -13,6 +13,12 @@ var game = {
         money : 40,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
+        dialogs : {
+            FEEDBACK_0      : 4000,
+            FEEDBACK_1      : 4004,
+            FEEDBACK_2      : 4008,
+            A_BROTCHIPS     : 5,
+        },
         // last meal
         last_recipe_index               : -1,  // equals cooking book index, -1 = no meal cooked yet
         last_recommented_recipe_index   : -1,  // equals cooking book index, -1 = no meal cooked yet
@@ -275,15 +281,25 @@ var game = {
             me.state.change(me.state.TITLE);
     },
     update_dialog_pointer : function(){
+
+        if( game.data.dialog_pointer == game.data.dialogs.FEEDBACK_0 ||
+            game.data.dialog_pointer == game.data.dialogs.FEEDBACK_1 ||
+            game.data.dialog_pointer == game.data.dialogs.FEEDBACK_2  )
+        {
+            me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+            me.state.change(me.state.TITLE);
+            return;
+        }
+
         switch( game.data.dialog_pointer ){
             // exit after first sequence
-            case 5:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+            case game.data.dialogs.A_BROTCHIPS: 
+                     me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
                      break;
 
 
             default: game.data.dialog_pointer += 1;
-
         }
     },
     evaluate_meal : function(){

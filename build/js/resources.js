@@ -290,6 +290,21 @@ game.resources = [
     },
     // dialog screens
     {
+        "name": "dialog_feedback_0_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogPaulKeinEssen.png"
+    },
+    {
+        "name": "dialog_feedback_1_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogPaulaOK.png"
+    },
+    {
+        "name": "dialog_feedback_2_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogPaulaLecker.png"
+    },
+    {
         "name": "dialog_paul_1",
         "type": "image",
         "src": "data/img/dialogs/dialogpaul1.png"

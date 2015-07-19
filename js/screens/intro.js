@@ -14,12 +14,15 @@ game.IntroScreen = me.ScreenObject.extend({
             }
         });
 
+        this.timeoutTarget = null;
+
         this.introIndex = 0;
         this.setRemainingTimeAndImageByIntroIndex();
     },
 
     switchToMenu: function()
     {
+        window.clearTimeout( this.timeoutTarget );
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.change(me.state.MENU);
     },
@@ -70,8 +73,10 @@ game.IntroScreen = me.ScreenObject.extend({
         this.introIndex++;
 
         var that = this;
-        window.setTimeout(
-            function () { that.setRemainingTimeAndImageByIntroIndex(); },
-            this.remaining_time);
+        this.timeoutTarget = window.setTimeout(
+                            function () { that.setRemainingTimeAndImageByIntroIndex(); },
+                            this.remaining_time);
+        
     },
+
 });

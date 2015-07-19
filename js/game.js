@@ -13,6 +13,10 @@ var game = {
         money : 200,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
+        // last meal
+        last_recipe_index               : -1,  // equals cooking book index, -1 = no meal cooked yet
+        last_recommented_recipe_index   : -1,  // equals cooking book index, -1 = no meal cooked yet
+        last_recipe_ranking             : 0,   // 0 = not good, 1 = quite good, 2 = excellent
         // flag whether the oven should be clicked or not
         flag_oven_clickable : false,
         // flag whether the fruit_basket should be clicked or not
@@ -41,6 +45,7 @@ var game = {
             mozzarella      : 0,    mozzarella_cost : 12,
             fruits          : 0,    fruits_cost : 30,
         },
+
 
         backpackLoad : 0, // = space in backpack
 
@@ -272,9 +277,80 @@ var game = {
             case 5:  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
                      break;
+
+
             default: game.data.dialog_pointer += 1;
 
         }
+    },
+    evaluate_meal : function(){
+
+        if( last_recipe_index < 0 ){
+            return 0;
+        }
+
+        // the money we get in relation to the money we spent 
+        var reward_modifier = 1.0;
+
+        switch( last_recipe_ranking )
+        {
+            case 0: reward_modifier = 0.5;
+
+            case 1: reward_modifier = 1.25;
+
+            case 2: reward_modifier = 1.5;
+        }
+
+        // if we cooked the meal they wanted
+        if( last_recipe_index == last_recommented_recipe_index ){
+            reward_modifier *= 1.5;
+        }
+
+        var reward = 0;
+
+        switch( last_recipe_index )
+        {
+            case 1: reward =    2*game.data.fridge.baked_beans_cost +
+                                0.6666 * game.data.fridge.eggs_cost +
+                                game.data.fridge.tomatos_cost +
+                                2*game.data.fridge.onions_cost +
+                                2*game.data.fridge.rolls_cost; break;
+
+            case 2: reward =    game.data.fridge.rolls_cost +
+                                game.data.fridge.butter_cost +
+                                game.data.fridge.onions_cost +
+                                game.data.fridge.garlic_cost; break;
+
+            case 3: reward =    game.data.fridge.tortilla_wraps_cost +
+                                2*game.data.fridge.sour_cream_cost +
+                                game.data.fridge.onions_cost +
+                                game.data.fridge.sweet_pepper_cost +
+                                game.data.fridge.bacon_cost; break;
+
+            case 4: reward =    game.data.fridge.milk_cost +
+                                game.data.fridge.butter_cost +
+                                0.3333*game.data.fridge.eggs_cost; break;
+
+            case 5: reward =    2*game.data.fridge.potatoes_cost +
+                                game.data.fridge.curd_cost +
+                                game.data.fridge.milk_cost +
+                                2*game.data.fridge.onions_cost +
+                                game.data.fridge.sweet_pepper_cost; break;
+
+            case 6: reward =    2*game.data.fridge.tomatos_cost +
+                                game.data.fridge.mozzarella_cost +
+                                game.data.fridge.onions_cost +
+                                game.data.fridge.garlic_cost; break;
+
+            case 7: reward =    game.data.fridge.fruits_cost; break;
+
+            case 8: reward =    game.data.fridge.kidney_beans_cost +
+                                0.5*game.data.fridge.tomatos_cost +
+                                2*game.data.fridge.onions_cost +
+                                game.data.fridge.sweet_pepper_cost; break;
+
+        }
+        return reward *= reward_modifier;
     },
 
     reset_game_state : function(){

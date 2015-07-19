@@ -258,7 +258,7 @@ game.PlayerEntity = me.Entity.extend({
 });
 
 /*----------------
-  a goods entity
+  the goods entity
  ----------------- */
  game.GoodsEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
@@ -289,6 +289,7 @@ game.PlayerEntity = me.Entity.extend({
   updateBackpack : function (string){
     game.data.backpack[string] += 1;
     game.data.backpackLoad += 1;
+    game.data.backpackCost += game.data.fridge[string + "_cost"];
     game.updateDisplayBackpack(string);
   },
  

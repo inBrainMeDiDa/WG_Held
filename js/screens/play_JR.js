@@ -47,7 +47,7 @@ game.PlayScreen_JR = me.ScreenObject.extend({
 
           this._super(me.GUI_Object, 'init', [0, 0, settings]);
           // font 
-          this.font = new me.BitmapFont("32x32_font", 32);
+          this.font = new me.BitmapFont("32x32_font" , 32, 0.75);
           this.name = "money_counter";
           this.isPersistent = true;
         },
@@ -58,7 +58,8 @@ game.PlayScreen_JR = me.ScreenObject.extend({
    
 
         draw : function (renderer) {
-          this.font.draw(renderer, "GELD:"+game.data.money, 500, 550, "left");
+          this.font.draw(renderer, "GELD: "+game.data.money, 500, 570, "left");
+          this.font.draw(renderer, "KOSTEN: " + game.data.backpackCost, 500, 530, "left");
         },
         
 

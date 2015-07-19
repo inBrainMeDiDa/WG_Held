@@ -597,6 +597,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/sprite/jr_sprites/Zwiebel.png"
     },
+    {
+        "name": "page",
+        "type": "image",
+        "src": "data/img/sprite/jr_sprites/page.png"
+    },
 
 
     //Tilesets

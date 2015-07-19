@@ -49,6 +49,28 @@
 
  })
 
+ game.CashierEntity = me.Entity.extend({
+   init : function (x, y, settings) {
+        // call the constructor
+      this._super(me.Entity, 'init', [x, y , settings]);
+  
+      this.b_selected = false;
+    },
+
+    update : function (dt) {
+    // handle collisions against other shapes
+      me.collision.check(this);
+
+    // return true if we moved or if the renderable was updated
+      return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+    },
+
+    onCollision : function (response, other) {
+
+      return false;
+    },
+ })
+
 /**
  * Warp Entity, (ein unsichtbarer Coin)
  */
@@ -75,19 +97,22 @@
 
      // make sure it cannot be collected "again"
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
- 
-    // remove it
-    me.game.world.removeChild(this);
+    
+    if(me.input.isKeyPressed('empty') && game.data.backpackCost <= game.data.money){
 
-    game.killDisplayBackpack("backpack_icon_1");
-    game.killDisplayBackpack("backpack_icon_2");
-    game.killDisplayBackpack("backpack_icon_3");
-    game.killDisplayBackpack("backpack_icon_4");
-    game.emptyDisplayBackpack();
-    game.emptyRealBackpackIntoFridge();
+      game.data.money -= game.data.backpackCost;
+      game.data.backpackCost = 0;
+      game.killDisplayBackpack("backpack_icon_1");
+      game.killDisplayBackpack("backpack_icon_2");
+      game.killDisplayBackpack("backpack_icon_3");
+      game.killDisplayBackpack("backpack_icon_4");
+      game.emptyDisplayBackpack();
+      game.emptyRealBackpackIntoFridge();
 
-    me.state.set(me.state.TITLE, new game.HallScreen());
-    me.state.change(me.state.TITLE);
+      me.state.set(me.state.TITLE, new game.HallScreen());
+      me.state.change(me.state.TITLE);
+
+    }
 
     return false
   },
@@ -233,7 +258,7 @@ game.PlayerEntity = me.Entity.extend({
 });
 
 /*----------------
-  an goods entity
+  a goods entity
  ----------------- */
  game.GoodsEntity = me.CollectableEntity.extend({
   init: function(x, y, settings) {
@@ -369,6 +394,9 @@ game.PageEntity = me.CollectableEntity.extend({
   // an object is touched by something (here collected)
   onCollision : function (response, other) {
     // do something when collected
+        game.data.backpack.page += 1;
+        game.data.backpackLoad += 1;
+        game.updateDisplayBackpack("page");
     //give some score
     game.data.score += 1;
    // play sound if sound is turned on

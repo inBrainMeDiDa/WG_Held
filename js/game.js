@@ -46,7 +46,7 @@ var game = {
             fruits          : 0,    fruits_cost : 30,
         },
 
-
+        backpackCost : 0,
         backpackLoad : 0, // = space in backpack
 
 

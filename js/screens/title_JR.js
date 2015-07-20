@@ -70,7 +70,6 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent : function() {},
-
 });
 
 /* =======================================================================
@@ -151,7 +150,7 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
     // play new music track
     if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
     {
-        //game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
         current_music_track = null;
         me.audio.stopTrack();
         //me.audio.playTrack( game.current_music_track );

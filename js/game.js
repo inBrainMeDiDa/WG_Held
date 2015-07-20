@@ -526,12 +526,12 @@ var game = {
         me.input.bindKey(me.input.KEY.SPACE,     "jump", true);
 				
         // Start the game.
-        //me.state.change(me.state.INTRO);
+        me.state.change(me.state.INTRO);
 
         // FOR TESTING 
-        game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.PlayScreen_Amt_JR());
-        me.state.change(me.state.TITLE);
+        /*game.reset_game_state(); 
+        me.state.set(me.state.TITLE, new game.PlayScreen_Amt_JR);
+        me.state.change(me.state.TITLE);*/
         
     }
 };

@@ -189,6 +189,10 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.new_game:
             // reset game state, then pass on to living_room
             game.reset_game_state(); 
+            me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
+
         case game.ultralink.resume_game: // just pass on to living_room
         case game.ultralink.living_room: 
 
@@ -368,7 +372,7 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.JR_bafoeg: 
-            me.state.set(me.state.PLAY, new game.PlayScreen_JR());
+            me.state.set(me.state.PLAY, new game.PlayScreen_Amt_JR());
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.next_dialog:

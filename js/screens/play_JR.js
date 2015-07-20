@@ -119,7 +119,7 @@ game.PlayScreen_Amt_JR = me.ScreenObject.extend({
         if( bottomBar ){
           bottomBar.setHyperlink( game.ultralink.nowhere );
           bottomBar.isPersistent = true;
-          bottomBar.name = "jr_bottomBar";
+          bottomBar.name = "jr_bottomBar_A";
         }
         me.game.world.addChild( bottomBar , 3);
 
@@ -137,7 +137,7 @@ game.PlayScreen_Amt_JR = me.ScreenObject.extend({
           this._super(me.GUI_Object, 'init', [0, 0, settings]);
           // font 
           this.font = new me.BitmapFont("32x32_font" , 32, 0.75);
-          this.name = "money_counter";
+          this.name = "money_counter_A";
           this.isPersistent = true;
         },
 
@@ -167,12 +167,12 @@ game.PlayScreen_Amt_JR = me.ScreenObject.extend({
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
         // remove bottom bar
-        var bottomBarArray = me.game.world.getChildByName("jr_bottomBar");
+        var bottomBarArray = me.game.world.getChildByName("jr_bottomBar_A");
         for (var i = 0; i < bottomBarArray.length; ++i) {
           me.game.world.removeChild(bottomBarArray[i]);
         }
         // remove money counter
-        bottomBarArray = me.game.world.getChildByName("money_counter");
+        bottomBarArray = me.game.world.getChildByName("money_counter_A");
         for (var i = 0; i < bottomBarArray.length; ++i) {
           me.game.world.removeChild(bottomBarArray[i]);
         }

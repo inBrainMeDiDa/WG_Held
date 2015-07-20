@@ -10,7 +10,7 @@ var game = {
         // score
         score : 0,
         // money
-        money : 40,    money_required_to_win : 1701,
+        money : 0,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
         last_canonic_dialog_pointer : 0,
@@ -382,6 +382,7 @@ var game = {
 
     reset_game_state : function(){
         game.data.dialog_pointer = 0;
+        game.data.money = 101;
 
         game.data.fridge.tomatos         = 3;
         game.data.fridge.cheese          = 0;

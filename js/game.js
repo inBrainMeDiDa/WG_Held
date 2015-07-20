@@ -7,10 +7,12 @@ var game = {
 
     // an object where to store game information
     data : {
+        // global timeout ref for intro/outro
+        timeoutTarget : null,
         // score
         score : 0,
         // money
-        money : 0,    money_required_to_win : 1701,
+        money : 0,    money_required_to_win : 150,//1701,
         // dialog pointer
         dialog_pointer : 0,
         last_canonic_dialog_pointer : 0,
@@ -531,7 +533,8 @@ var game = {
         // FOR TESTING 
         /*game.reset_game_state(); 
         me.state.set(me.state.TITLE, new game.PlayScreen_Amt_JR);
-        me.state.change(me.state.TITLE);*/
+        me.state.change(me.state.TITLE);
+         */
         
     }
 };

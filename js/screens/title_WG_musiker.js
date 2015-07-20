@@ -139,6 +139,12 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
         game.data.money += reward;
       }
     }
+
+    // check win condition
+    if( game.data.money >= game.data.money_required_to_win ){
+        me.state.set(me.state.TITLE, new game.HotOutro() );
+        me.state.change(me.state.TITLE);
+    }
   },
 
 });

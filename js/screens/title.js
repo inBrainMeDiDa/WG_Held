@@ -7,6 +7,9 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onResetEvent : function() {
  
+    // unbind timeout
+    window.clearTimeout( game.timeoutTarget );
+
     // title screen
     me.game.world.addChild(
       new me.Sprite (
@@ -73,8 +76,8 @@ game.TitleScreen = me.ScreenObject.extend({
       me.game.world.addChild( button );
 
       // the back to menu button
-      button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
-      me.game.world.addChild( button );
+      //button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
+      //me.game.world.addChild( button );
 
       bInitialized = true;
     }

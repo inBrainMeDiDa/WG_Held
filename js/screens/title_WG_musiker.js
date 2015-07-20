@@ -7,9 +7,6 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
    *  action to perform on state change
    */
   onResetEvent : function() {
- 
-    // we may redirect to dialog screen
-    this.checkMilestones();
   
     // title screen
     me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
@@ -120,37 +117,6 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       ),
       3
     );
-  },
-
-
-  // check for campain milestones and advance dialogs and assignments
-  checkMilestones : function(){
-
-    if( game.data.last_recipe_index >= 0 )
-    {
-      // give feedback
-      switch( game.data.last_recipe_ranking )
-      {
-          case 0: game.data.dialog_pointer = game.data.dialogs.FEEDBACK_0; 
-                  break;
-          case 1: game.data.dialog_pointer = game.data.dialogs.FEEDBACK_1; 
-                  break;
-          case 2: game.data.dialog_pointer = game.data.dialogs.FEEDBACK_2; 
-                  break;
-      }
-      
-      // switch to dialog screen
-      //game.update_dialog_pointer();
-      me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
-      me.state.change(me.state.TITLE);
-
-      if( game.data.last_recipe_index == game.data.last_recommented_recipe_index )
-      {
-          game.data.canonic_stuff_happened = true;
-          console.log("canonic_stuff_happened");
-      }
-    }
-    
   },
 
   payday : function(){

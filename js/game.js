@@ -14,7 +14,7 @@ var game = {
         // dialog pointer
         dialog_pointer : 0,
         last_canonic_dialog_pointer : 0,
-        canonic_stuff_happened : false,
+        feedback_given: true,
 
         dialogs : {
             FEEDBACK_0      : 4000,
@@ -285,27 +285,23 @@ var game = {
     },
     update_dialog_pointer : function(){
 
-        if( game.data.dialog_pointer == game.data.dialogs.FEEDBACK_0 ||
-            game.data.dialog_pointer == game.data.dialogs.FEEDBACK_1 ||
-            game.data.dialog_pointer == game.data.dialogs.FEEDBACK_2  )
-        {
-            me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
-            me.state.change(me.state.TITLE);
-            return;
-        }
-
+        //console.log("dialog_pointer old: "+game.data.dialog_pointer);
         switch( game.data.dialog_pointer ){
             // exit after first sequence
             case game.data.dialogs.A_BROTCHIPS: 
+                     game.data.last_recommented_recipe_index = 3;
                      me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
-                     game.data.last_canonic_dialog_pointer = game.data.dialog_pointer;
                      break;
 
+            case game.data.dialogs.A_BROTCHIPS + 1: 
+                     me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+                     me.state.change(me.state.TITLE);
+                     break;
 
-            default: game.data.last_canonic_dialog_pointer = game.data.dialog_pointer;
-                     game.data.dialog_pointer += 1;
+            default: game.data.dialog_pointer += 1;
         }
+        //console.log("dialog_pointer updated: "+game.data.dialog_pointer);
     },
     evaluate_meal : function(){
 

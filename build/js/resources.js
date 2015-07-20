@@ -329,6 +329,51 @@ game.resources = [
         "type": "image",
         "src": "data/img/dialogs/dialogAutragBrotchips.png"
     },
+    {
+        "name": "dialog_hint_0",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipps.png"
+    },
+    {
+        "name": "dialog_hint_1",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp01.png"
+    },
+    {
+        "name": "dialog_hint_2",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp02.png"
+    },
+    {
+        "name": "dialog_hint_3",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp03.png"
+    },
+    {
+        "name": "dialog_hint_4",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp04.png"
+    },
+    {
+        "name": "dialog_hint_5",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp05.png"
+    },
+    {
+        "name": "dialog_hint_6",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp06.png"
+    },
+    {
+        "name": "dialog_hint_7",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp07.png"
+    },
+    {
+        "name": "dialog_hint_8",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp08.png"
+    },
     // misc.
     {
         "name": "kochbuch_zu",

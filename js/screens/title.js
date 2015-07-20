@@ -205,8 +205,16 @@ game.HUD.myButton = me.GUI_Object.extend(
               me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
               me.state.change(me.state.TITLE);
             }else{
-              me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
-              me.state.change(me.state.TITLE);
+              // check if feedback is yet to be given
+              if( game.data.last_recipe_index >= 0 && !game.data.feedback_given ){
+
+                  game.data.last_canonic_dialog_pointer = game.data.dialog_pointer;
+                  me.state.set(me.state.TITLE, new game.LinvingRoomFeedbackScreen());
+                  me.state.change(me.state.TITLE);
+              }else{
+                  me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
+                  me.state.change(me.state.TITLE);
+              }
             }
             break;
         case game.ultralink.dialog_room:
@@ -377,12 +385,14 @@ game.HUD.myButton = me.GUI_Object.extend(
             game.reset_kitchen_oven();
             game.data.last_recipe_index = 3;
             game.data.last_recipe_ranking = 1;
+            game.data.feedback_given = false;
             break;
          case game.ultralink.reset_fruit_basket:
             game.data.fridge.fruits -= 1;
             game.reset_kitchen_fruit_basket();
             game.data.last_recipe_index = 7;
             game.data.last_recipe_ranking = 1;
+            game.data.feedback_given = false;
             break;
         default: console.log( "Button pressed with destination "+this.link_destination ); 
       }

@@ -314,6 +314,7 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:
+            game.data.last_recipe_index = 1;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_1"));
             me.state.change(me.state.PLAY);
             break;

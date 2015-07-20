@@ -221,6 +221,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
             me.state.change(me.state.TITLE);
             break;
+        case game.ultralink.hint_screen:
+            me.state.set(me.state.TITLE, new game.LinvingRoomHintScreen() );
+            me.state.change(me.state.TITLE);
+            break;
         case game.ultralink.kitchen: 
             me.state.set(me.state.TITLE, new game.CookingGameTitleScreen());
             me.state.change(me.state.TITLE);

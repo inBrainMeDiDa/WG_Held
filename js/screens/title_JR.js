@@ -36,7 +36,8 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
         this.font.draw(renderer, "UND GEHE NICHT IM", 128, 154);
         this.font.draw(renderer, "AMT VERLOREN!", 128, 188);
         this.font.draw(renderer, "NUTZE DIE PFEILTASTEN", 128, 300);
-        this.font.draw(renderer, "X = SPRINGEN", 128, 334);
+        this.font.draw(renderer, "X=SPRINGEN", 128, 334);
+        this.font.draw(renderer, "E=BENUTZEN", 128, 368);
         this.font.draw(renderer, " START", 510, 504);
       },
       

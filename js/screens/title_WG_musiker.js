@@ -84,6 +84,14 @@ game.LinvingRoomTitleScreen = me.ScreenObject.extend({
       button.setClickSound( "door_close" );
     }
     me.game.world.addChild( button );
+
+    // add the hint button
+    button = new game.HUD.myButton(32, 500, "button_info", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.hint_screen );
+      button.setMouseOverText("TIPS+TRICKS");
+    }
+    me.game.world.addChild( button );
     
     // add the hallway link
     button = new game.HUD.myButton(700, 280, "button_arrow_right", 64,64);

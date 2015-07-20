@@ -12,7 +12,7 @@ var game = {
         // score
         score : 0,
         // money
-        money : 0,    money_required_to_win : 150,//1701,
+        money : 0,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
         last_canonic_dialog_pointer : 0,
@@ -141,11 +141,12 @@ var game = {
         cooking_game_8  : 78,
         living_room     : 8,
         dialog_room     : 9,
-        hall_room       : 10,
-        JR_title        : 11,
-        JR_Discounter   : 12,
-        JR_DiscounterInfo   : 13,
-        JR_bafoeg       : 14
+        hint_screen     : 10,
+        hall_room       : 11,
+        JR_title        : 12,
+        JR_Discounter   : 13,
+        JR_DiscounterInfo   : 14,
+        JR_bafoeg       : 15
     },
 
     emptyRealBackpackIntoFridge : function(){
@@ -528,13 +529,13 @@ var game = {
         me.input.bindKey(me.input.KEY.SPACE,     "jump", true);
 				
         // Start the game.
-        me.state.change(me.state.INTRO);
+        //me.state.change(me.state.INTRO);
 
         // FOR TESTING 
-        /*game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.PlayScreen_Amt_JR);
+        //game.reset_game_state(); 
+        me.state.set(me.state.TITLE, new game.LinvingRoomHintScreen() );
         me.state.change(me.state.TITLE);
-         */
+         
         
     }
 };

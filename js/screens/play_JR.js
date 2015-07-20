@@ -144,7 +144,6 @@ game.HUD.JRGameController = me.Renderable.extend( {
         }
         
         // add our child score object at the top left corner
-        theHUD.addChild(new game.HUD.ScoreItem(380, 20));
         theHUD.addChild(new game.HUD.BackpackItem(10,550));
 
         // Do NOT load any level here if a level is loaded in

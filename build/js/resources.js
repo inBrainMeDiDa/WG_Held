@@ -488,6 +488,11 @@ game.resources = [
         "src": "data/img/Kueche_BG.png"
     },
     {
+        "name": "supermarkt_green",
+        "type": "image",
+        "src": "data/img/supermarkt_green.png"
+    },
+    {
         "name": "Regal_BG",
         "type": "image",
         "src": "data/img/Regalbrett.png"
@@ -731,6 +736,12 @@ game.resources = [
         "type": "tmx",
         "src": "data/map/smarkt_area02.json"
     },
+    {
+        "name": "smarkt_area03",
+        "type": "tmx",
+        "src": "data/map/smarkt_area03.json"
+    },
+
     //Brit
     //LoadingScreen
 

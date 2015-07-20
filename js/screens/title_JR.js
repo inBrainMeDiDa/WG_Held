@@ -36,7 +36,8 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
         this.font.draw(renderer, "UND GEHE NICHT IM", 128, 154);
         this.font.draw(renderer, "AMT VERLOREN!", 128, 188);
         this.font.draw(renderer, "NUTZE DIE PFEILTASTEN", 128, 300);
-        this.font.draw(renderer, "X = SPRINGEN", 128, 334);
+        this.font.draw(renderer, "X=SPRINGEN", 128, 334);
+        this.font.draw(renderer, "E=BENUTZEN", 128, 368);
         this.font.draw(renderer, " START", 510, 504);
       },
       
@@ -70,7 +71,6 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent : function() {},
-
 });
 
 /* =======================================================================
@@ -151,7 +151,7 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
     // play new music track
     if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
     {
-        //game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
         current_music_track = null;
         me.audio.stopTrack();
         //me.audio.playTrack( game.current_music_track );
@@ -165,7 +165,7 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
     // add the J&R gamebutton
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.JR_bafoeg );
+      button.setHyperlink( game.ultralink.JR_DiscounterGame );
       button.setMouseOverText("START");
     }
     me.game.world.addChild( button );
@@ -282,7 +282,7 @@ game.JRDiscountInfoScreen = me.ScreenObject.extend({
     // add the J&R game demo button
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.JR_bafoeg );
+      button.setHyperlink( game.ultralink.JR_DiscounterGame );
       button.setMouseOverText("START");
     }
     me.game.world.addChild( button );

@@ -22,7 +22,11 @@ game.IntroScreen = me.ScreenObject.extend({
             //me.audio.playTrack( game.current_music_track );
         }
 
-        this.timeoutTarget = null;
+        // the back to menu button
+        button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
+        me.game.world.addChild( button );
+
+        game.timeoutTarget = null;
 
         this.introIndex = 0;
         this.setRemainingTimeAndImageByIntroIndex();
@@ -30,7 +34,7 @@ game.IntroScreen = me.ScreenObject.extend({
 
     switchToMenu: function()
     {
-        window.clearTimeout( this.timeoutTarget );
+        window.clearTimeout( game.timeoutTarget );
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.change(me.state.MENU);
     },
@@ -81,7 +85,7 @@ game.IntroScreen = me.ScreenObject.extend({
         this.introIndex++;
 
         var that = this;
-        this.timeoutTarget = window.setTimeout(
+        game.timeoutTarget = window.setTimeout(
                             function () { that.setRemainingTimeAndImageByIntroIndex(); },
                             this.remaining_time);
         

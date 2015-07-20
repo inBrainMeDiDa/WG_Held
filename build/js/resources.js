@@ -410,6 +410,91 @@ game.resources = [
         "type": "image",
         "src": "data/img/dialogs/dialogTipp08.png"
     },
+    {
+        "name": "dialog_hint_9",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp09.png"
+    },
+    {
+        "name": "dialog_hint_10",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp10.png"
+    },
+    {
+        "name": "dialog_hint_11",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp11.png"
+    },
+    {
+        "name": "dialog_hint_12",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp12.png"
+    },
+    {
+        "name": "dialog_hint_13",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp13.png"
+    },
+    {
+        "name": "dialog_hint_14",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp14.png"
+    },
+    {
+        "name": "dialog_hint_15",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp15.png"
+    },
+    {
+        "name": "dialog_hint_16",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp16.png"
+    },
+    {
+        "name": "dialog_hint_17",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp17.png"
+    },
+    {
+        "name": "dialog_hint_18",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp18.png"
+    },
+    {
+        "name": "dialog_hint_19",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp19.png"
+    },
+    {
+        "name": "dialog_hint_20",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp20.png"
+    },
+    {
+        "name": "dialog_hint_22",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp22.png"
+    },
+    {
+        "name": "dialog_hint_23",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp23.png"
+    },
+    {
+        "name": "dialog_hint_24",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp24.png"
+    },
+    {
+        "name": "dialog_hint_25",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp25.png"
+    },
+    {
+        "name": "dialog_hint_26",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp26.png"
+    },
     // misc.
     {
         "name": "kochbuch_zu",

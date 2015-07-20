@@ -265,3 +265,90 @@ game.LinvingRoomFeedbackScreen = me.ScreenObject.extend({
    }
 
 });
+
+
+/* =======================================================================
+ *  Hint version of TitleScreen for Living Room
+ */
+game.LinvingRoomHintScreen = me.ScreenObject.extend({
+ 
+ /**
+   *  action to perform on state change
+   */
+  onResetEvent : function() {
+ 
+
+    // title screen
+    me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Musiker_WG_BG')
+      ),
+      2
+    );
+    // inhabitants
+    me.game.world.addChild(
+      new me.Sprite (
+        0,0,
+        me.loader.getImage('Musiker_WG_Bew')
+      ),
+      3
+    );
+    
+    if( this.dialog_sprite != null ){
+            me.game.world.removeChild( this.dialog_sprite );
+	}
+
+	// pick random dialog image
+	var rnd = Math.floor((Math.random() * 26) + 1); 
+	this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_hint_'+rnd));
+	
+
+	  
+	if( this.dialog_sprite != null ){
+	    this.dialog_sprite.name = "dialog_sprite";
+	    me.game.world.addChild( this.dialog_sprite, 4 );
+	}    
+
+    // play new music track
+	if( game.current_music_track != "Jahzzar_A_Message" )
+	{
+	      //game.current_music_track = "Jahzzar_A_Message";
+	      current_music_track = null;
+	      me.audio.stopTrack();
+	      //me.audio.playTrack( game.current_music_track );     
+	 }
+	 var my_state_holder = me.game.world.getChildByName("music_state_holder");
+      if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
+      {
+        me.audio.pauseTrack();
+      }
+
+    // next button
+    var button = new game.HUD.myButton(700, 536, "button_arrow_book_right", 64,64);
+    if( button ){
+      button.setHyperlink( game.ultralink.living_room );
+      
+    }
+    me.game.world.addChild( button );
+
+
+    // add bottom bar with z-index 3
+    me.game.world.addChild(
+      new me.Sprite (
+        0,400,
+        me.loader.getImage('bottom_bar')
+      ),
+      3
+    );
+  },
+
+   /**
+   *  action to perform when leaving this screen (state change)
+   */
+  onDestroyEvent : function() {
+      
+   }
+
+});

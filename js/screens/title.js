@@ -7,6 +7,9 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onResetEvent : function() {
  
+    // unbind timeout
+    window.clearTimeout( game.timeoutTarget );
+
     // title screen
     me.game.world.addChild(
       new me.Sprite (
@@ -73,8 +76,8 @@ game.TitleScreen = me.ScreenObject.extend({
       me.game.world.addChild( button );
 
       // the back to menu button
-      button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
-      me.game.world.addChild( button );
+      //button = new game.HUD.Button_BackToMain(720, 8, "button_x", 64,64);
+      //me.game.world.addChild( button );
 
       bInitialized = true;
     }
@@ -189,6 +192,10 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.new_game:
             // reset game state, then pass on to living_room
             game.reset_game_state(); 
+            me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
+            me.state.change(me.state.TITLE);
+            break;
+
         case game.ultralink.resume_game: // just pass on to living_room
         case game.ultralink.living_room: 
 
@@ -212,6 +219,10 @@ game.HUD.myButton = me.GUI_Object.extend(
             break;
         case game.ultralink.dialog_room:
             me.state.set(me.state.TITLE, new game.LinvingRoomDialogScreen());
+            me.state.change(me.state.TITLE);
+            break;
+        case game.ultralink.hint_screen:
+            me.state.set(me.state.TITLE, new game.LinvingRoomHintScreen() );
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.kitchen: 
@@ -310,6 +321,7 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.change(me.state.TITLE);
             break;
         case game.ultralink.cooking_game_1:
+            game.data.last_recipe_index = 1;
             me.state.set(me.state.PLAY, new game.PlayScreen_CG("CG_Recipe_1"));
             me.state.change(me.state.PLAY);
             break;
@@ -367,8 +379,12 @@ game.HUD.myButton = me.GUI_Object.extend(
             me.state.set(me.state.TITLE, new game.JRDiscountInfoScreen());
             me.state.change(me.state.TITLE);
             break;
-        case game.ultralink.JR_bafoeg: 
+        case game.ultralink.JR_DiscounterGame:
             me.state.set(me.state.PLAY, new game.PlayScreen_JR());
+            me.state.change(me.state.PLAY);
+            break;
+        case game.ultralink.JR_bafoeg: 
+            me.state.set(me.state.PLAY, new game.PlayScreen_Amt_JR());
             me.state.change(me.state.PLAY);
             break;
         case game.ultralink.next_dialog:

@@ -7,10 +7,12 @@ var game = {
 
     // an object where to store game information
     data : {
+        // global timeout ref for intro/outro
+        timeoutTarget : null,
         // score
         score : 0,
         // money
-        money : 40,    money_required_to_win : 1701,
+        money : 0,    money_required_to_win : 1701,
         // dialog pointer
         dialog_pointer : 0,
         last_canonic_dialog_pointer : 0,
@@ -37,7 +39,7 @@ var game = {
         fridge : {
             tomatos         : 3,    tomatos_cost : 10,
             cheese          : 1,    cheese_cost : 15,
-            chips           : 0,    chips_cost : 5,
+            chips           : 0,    chips_cost : 25,
             baked_beans     : 1,    baked_beans_cost : 8,
             kidney_beans    : 1,    kidney_beans_cost : 8,
             salat           : 1,    salat_cost : 6,
@@ -139,11 +141,13 @@ var game = {
         cooking_game_8  : 78,
         living_room     : 8,
         dialog_room     : 9,
-        hall_room       : 10,
-        JR_title        : 11,
-        JR_Discounter   : 12,
-        JR_DiscounterInfo   : 13,
-        JR_bafoeg       : 14
+        hint_screen     : 10,
+        hall_room       : 11,
+        JR_title        : 12,
+        JR_Discounter   : 13,
+        JR_DiscounterInfo   : 14,
+        JR_bafoeg       : 15,
+        JR_DiscounterGame   : 16
     },
 
     emptyRealBackpackIntoFridge : function(){
@@ -382,27 +386,28 @@ var game = {
 
     reset_game_state : function(){
         game.data.dialog_pointer = 0;
+        game.data.money = 101;
 
-        game.data.fridge.tomatos         = 3;
+        game.data.fridge.tomatos         = 30;
         game.data.fridge.cheese          = 0;
-        game.data.fridge.chips           = 1;
-        game.data.fridge.baked_beans     = 2;
+        game.data.fridge.chips           = 10;
+        game.data.fridge.baked_beans     = 40;
         game.data.fridge.kidney_beans    = 0;
         game.data.fridge.salat           = 0;
-        game.data.fridge.rolls           = 10; // = Semmeln
-        game.data.fridge.tortilla_wraps  = 1;
-        game.data.fridge.sour_cream      = 1;
+        game.data.fridge.rolls           = 100; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 10;
+        game.data.fridge.sour_cream      = 10;
         game.data.fridge.bacon           = 0;
-        game.data.fridge.onions          = 5;
-        game.data.fridge.garlic          = 2; // = Knoblauch
-        game.data.fridge.sweet_pepper    = 1; // = Paprika
+        game.data.fridge.onions          = 50;
+        game.data.fridge.garlic          = 20; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 10; // = Paprika
         game.data.fridge.milk            = 0;
-        game.data.fridge.eggs            = 0;
-        game.data.fridge.butter          = 1;
-        game.data.fridge.curd            = 0; // = Quark
-        game.data.fridge.potatoes        = 6;
+        game.data.fridge.eggs            = 10;
+        game.data.fridge.butter          = 10;
+        game.data.fridge.curd            = 20; // = Quark
+        game.data.fridge.potatoes        = 60;
         game.data.fridge.pasta           = 0;
-        game.data.fridge.mozzarella      = 0;
+        game.data.fridge.mozzarella      = 20;
         game.data.fridge.fruits          = 0;
 
         game.data.backpack.tomatos         = 0;
@@ -527,10 +532,5 @@ var game = {
         // Start the game.
         me.state.change(me.state.INTRO);
 
-        // FOR TESTING 
-        /*game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.JRDiscountInfoScreen());
-        me.state.change(me.state.TITLE);
-        */
     }
 };

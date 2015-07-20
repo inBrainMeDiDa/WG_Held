@@ -368,6 +368,8 @@ game.PlayerEntity = me.Entity.extend({
         this.updateBackpack("fruits");
       }else if(this.description == "chips"){
         this.updateBackpack("chips");
+      }else if(this.description == "pasta"){
+        this.updateBackpack("pasta");
       }
 
 

@@ -3,7 +3,7 @@
  "layers":[
         {
          "height":15,
-         "image":"..\/img\/HG-Immaamt_BG.png",
+         "image":"..\/img\/supermarkt_ohne.png",
          "name":"Bildebene 1",
          "opacity":1,
          "type":"imagelayer",
@@ -14,7 +14,7 @@
         }, 
         {
          "height":15,
-         "image":"..\/img\/HG-Immaamt_BG.png",
+         "image":"..\/img\/supermarkt.png",
          "name":"Bildebene 2",
          "opacity":1,
          "type":"imagelayer",
@@ -389,8 +389,8 @@
                  "name":"RespawnEntity",
                  "properties":
                     {
-                     "posX":"98",
-                     "posY":"52"
+                     "posX":"86",
+                     "posY":"113"
                     },
                  "rotation":0,
                  "type":"",

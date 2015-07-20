@@ -20,7 +20,10 @@ var game = {
             FEEDBACK_0      : 4000,
             FEEDBACK_1      : 4004,
             FEEDBACK_2      : 4008,
-            A_BROTCHIPS     : 5,
+            A_BROTCHIPS     : 6,
+            A_GRIESSBREI    : 9,
+            A_OBSTSALAT     : 11,
+            FREEPLAY        : 13,
         },
         // last meal
         last_recipe_index               : -1,  // equals cooking book index, -1 = no meal cooked yet
@@ -288,13 +291,10 @@ var game = {
         //console.log("dialog_pointer old: "+game.data.dialog_pointer);
         switch( game.data.dialog_pointer ){
             // exit after first sequence
-            case game.data.dialogs.A_BROTCHIPS: 
-                     game.data.last_recommented_recipe_index = 3;
-                     me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
-                     me.state.change(me.state.TITLE);
-                     break;
-
-            case game.data.dialogs.A_BROTCHIPS + 1: 
+            case game.data.dialogs.A_BROTCHIPS:                   
+            case game.data.dialogs.A_GRIESSBREI: 
+            case game.data.dialogs.A_OBSTSALAT: 
+            case game.data.dialogs.FREEPLAY:
                      me.state.set(me.state.TITLE, new game.LinvingRoomTitleScreen());
                      me.state.change(me.state.TITLE);
                      break;
@@ -383,27 +383,27 @@ var game = {
     reset_game_state : function(){
         game.data.dialog_pointer = 0;
 
-        game.data.fridge.tomatos         = 300;
-        game.data.fridge.cheese          = 100;
-        game.data.fridge.chips           = 100;
-        game.data.fridge.baked_beans     = 100;
-        game.data.fridge.kidney_beans    = 100;
-        game.data.fridge.salat           = 100;
-        game.data.fridge.rolls           = 100; // = Semmeln
-        game.data.fridge.tortilla_wraps  = 100;
-        game.data.fridge.sour_cream      = 100;
-        game.data.fridge.bacon           = 100;
-        game.data.fridge.onions          = 100;
-        game.data.fridge.garlic          = 100; // = Knoblauch
-        game.data.fridge.sweet_pepper    = 100; // = Paprika
-        game.data.fridge.milk            = 100;
-        game.data.fridge.eggs            = 100;
-        game.data.fridge.butter          = 100;
-        game.data.fridge.curd            = 100; // = Quark
-        game.data.fridge.potatoes        = 100;
-        game.data.fridge.pasta           = 100;
-        game.data.fridge.mozzarella      = 100;
-        game.data.fridge.fruits          = 1;
+        game.data.fridge.tomatos         = 3;
+        game.data.fridge.cheese          = 0;
+        game.data.fridge.chips           = 1;
+        game.data.fridge.baked_beans     = 2;
+        game.data.fridge.kidney_beans    = 0;
+        game.data.fridge.salat           = 0;
+        game.data.fridge.rolls           = 10; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 1;
+        game.data.fridge.sour_cream      = 1;
+        game.data.fridge.bacon           = 0;
+        game.data.fridge.onions          = 5;
+        game.data.fridge.garlic          = 2; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 1; // = Paprika
+        game.data.fridge.milk            = 0;
+        game.data.fridge.eggs            = 0;
+        game.data.fridge.butter          = 1;
+        game.data.fridge.curd            = 0; // = Quark
+        game.data.fridge.potatoes        = 6;
+        game.data.fridge.pasta           = 0;
+        game.data.fridge.mozzarella      = 0;
+        game.data.fridge.fruits          = 0;
 
         game.data.backpack.tomatos         = 0;
         game.data.backpack.baked_beans     = 0;

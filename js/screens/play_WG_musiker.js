@@ -71,11 +71,31 @@ game.LinvingRoomDialogScreen = me.ScreenObject.extend({
                     break;
             case 4: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paula_2'));
                     break;
-            case 5: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_a_brotchips'));
-            		game.data.last_recommented_recipe_index = 2;
+            case 5: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paula_3'));
                     break;
-            case 6: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_hint_0'));
-            		game.data.last_recommented_recipe_index = 2;
+            case 6: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_a_brotchips'));
+            		game.data.last_recommented_recipe_index = 3;
+                    break;
+            case 7: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_hint_0'));
+                    break;
+            case 8: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_milch_eier'));
+                    break;
+            case 9: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_a_griessbrei'));
+            		game.data.last_recommented_recipe_index = 4;
+                    break;
+            case 10: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_paula_4'));
+                    break;
+            case 11: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_a_obstsalat'));
+            		game.data.last_recommented_recipe_index = 7;
+                    break;
+            case 12: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_moneymoney'));
+            		var my_state_holder = me.game.world.getChildByName("sound_state_holder");
+			        if( my_state_holder[0] && my_state_holder[0].get_state_index() > 0 ){
+			          me.audio.play( "cash_bell" );
+			        }
+			        game.data.money += 345;
+                    break;
+            case 13: this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_freeplay'));
                     break;
             default: console.log( "dialog pointer: "+this.current_dialog_index );
                      this.dialog_sprite = null;

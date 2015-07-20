@@ -301,7 +301,7 @@ game.LinvingRoomHintScreen = me.ScreenObject.extend({
 	}
 
 	// pick random dialog image
-	var rnd = Math.floor((Math.random() * 8) + 1); 
+	var rnd = Math.floor((Math.random() * 26) + 1); 
 	this.dialog_sprite = new me.Sprite (0,416,me.loader.getImage('dialog_hint_'+rnd));
 	
 

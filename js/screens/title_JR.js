@@ -165,7 +165,7 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
     // add the J&R gamebutton
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.JR_bafoeg );
+      button.setHyperlink( game.ultralink.JR_DiscounterGame );
       button.setMouseOverText("START");
     }
     me.game.world.addChild( button );
@@ -282,7 +282,7 @@ game.JRDiscountInfoScreen = me.ScreenObject.extend({
     // add the J&R game demo button
     var button = new game.HUD.myButton(632, 480, "button_arrow_right", 64,64);
     if( button ){
-      button.setHyperlink( game.ultralink.JR_bafoeg );
+      button.setHyperlink( game.ultralink.JR_DiscounterGame );
       button.setMouseOverText("START");
     }
     me.game.world.addChild( button );

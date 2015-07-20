@@ -146,7 +146,8 @@ var game = {
         JR_title        : 12,
         JR_Discounter   : 13,
         JR_DiscounterInfo   : 14,
-        JR_bafoeg       : 15
+        JR_bafoeg       : 15,
+        JR_DiscounterGame   : 16
     },
 
     emptyRealBackpackIntoFridge : function(){
@@ -529,13 +530,7 @@ var game = {
         me.input.bindKey(me.input.KEY.SPACE,     "jump", true);
 				
         // Start the game.
-        //me.state.change(me.state.INTRO);
+        me.state.change(me.state.INTRO);
 
-        // FOR TESTING 
-        //game.reset_game_state(); 
-        me.state.set(me.state.TITLE, new game.LinvingRoomHintScreen() );
-        me.state.change(me.state.TITLE);
-         
-        
     }
 };

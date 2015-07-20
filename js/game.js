@@ -2,8 +2,8 @@
 /* Game namespace */
 var game = {
 
-    current_music_track : "Electric_Mirrors_Dream_Unlimited_Company",
-
+    //current_music_track : "Electric_Mirrors_Dream_Unlimited_Company",
+    current_music_track : null,
 
     // an object where to store game information
     data : {
@@ -442,7 +442,11 @@ var game = {
     }
 
     // Initialize the audio.
-    me.audio.init("mp3,ogg");
+    //me.audio.init("mp3,ogg");
+    if (!me.audio.init("mp3,ogg")) {
+        alert("Sorry but your browser does not support html 5 audio !");
+        return;
+    }
 
     // Set a callback to run when loading is complete.
     me.loader.onload = this.loaded.bind(this);

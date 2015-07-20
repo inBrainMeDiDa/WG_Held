@@ -46,9 +46,10 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
     // play new music track
     if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
     {
-          game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+          //game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+          current_music_track = null;
           me.audio.stopTrack();
-          me.audio.playTrack( game.current_music_track );
+          //me.audio.playTrack( game.current_music_track );
     }
     var my_state_holder = me.game.world.getChildByName("music_state_holder");
     if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
@@ -68,7 +69,7 @@ game.JRGameTitleScreen = me.ScreenObject.extend({
   /**
    *  action to perform when leaving this screen (state change)
    */
-  onDestroyEvent : function() {
+  onDestroyEvent : function() {},
 });
 
 /* =======================================================================
@@ -149,9 +150,10 @@ game.JRDiscountTitleScreen = me.ScreenObject.extend({
     // play new music track
     if( game.current_music_track != "Steve_Combs__Delta_Is_Theme_Y" )
     {
-        game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        //game.current_music_track = "Steve_Combs__Delta_Is_Theme_Y";
+        current_music_track = null;
         me.audio.stopTrack();
-        me.audio.playTrack( game.current_music_track );
+        //me.audio.playTrack( game.current_music_track );
     }
     var my_state_holder = me.game.world.getChildByName("music_state_holder");
       if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )

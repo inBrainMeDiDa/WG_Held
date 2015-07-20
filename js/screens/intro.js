@@ -19,7 +19,7 @@ game.IntroScreen = me.ScreenObject.extend({
         {
             game.current_music_track = "Jahzzar_Placeholder";
             me.audio.stopTrack();
-            me.audio.playTrack( game.current_music_track );
+            //me.audio.playTrack( game.current_music_track );
         }
 
         this.timeoutTarget = null;

@@ -45,7 +45,6 @@ game.TitleScreen = me.ScreenObject.extend({
  
       draw : function (renderer) {
         this.font.draw(renderer, "WG-HELD !", 320, 120);
-        this.font.draw(renderer, " JUMP+RUN", 400, 332);
         this.font.draw(renderer, " NEUES SPIEL", 350, 414);
         if( game.data.dialog_pointer > 0 ){
           this.font.draw(renderer, " SPIEL FORTSETZEN", 310, 484);
@@ -84,9 +83,10 @@ game.TitleScreen = me.ScreenObject.extend({
     
       if( game.current_music_track != "Electric_Mirrors_Dream_Unlimited_Company" )
       {
-          game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
+          //game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
+          current_music_track = null;
           me.audio.stopTrack();
-          me.audio.playTrack( game.current_music_track );
+          //me.audio.playTrack( game.current_music_track );
       }
       var my_state_holder = me.game.world.getChildByName("music_state_holder");
           if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )
@@ -111,13 +111,6 @@ game.TitleScreen = me.ScreenObject.extend({
       }
       me.game.world.addChild( button );
     }
-    
-    // add the J&R game demo button
-    button = new game.HUD.myButton(330, 300, "button_arrow_right", 64,64);
-    if( button ){
-      button.setHyperlink( game.ultralink.JR_title );
-    }
-    me.game.world.addChild( button );
   },
  
   /**

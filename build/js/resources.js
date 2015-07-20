@@ -55,6 +55,7 @@ game.resources = [
         "src": "data/sfx/"
     },
     // music
+    /*
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",
         "type": "audio",
@@ -85,7 +86,7 @@ game.resources = [
         "name": "Steve_Combs__Delta_Is_Theme_Y",
         "type": "audio",
         "src": "data/music/"
-    },
+    },*/
     // GUI content
     {
         "name": "32x32_font",

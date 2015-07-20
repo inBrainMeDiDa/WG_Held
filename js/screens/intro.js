@@ -15,11 +15,11 @@ game.IntroScreen = me.ScreenObject.extend({
         });
 
         // play new music track
-        if( game.current_music_track != "Jahzzar_Placeholder" )
+        if( game.current_music_track != "intromusic" )
         {
-            game.current_music_track = "Jahzzar_Placeholder";
+            game.current_music_track = "intromusic";
             me.audio.stopTrack();
-            //me.audio.playTrack( game.current_music_track );
+            me.audio.playTrack( game.current_music_track );
         }
 
         // the back to menu button

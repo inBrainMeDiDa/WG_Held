@@ -55,6 +55,31 @@ game.resources = [
         "src": "data/sfx/"
     },
     // music
+    {
+        "name": "intromusic",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "menumusic",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "wgmusic",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "jrmusic",
+        "type": "audio",
+        "src": "data/music/"
+    },
+    {
+        "name": "kitchenmusic",
+        "type": "audio",
+        "src": "data/music/"
+    },
     /*
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",
@@ -469,6 +494,11 @@ game.resources = [
         "name": "dialog_hint_20",
         "type": "image",
         "src": "data/img/dialogs/dialogTipp20.png"
+    },
+    {
+        "name": "dialog_hint_21",
+        "type": "image",
+        "src": "data/img/dialogs/dialogTipp21.png"
     },
     {
         "name": "dialog_hint_22",

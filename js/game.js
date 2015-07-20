@@ -388,26 +388,26 @@ var game = {
         game.data.dialog_pointer = 0;
         game.data.money = 101;
 
-        game.data.fridge.tomatos         = 30;
+        game.data.fridge.tomatos         = 3;
         game.data.fridge.cheese          = 0;
-        game.data.fridge.chips           = 10;
-        game.data.fridge.baked_beans     = 40;
+        game.data.fridge.chips           = 1;
+        game.data.fridge.baked_beans     = 4;
         game.data.fridge.kidney_beans    = 0;
         game.data.fridge.salat           = 0;
-        game.data.fridge.rolls           = 100; // = Semmeln
-        game.data.fridge.tortilla_wraps  = 10;
-        game.data.fridge.sour_cream      = 10;
+        game.data.fridge.rolls           = 10; // = Semmeln
+        game.data.fridge.tortilla_wraps  = 1;
+        game.data.fridge.sour_cream      = 1;
         game.data.fridge.bacon           = 0;
-        game.data.fridge.onions          = 50;
-        game.data.fridge.garlic          = 20; // = Knoblauch
-        game.data.fridge.sweet_pepper    = 10; // = Paprika
+        game.data.fridge.onions          = 5;
+        game.data.fridge.garlic          = 2; // = Knoblauch
+        game.data.fridge.sweet_pepper    = 1; // = Paprika
         game.data.fridge.milk            = 0;
-        game.data.fridge.eggs            = 10;
-        game.data.fridge.butter          = 10;
-        game.data.fridge.curd            = 20; // = Quark
-        game.data.fridge.potatoes        = 60;
+        game.data.fridge.eggs            = 1;
+        game.data.fridge.butter          = 1;
+        game.data.fridge.curd            = 2; // = Quark
+        game.data.fridge.potatoes        = 6;
         game.data.fridge.pasta           = 0;
-        game.data.fridge.mozzarella      = 20;
+        game.data.fridge.mozzarella      = 2;
         game.data.fridge.fruits          = 0;
 
         game.data.backpack.tomatos         = 0;

@@ -84,12 +84,11 @@ game.TitleScreen = me.ScreenObject.extend({
 
     // play new music track
     
-      if( game.current_music_track != "Electric_Mirrors_Dream_Unlimited_Company" )
+      if( game.current_music_track != "menumusic" )
       {
-          //game.current_music_track = "Electric_Mirrors_Dream_Unlimited_Company";
-          current_music_track = null;
+          game.current_music_track = "menumusic";
           me.audio.stopTrack();
-          //me.audio.playTrack( game.current_music_track );
+          me.audio.playTrack( game.current_music_track );
       }
       var my_state_holder = me.game.world.getChildByName("music_state_holder");
           if( my_state_holder[0] && my_state_holder[0].get_state_index() == 0 )

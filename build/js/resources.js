@@ -55,6 +55,7 @@ game.resources = [
         "src": "data/sfx/"
     },
     // music
+    /*
     {
         "name": "Electric_Mirrors_Dream_Unlimited_Company",
         "type": "audio",
@@ -85,7 +86,7 @@ game.resources = [
         "name": "Steve_Combs__Delta_Is_Theme_Y",
         "type": "audio",
         "src": "data/music/"
-    },
+    },*/
     // GUI content
     {
         "name": "32x32_font",
@@ -324,10 +325,45 @@ game.resources = [
         "type": "image",
         "src": "data/img/dialogs/dialogpaula2.png"
     },
-     {
+    {
+        "name": "dialog_paula_3",
+        "type": "image",
+        "src": "data/img/dialogs/dialogKuecheKochbuch.png"
+    },
+    {
         "name": "dialog_a_brotchips",
         "type": "image",
         "src": "data/img/dialogs/dialogAutragBrotchips.png"
+    },
+    {
+        "name": "dialog_milch_eier",
+        "type": "image",
+        "src": "data/img/dialogs/dialogMilchEier.png"
+    },
+    {
+        "name": "dialog_a_griessbrei",
+        "type": "image",
+        "src": "data/img/dialogs/dialogAuftragGrießbrei.png"
+    },
+    {       
+        "name": "dialog_paula_4",
+        "type": "image",
+        "src": "data/img/dialogs/dialogPaulaKSNochDa.png"
+    },
+    {
+        "name": "dialog_a_obstsalat",
+        "type": "image",
+        "src": "data/img/dialogs/dialogAuftragObstsalat.png"
+    },
+    {
+        "name": "dialog_moneymoney",
+        "type": "image",
+        "src": "data/img/dialogs/dialogAlienBafoeg.png"
+    },
+    {
+        "name": "dialog_freeplay",
+        "type": "image",
+        "src": "data/img/dialogs/dialogFreiKochen02.png"
     },
     {
         "name": "dialog_hint_0",

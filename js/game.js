@@ -386,7 +386,7 @@ var game = {
         game.data.fridge.tomatos         = 3;
         game.data.fridge.cheese          = 0;
         game.data.fridge.chips           = 1;
-        game.data.fridge.baked_beans     = 2;
+        game.data.fridge.baked_beans     = 4;
         game.data.fridge.kidney_beans    = 0;
         game.data.fridge.salat           = 0;
         game.data.fridge.rolls           = 10; // = Semmeln
@@ -397,12 +397,12 @@ var game = {
         game.data.fridge.garlic          = 2; // = Knoblauch
         game.data.fridge.sweet_pepper    = 1; // = Paprika
         game.data.fridge.milk            = 0;
-        game.data.fridge.eggs            = 0;
+        game.data.fridge.eggs            = 1;
         game.data.fridge.butter          = 1;
-        game.data.fridge.curd            = 0; // = Quark
+        game.data.fridge.curd            = 2; // = Quark
         game.data.fridge.potatoes        = 6;
         game.data.fridge.pasta           = 0;
-        game.data.fridge.mozzarella      = 0;
+        game.data.fridge.mozzarella      = 2;
         game.data.fridge.fruits          = 0;
 
         game.data.backpack.tomatos         = 0;

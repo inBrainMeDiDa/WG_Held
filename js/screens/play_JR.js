@@ -12,11 +12,12 @@ game.PlayScreen_JR = me.ScreenObject.extend({
 	
 		
          // load a level
-		me.levelDirector.loadLevel("smarkt_start");
-		me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
-		console.log("levelcount: " + me.levelDirector.levelCount());
+    		me.levelDirector.loadLevel("smarkt_start");
+    		me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
+    		console.log("levelcount: " + me.levelDirector.levelCount());
 
-		  // reset the score
+
+		    // reset the score
         game.data.score = 0;
 
         // add our HUD to the game world
@@ -35,7 +36,7 @@ game.PlayScreen_JR = me.ScreenObject.extend({
         me.game.world.addChild( bottomBar , 3);
 
          // add a new renderable component to draw some text
-      me.game.world.addChild(new (me.GUI_Object.extend ({
+        me.game.world.addChild(new (me.GUI_Object.extend ({
         // constructor
         init : function() {
 
@@ -67,7 +68,6 @@ game.PlayScreen_JR = me.ScreenObject.extend({
 
       })), 4);
 
-
     },
 
 	
@@ -88,9 +88,98 @@ game.PlayScreen_JR = me.ScreenObject.extend({
         for (var i = 0; i < bottomBarArray.length; ++i) {
           me.game.world.removeChild(bottomBarArray[i]);
         }
-        
-    }
+    },
 });
+
+
+game.PlayScreen_Amt_JR = me.ScreenObject.extend({
+
+    /**
+     *  action to perform on state change
+     */
+    onResetEvent: function() {
+  
+    
+         // load a level
+        me.levelDirector.loadLevel("area02");
+        me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
+        console.log("levelcount: " + me.levelDirector.levelCount());
+
+        // reset the score
+        game.data.score = 0;
+
+        // add our HUD to the game world
+        this.HUD = new game.HUD.Container();
+        me.game.world.addChild(this.HUD);
+
+
+        this.HUD.set_active_gamecontroller( new game.HUD.JRGameController(888,888) );
+        // add the bottom bar
+        var bottomBar = new game.HUD.myButton(0, 450, "bottom_bar", 1024, 256);
+        if( bottomBar ){
+          bottomBar.setHyperlink( game.ultralink.nowhere );
+          bottomBar.isPersistent = true;
+          bottomBar.name = "jr_bottomBar";
+        }
+        me.game.world.addChild( bottomBar , 3);
+
+         // add a new renderable component to draw some text
+        me.game.world.addChild(new (me.GUI_Object.extend ({
+        // constructor
+        init : function() {
+
+          var settings = {}
+          settings.image = "button_sound_on";
+        
+          settings.spritewidth = 64;
+          settings.spriteheight = 64;
+
+          this._super(me.GUI_Object, 'init', [0, 0, settings]);
+          // font 
+          this.font = new me.BitmapFont("32x32_font" , 32, 0.75);
+          this.name = "money_counter";
+          this.isPersistent = true;
+        },
+
+        update : function (dt) {
+          return true;
+        },
+   
+
+        draw : function (renderer) {
+
+
+          this.font.draw(renderer, "GELD: "+game.data.money, 500, 570, "left");
+          this.font.draw(renderer, "KOSTEN: " + game.data.backpackCost, 500, 530, "left");
+        },
+        
+
+      })), 4);
+
+    },
+
+  
+  
+    /**
+     *  action to perform when leaving this screen (state change)
+     */
+    onDestroyEvent: function() {
+        // remove the HUD from the game world
+        me.game.world.removeChild(this.HUD);
+        // remove bottom bar
+        var bottomBarArray = me.game.world.getChildByName("jr_bottomBar");
+        for (var i = 0; i < bottomBarArray.length; ++i) {
+          me.game.world.removeChild(bottomBarArray[i]);
+        }
+        // remove money counter
+        bottomBarArray = me.game.world.getChildByName("money_counter");
+        for (var i = 0; i < bottomBarArray.length; ++i) {
+          me.game.world.removeChild(bottomBarArray[i]);
+        }
+    },
+});
+
+
 
 
 /* =======================================================================

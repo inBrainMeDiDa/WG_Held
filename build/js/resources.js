@@ -519,6 +519,16 @@ game.resources = [
         "src": "data/img/gui/kochbuch_screen.png"
     },
     {
+        "name": "supermarkt",
+        "type": "image",
+        "src": "data/img/supermarkt.png"
+    },
+    {
+        "name": "supermarkt_ohne",
+        "type": "image",
+        "src": "data/img/supermarkt_ohne.png"
+    },
+    {
         "name": "Kueche_BG",
         "type": "image",
         "src": "data/img/Kueche_BG.png"

@@ -12,7 +12,7 @@ game.PlayScreen_JR = me.ScreenObject.extend({
 	
 		
          // load a level
-		me.levelDirector.loadLevel("area02");
+		me.levelDirector.loadLevel("smarkt_start");
 		me.game.world.addChild(new me.ColorLayer("background", "#6633FF", 0));
 		console.log("levelcount: " + me.levelDirector.levelCount());
 

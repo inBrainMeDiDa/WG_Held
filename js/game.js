@@ -82,7 +82,7 @@ var game = {
             butter          : 0,
             curd            : 0, // = Quark
             potatoes        : 0,
-            pasta           : 0,
+            supermarkt_ohne           : 0,
             mozzarella      : 0,
             fruits          : 0,
             page            : 0,

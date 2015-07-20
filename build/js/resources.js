@@ -512,6 +512,11 @@ game.resources = [
         "type": "image",
         "src": "data/img/gui/buch_rechts.png"
     },
+    {
+        "name": "Hinweisschilder",
+        "type": "image",
+        "src": "data/img/Hinweisschilder.png"
+    },
     // Backgrounds
      {
         "name": "book_BG",

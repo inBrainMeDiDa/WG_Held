@@ -191,10 +191,11 @@ game.HUD.myButton = me.GUI_Object.extend(
         case game.ultralink.new_game:
             // reset game state, then pass on to living_room
             game.reset_game_state(); 
+            /* mobile version links directly to living room
             me.state.set(me.state.TITLE, new game.JRGameTitleScreen());
             me.state.change(me.state.TITLE);
             break;
-
+            */
         case game.ultralink.resume_game: // just pass on to living_room
         case game.ultralink.living_room: 
 
